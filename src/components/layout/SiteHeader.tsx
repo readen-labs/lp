@@ -6,7 +6,6 @@ import { useTranslations } from 'next-intl';
 
 import { Logo } from '@/components/brand/Logo';
 import { Button } from '@/components/ui/Button';
-import { LocaleSwitcher } from '@/components/ui/LocaleSwitcher';
 
 import { Link } from '@/i18n/navigation';
 
@@ -45,7 +44,6 @@ export const SiteHeader = () => {
         </div>
 
         <div className="hidden items-center gap-3 md:flex">
-          <LocaleSwitcher />
           <Button href={STORE_LINKS.ios} external variant="ink">
             {t('getApp')}
           </Button>
@@ -96,9 +94,6 @@ export const SiteHeader = () => {
                 {link.label}
               </Link>
             ))}
-            <div className="mt-4 border-t border-foreground/10 pt-4">
-              <LocaleSwitcher />
-            </div>
           </div>
         </div>
       ) : null}

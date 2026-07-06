@@ -8,7 +8,7 @@ import {
 
 import { Link } from '@/i18n/navigation';
 
-import { CONTACT_EMAIL, SOCIAL_LINKS, STORE_LINKS, SUPPORT_EMAIL } from '@/lib/config';
+import { CONTACT_EMAIL, SOCIAL_LINKS, STORE_LINKS } from '@/lib/config';
 
 const SOCIAL_ORDER: SocialNetwork[] = [
   'linkedin',
@@ -41,7 +41,7 @@ export const SiteFooter = async () => {
         { label: t('blog'), href: '/blog', external: false },
         {
           label: t('support'),
-          href: `mailto:${SUPPORT_EMAIL}`,
+          href: `mailto:${CONTACT_EMAIL}`,
           external: true,
         },
       ],

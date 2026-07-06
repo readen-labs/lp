@@ -7,8 +7,6 @@ export const STORE_LINKS = {
 
 export const CONTACT_EMAIL = 'hello@readen.co';
 
-export const SUPPORT_EMAIL = 'support@readen.co';
-
 export const SITE_URL = 'https://readen.co';
 
 export const OG_LOCALE_MAP = {

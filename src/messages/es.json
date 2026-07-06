@@ -16,8 +16,7 @@
     "faq": "FAQ",
     "getApp": "Descargar",
     "menu": "Menú",
-    "close": "Cerrar",
-    "language": "Idioma"
+    "close": "Cerrar"
   },
   "hero": {
     "overline": "Una biblioteca tranquila para iOS y Android",
@@ -232,7 +231,7 @@
       },
       "contact": {
         "q": "¿Cómo los contacto?",
-        "a": "Escríbenos a hello@readen.co. Para soporte en la app, usa support@readen.co."
+        "a": "Escríbenos a hello@readen.co y te responderemos."
       }
     }
   },
