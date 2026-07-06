@@ -1,0 +1,33 @@
+---
+title: "Why book covers in Readen feel real"
+description: "The story behind the relevo: how we turned a flat thumbnail into a physical hardcover."
+date: 2026-07-01
+cover: https://covers.openlibrary.org/b/isbn/9780743273565-L.jpg
+tags:
+  - Craft
+  - Design
+---
+
+Every book app shows covers the same way: a flat rectangle with rounded corners. It works. It is also wrong.
+
+Books are not cards. A hardcover has a spine, a ridge where the cloth meets the board, a subtle grain that catches light differently on cream versus black. When you strip that away, a library feels like a spreadsheet.
+
+## The goodbooks starting point
+
+We studied goodbooks.io, the catalog that inspired Readen's discover section. Their cover treatment uses a multiply texture: a PNG overlaid on the art that darkens toward the spine. On white covers it reads as shadow. On black covers it disappears.
+
+We wanted the same relief on every cover color.
+
+## Ambient gray 80
+
+The breakthrough was converting the multiply texture to an ambient-gray compositing model. Instead of darkening the art underneath, the texture asset composites toward a fixed gray (80 on the 0–255 scale). On light covers, the relief reads dark, identical to goodbooks. On black covers, the same relief reveals itself as soft lighter gray.
+
+Plain alpha compositing. No blend modes. Works everywhere.
+
+## Near-square corners
+
+One more thing: book covers are not cards. Our border radius scales with width but caps at 4px. At hero sizes, covers are nearly square-cornered. The texture does the rest.
+
+<Cover src="https://covers.openlibrary.org/b/isbn/9780743273565-L.jpg" alt="The Great Gatsby" width={140} />
+
+That is the relevo. Craft you can feel before you read a single page.

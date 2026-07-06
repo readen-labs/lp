@@ -1,0 +1,291 @@
+{
+  "meta": {
+    "siteName": "Readen",
+    "siteDescription": "Um refúgio digital para selecionar, sincronizar e redescobrir sua biblioteca pessoal.",
+    "homeTitle": "Readen · Sua biblioteca pessoal",
+    "aboutTitle": "Sobre",
+    "blogTitle": "Blog",
+    "termsTitle": "Termos de serviço",
+    "privacyTitle": "Política de privacidade",
+    "notFoundTitle": "Página não encontrada",
+    "ogTagline": "Os livros que fizeram você."
+  },
+  "nav": {
+    "blog": "Blog",
+    "about": "Sobre",
+    "faq": "FAQ",
+    "getApp": "Baixar",
+    "menu": "Menu",
+    "close": "Fechar",
+    "language": "Idioma"
+  },
+  "hero": {
+    "overline": "Uma biblioteca tranquila para iOS e Android",
+    "title": "Os livros que fizeram você.",
+    "tagline": "O Readen é um lar cuidadosamente feito para sua vida de leitura. Escaneie, organize a estante e termine seus livros. Sem feeds, sem ruído.",
+    "appStoreEyebrow": "Baixe na",
+    "appStoreLabel": "App Store",
+    "playStoreEyebrow": "Disponível no",
+    "playStoreLabel": "Google Play"
+  },
+  "library": {
+    "overline": "Sua biblioteca",
+    "title": "Cada livro seu, em um só lugar tranquilo.",
+    "body": "O Readen reúne toda a sua vida de leitura em uma estante: o que você quer ler, o que está lendo e o que já terminou.",
+    "statusWant": "Quero ler",
+    "statusReading": "Lendo",
+    "statusRead": "Lido",
+    "point1": "Três estantes que mantêm tudo claro: quero ler, lendo, lido.",
+    "point2": "Sua página fica sempre salva. Retome qualquer livro exatamente de onde parou.",
+    "point3": "Redescubra os livros que você já tem em vez de comprar mais um que não vai abrir."
+  },
+  "manifesto": {
+    "overline": "A crença",
+    "quote": "Sua vida de leitura merece um quarto só dela, não um feed.",
+    "sub": "Foi por isso que criamos o Readen."
+  },
+  "features": {
+    "overline": "O app",
+    "title": "Uma biblioteca que funciona como você lê.",
+    "scan": {
+      "title": "Escanear",
+      "headline": "Do código de barras à estante num segundo.",
+      "body": "Aponte a câmera para qualquer ISBN. O livro chega à sua estante com título, capa e dados. Pronto.",
+      "hint": "Aponte para o código de qualquer livro"
+    },
+    "sessions": {
+      "title": "Sessões",
+      "headline": "Leia em sessões. Mantenha o ritmo.",
+      "body": "Um timer, um controle de páginas e uma citação literária ao fechar o livro. Sua sequência semanal cuida do resto."
+    },
+    "goals": {
+      "title": "Metas",
+      "headline": "Veja sua vida de leitura.",
+      "body": "Horas lidas, livros terminados, dias com sessão, páginas viradas. Todo o seu ano de leitura num olhar."
+    },
+    "mock": {
+      "pageProgress": "Você está na página 184 de 320",
+      "end": "Encerrar sessão e salvar meu lugar",
+      "quote": "Um leitor vive mil vidas antes de morrer.",
+      "quoteHighlight": "mil vidas",
+      "reading": "Leitura",
+      "week": "Semana",
+      "month": "Mês",
+      "year": "Ano",
+      "thisWeek": "Esta semana · 29 jun – 5 jul",
+      "booksFinished": "Livros terminados",
+      "daysRead": "Dias de leitura",
+      "pagesRead": "Páginas lidas",
+      "longestSitting": "Sessão mais longa",
+      "mostReadAuthor": "Autor mais lido",
+      "whatYouRead": "O que você leu",
+      "subject1": "Filosofia",
+      "subject2": "Ficção",
+      "bookTitle": "O Alquimista",
+      "bookAuthor": "Paulo Coelho",
+      "timer": "23:14",
+      "quoteAuthor": "George R.R. Martin",
+      "heroHours": "4",
+      "heroHoursUnit": "h 12 min",
+      "booksFinishedValue": "2",
+      "daysReadValue": "5",
+      "daysReadSuffix": "/ 7",
+      "pagesReadValue": "342",
+      "longestSittingValue": "1h 24min",
+      "authorName": "George Orwell"
+    }
+  },
+  "discover": {
+    "overline": "Descobrir",
+    "title": "Curadoria de leitores que moldam o mundo.",
+    "body": "Sem feed algorítmico. Cada livro do catálogo Descobrir está lá porque um fundador, cientista, artista ou investidor disse que importava.",
+    "statBooks": "livros na curadoria",
+    "statPeople": "leitores de classe mundial",
+    "statRecommendations": "recomendações",
+    "cta": "Explorar no app",
+    "roles": {
+      "founder": "Fundador",
+      "investor": "Investidor",
+      "author": "Autora",
+      "historian": "Historiador",
+      "media": "Mídia",
+      "scientist": "Cientista"
+    }
+  },
+  "reviews": {
+    "overline": "Leitores",
+    "title": "Amado pelos primeiros leitores.",
+    "rating": "4.9",
+    "ratingLabel": "dos primeiros leitores",
+    "ratingStars": "{rating} de 5 estrelas",
+    "placeholder1": "Finalmente um app que parece biblioteca, não feed.",
+    "placeholder2": "As capas já valem o download. O resto é bônus.",
+    "placeholder3": "Calmo, bonito, e respeita os livros.",
+    "placeholder4": "Montei minha estante em dois minutos. Funciona.",
+    "placeholder5": "As sessões mudaram como termino livros.",
+    "placeholder6": "O catálogo com curadoria é genuinamente bom.",
+    "anonymous": "Leitor inicial"
+  },
+  "onboarding": {
+    "overline": "Primeiros passos",
+    "title": "Monte sua estante em dois minutos.",
+    "body": "Responda duas perguntas e o Readen prepara sua estante inicial. Nada de biblioteca vazia.",
+    "step1": "Escolha seus temas",
+    "step1Body": "Filosofia, ficção científica, estratégia, memórias. Escolha o que te puxa.",
+    "step2": "Escolha suas áreas",
+    "step2Body": "O Readen encontra livros recomendados por pessoas extraordinárias do seu mundo.",
+    "step3": "Sua estante se enche",
+    "step3Body": "Uma estante inicial, sobre vidro, pronta antes mesmo de você entrar."
+  },
+  "download": {
+    "title": "Sua biblioteca está esperando.",
+    "body": "Grátis no iOS e Android. Sem anúncios, sem feeds. Só os seus livros, bem guardados.",
+    "appStoreEyebrow": "Baixe na",
+    "appStoreLabel": "App Store",
+    "playStoreEyebrow": "Disponível no",
+    "playStoreLabel": "Google Play"
+  },
+  "contact": {
+    "emailAria": "Enviar e-mail para o Readen em hello@readen.co"
+  },
+  "footer": {
+    "tagline": "Um refúgio digital para selecionar, sincronizar e redescobrir sua biblioteca pessoal.",
+    "product": "Produto",
+    "company": "Empresa",
+    "legal": "Legal",
+    "downloadIos": "Baixar para iOS",
+    "downloadAndroid": "Baixar para Android",
+    "blog": "Blog",
+    "about": "Sobre",
+    "faq": "FAQ",
+    "support": "Suporte",
+    "terms": "Termos de serviço",
+    "privacy": "Política de privacidade",
+    "copyright": "© Readen",
+    "madeWith": "Feito com carinho para leitores.",
+    "social": {
+      "linkedin": "LinkedIn",
+      "instagram": "Instagram",
+      "tiktok": "TikTok",
+      "x": "X",
+      "youtube": "YouTube"
+    }
+  },
+  "about": {
+    "overline": "Sobre",
+    "title": "Um refúgio digital para leitores.",
+    "storyTitle": "A história",
+    "story": "Apps de leitura viraram feeds: barulhentos, sociais, feitos para engajamento e não para o livro. Criei o Readen porque sentia falta da sensação de uma biblioteca pessoal. Uma estante sua. Livros que ficam onde você os coloca. Um lugar calmo para ler, registrar e redescobrir o que importa.",
+    "valuesTitle": "O que acreditamos",
+    "value1Title": "Calma acima do barulho",
+    "value1": "Sem feeds, sem pressão. Sua biblioteca é um quarto tranquilo.",
+    "value2Title": "O detalhe é o recurso",
+    "value2": "Capas que parecem físicas. Estantes que parecem reais. Detalhes importam.",
+    "value3Title": "Sua biblioteca é sua",
+    "value3": "Sem anúncios, sem vender dados. Sua vida de leitura pertence a você.",
+    "numbersTitle": "O produto em números",
+    "numbers": "{books} livros · {people} leitores · {recommendations} recomendações · iOS e Android",
+    "roadmapTitle": "O caminho adiante",
+    "roadmap": "O Readen está só começando. Um catálogo web, clubes de leitura e uma experiência web com login estão no horizonte, sempre a serviço da mesma ideia: uma biblioteca pessoal da qual você se orgulha.",
+    "contactTitle": "Contato",
+    "contactIntro": "Imprensa, parcerias ou um simples olá. Escreva para"
+  },
+  "faq": {
+    "overline": "FAQ",
+    "title": "Perguntas, respondidas.",
+    "items": {
+      "what": {
+        "q": "O que é o Readen?",
+        "a": "Readen é uma biblioteca pessoal para iOS e Android. Organize sua estante por status: quero ler, lendo, lido. Escaneie códigos, registre sessões, defina metas e descubra um catálogo com curadoria de leitores extraordinários."
+      },
+      "platforms": {
+        "q": "Em quais plataformas está disponível?",
+        "a": "Readen está no iOS e Android. Uma versão web está planejada para o futuro."
+      },
+      "free": {
+        "q": "É grátis?",
+        "a": "Sim. O Readen é gratuito, sem anúncios e sem vender seus dados."
+      },
+      "scan": {
+        "q": "Como funciona o escaneamento?",
+        "a": "Abra Escanear e aponte a câmera para o código ISBN. O Readen busca os dados e adiciona o livro à sua estante na hora."
+      },
+      "data": {
+        "q": "De onde vêm os dados dos livros?",
+        "a": "Os metadados vêm do ISBNdb e outros provedores. O catálogo com curadoria é construído com recomendações de leitores extraordinários."
+      },
+      "account": {
+        "q": "Preciso de uma conta?",
+        "a": "Você pode montar uma estante inicial sem cadastro. A conta (via Google ou Apple) só é necessária para salvar e sincronizar sua biblioteca."
+      },
+      "offline": {
+        "q": "Funciona offline?",
+        "a": "Sua biblioteca fica disponível offline. As sessões ficam na fila localmente e sincronizam quando você voltar online."
+      },
+      "delete": {
+        "q": "Como excluo minha conta?",
+        "a": "Vá em Ajustes → Conta no app e toque em Excluir conta. Seus dados serão removidos permanentemente."
+      },
+      "recommendations": {
+        "q": "Como funcionam as recomendações?",
+        "a": "O catálogo do Readen tem curadoria de Pessoas: fundadores, investidores, cientistas, artistas. Não de um algoritmo. Cada recomendação vem de um leitor real."
+      },
+      "contact": {
+        "q": "Como entro em contato?",
+        "a": "Escreva para hello@readen.co. Para suporte no app, use support@readen.co."
+      }
+    }
+  },
+  "blog": {
+    "overline": "Diário",
+    "title": "Blog",
+    "featured": "Destaque",
+    "allPosts": "Todos os artigos",
+    "readMore": "Ler mais",
+    "minRead": "{minutes} min de leitura",
+    "tags": {
+      "all": "Todos",
+      "craft": "Detalhe",
+      "reading": "Leitura",
+      "discover": "Descobrir"
+    }
+  },
+  "notFound": {
+    "title": "Esta estante está vazia.",
+    "body": "A página que você procura não existe.",
+    "home": "Voltar ao início"
+  },
+  "legal": {
+    "termsDraft": "RASCUNHO: revisão legal pendente",
+    "privacyDraft": "RASCUNHO: revisão legal pendente",
+    "lastUpdated": "Última atualização: 2 de julho de 2026",
+    "terms": {
+      "title": "Termos de serviço",
+      "intro": "Estes Termos de serviço regem o uso do Readen, um aplicativo de biblioteca pessoal operado pela Readen (\"nós\"). Ao usar o Readen, você concorda com estes termos.",
+      "use": "Uso do serviço",
+      "useBody": "O Readen é fornecido para uso pessoal e não comercial. Você não pode fazer engenharia reversa, extrair dados ou usar indevidamente o serviço. Você é responsável pela segurança da sua conta.",
+      "content": "Seu conteúdo",
+      "contentBody": "Os dados da sua biblioteca pertencem a você. Ao usar o Readen, você nos concede o direito limitado de armazenar e sincronizar seus dados para prestar o serviço.",
+      "termination": "Encerramento",
+      "terminationBody": "Você pode excluir sua conta a qualquer momento em Ajustes → Conta no app. Podemos suspender contas que violem estes termos.",
+      "liability": "Limitação de responsabilidade",
+      "liabilityBody": "O Readen é fornecido \"como está\" sem garantias. Não somos responsáveis por danos indiretos decorrentes do uso do serviço.",
+      "contact": "Contato",
+      "contactBody": "Dúvidas sobre estes termos? Escreva para hello@readen.co."
+    },
+    "privacy": {
+      "title": "Política de privacidade",
+      "intro": "O Readen respeita sua privacidade. Esta política explica quais dados coletamos, como os usamos e seus direitos.",
+      "collect": "O que coletamos",
+      "collectBody": "Informações de conta (via Google ou Apple), dados da sua biblioteca (livros, sessões, metas) e análises anônimas de uso. Não vendemos seus dados.",
+      "use": "Como usamos",
+      "useBody": "Para fornecer e melhorar o Readen: sincronizar sua biblioteca, registrar sessões e exibir metadados relevantes. As análises são respeitosas com a privacidade (sem cookies, sem rastreamento entre sites).",
+      "thirdParty": "Serviços de terceiros",
+      "thirdPartyBody": "Usamos Supabase (autenticação e banco de dados), ISBNdb (metadados de livros) e análises respeitosas com a privacidade. Cada provedor processa dados conforme suas próprias políticas.",
+      "delete": "Exclusão de conta",
+      "deleteBody": "Você pode excluir sua conta no app em Ajustes → Conta. Todos os dados associados são removidos permanentemente.",
+      "contact": "Contato",
+      "contactBody": "Dúvidas sobre privacidade? Escreva para hello@readen.co."
+    }
+  }
+}

@@ -1,0 +1,431 @@
+@import 'tailwindcss';
+
+/* ---------------------------------------------------------------------------
+   Readen design tokens — mirrors the app's palette exactly
+   (src/utils/constants.ts in the readen repo).
+--------------------------------------------------------------------------- */
+
+:root {
+  --background: #f1f1f1;
+  --card: #ffffff;
+  --primary: #10b981;
+  --primary-deep: #059669;
+  --primary-dark: #047857;
+  --foreground: #000000;
+  --destructive: #ef4444;
+  --ink: #0a0a0a;
+  --paper-line: rgba(0, 0, 0, 0.08);
+  --ease-out-cubic: cubic-bezier(0.33, 1, 0.68, 1);
+  --ease-spring: cubic-bezier(0.34, 1.3, 0.64, 1);
+  --font-sans:
+    system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-card: var(--card);
+  --color-primary: var(--primary);
+  --color-primary-deep: var(--primary-deep);
+  --color-primary-dark: var(--primary-dark);
+  --color-foreground: var(--foreground);
+  --color-destructive: var(--destructive);
+  --color-ink: var(--ink);
+  --font-sans: var(--font-sans);
+  --font-serif: var(--font-lora);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #010101;
+    --card: #1c1c1e;
+    --foreground: #ffffff;
+    --paper-line: rgba(255, 255, 255, 0.1);
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--primary) 30%, transparent);
+}
+
+/* ---------------------------------------------------------------------------
+   Display typography — Lora, tight, balanced.
+--------------------------------------------------------------------------- */
+
+.display {
+  font-family: var(--font-lora), Georgia, serif;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  text-wrap: balance;
+}
+
+.display-italic {
+  font-style: italic;
+  font-weight: 500;
+}
+
+/* ---------------------------------------------------------------------------
+   Scroll reveal — driven by the <Reveal> client component. Elements start
+   hidden and transition in when .is-visible lands. Stagger via --reveal-delay.
+--------------------------------------------------------------------------- */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 700ms var(--ease-out-cubic),
+    transform 700ms var(--ease-out-cubic);
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, transform;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+  will-change: auto;
+}
+
+.reveal-scale {
+  transform: translateY(24px) scale(0.97);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* Hero load-in (no observer needed above the fold). */
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.animate-rise {
+  animation: rise 900ms var(--ease-out-cubic) both;
+  animation-delay: var(--rise-delay, 0ms);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-rise {
+    animation: none;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   The glass shelf ledge — Readen's signature. The ledge overlays the bottom
+   of the covers, so its backdrop blur genuinely frosts the books standing on
+   it, exactly like the app (BlurView renders after the FlatList).
+--------------------------------------------------------------------------- */
+
+.shelf-glass {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.3) 0%,
+    rgba(255, 255, 255, 0.12) 100%
+  );
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  box-shadow:
+    inset 0 1.5px 0 rgba(255, 255, 255, 0.35),
+    inset 0 14px 14px -14px rgba(0, 0, 0, 0.18),
+    inset 0 -8px 8px -8px rgba(0, 0, 0, 0.12),
+    0 6px 16px rgba(0, 0, 0, 0.12);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+@media (prefers-color-scheme: dark) {
+  .shelf-glass {
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.12) 0%,
+      rgba(255, 255, 255, 0.05) 100%
+    );
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow:
+      inset 0 14px 14px -14px rgba(0, 0, 0, 0.35),
+      inset 0 -8px 8px -8px rgba(0, 0, 0, 0.25),
+      0 6px 16px rgba(0, 0, 0, 0.3);
+  }
+}
+
+/* Marquee drift for the shelf rows. Duplicated content scrolls seamlessly;
+   pauses on hover/focus so covers stay inspectable. */
+@keyframes shelf-drift {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.shelf-drift {
+  animation: shelf-drift var(--drift-duration, 60s) linear infinite;
+}
+
+.shelf-drift:hover,
+.shelf-drift:focus-within {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .shelf-drift {
+    animation: none;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Glass pill surfaces (header, chips) — the app's liquid-glass language.
+--------------------------------------------------------------------------- */
+
+.glass-pill {
+  background: color-mix(in srgb, var(--card) 62%, transparent);
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.4),
+    0 8px 24px rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(16px) saturate(1.4);
+  -webkit-backdrop-filter: blur(16px) saturate(1.4);
+}
+
+@media (prefers-color-scheme: dark) {
+  .glass-pill {
+    background: rgba(20, 20, 22, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.08),
+      0 8px 24px rgba(0, 0, 0, 0.4);
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Ambient washes.
+--------------------------------------------------------------------------- */
+
+.hero-wash {
+  background:
+    radial-gradient(
+      52rem 30rem at 50% -6rem,
+      color-mix(in srgb, var(--primary) 13%, transparent),
+      transparent 70%
+    ),
+    radial-gradient(
+      40rem 26rem at 88% 22rem,
+      color-mix(in srgb, var(--primary) 6%, transparent),
+      transparent 70%
+    );
+}
+
+.cta-emerald {
+  background:
+    radial-gradient(
+      42rem 26rem at 18% -4rem,
+      rgba(255, 255, 255, 0.16),
+      transparent 60%
+    ),
+    linear-gradient(160deg, #34d399 0%, #10b981 38%, #059669 72%, #047857 100%);
+}
+
+
+/* Theme-aware footer: paper-white in light mode, ink in dark, with the same
+   emerald glow rising from the bottom edge. */
+.footer-ink {
+  background:
+    radial-gradient(
+      60rem 32rem at 50% 120%,
+      color-mix(in srgb, var(--primary) 10%, transparent),
+      transparent 70%
+    ),
+    var(--card);
+  border-top: 1px solid var(--paper-line);
+}
+
+@media (prefers-color-scheme: dark) {
+  .footer-ink {
+    background:
+      radial-gradient(
+        60rem 32rem at 50% 120%,
+        color-mix(in srgb, var(--primary) 14%, transparent),
+        transparent 70%
+      ),
+      var(--ink);
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Feature phone mockups — small looped vignettes.
+--------------------------------------------------------------------------- */
+
+@keyframes scan-pulse {
+  0%,
+  100% {
+    transform: translateY(-14px);
+    opacity: 0.9;
+  }
+  50% {
+    transform: translateY(14px);
+    opacity: 0.5;
+  }
+}
+
+.scan-line {
+  animation: scan-pulse 2.2s ease-in-out infinite;
+}
+
+@keyframes cover-land {
+  0%,
+  40% {
+    opacity: 0;
+    transform: translateY(-16px) scale(0.94);
+  }
+  55%,
+  92% {
+    opacity: 1;
+    transform: none;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-16px) scale(0.94);
+  }
+}
+
+.cover-land {
+  animation: cover-land 4.5s var(--ease-out-cubic) infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scan-line,
+  .cover-land {
+    animation: none;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Idle cover life — every cover breathes: a slow 3D sway plus a light sheen
+   that sweeps across like ambient light. No pointer tracking, CSS only.
+--------------------------------------------------------------------------- */
+
+@keyframes cover-sway {
+  0%,
+  100% {
+    transform: perspective(700px) rotateY(-2.5deg);
+  }
+  50% {
+    transform: perspective(700px) rotateY(2.5deg);
+  }
+}
+
+.cover-idle {
+  animation: cover-sway 9s ease-in-out infinite;
+  animation-delay: var(--idle-delay, 0s);
+}
+
+@keyframes cover-sheen-sweep {
+  0%,
+  58% {
+    transform: translateX(-160%) skewX(-16deg);
+    opacity: 0;
+  }
+  64% {
+    opacity: 1;
+  }
+  88%,
+  100% {
+    transform: translateX(320%) skewX(-16deg);
+    opacity: 0;
+  }
+}
+
+.cover-sheen {
+  position: absolute;
+  top: -8%;
+  bottom: -8%;
+  left: 0;
+  width: 55%;
+  background: linear-gradient(
+    100deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.2) 50%,
+    transparent 100%
+  );
+  animation: cover-sheen-sweep 7.5s ease-in-out infinite;
+  animation-delay: var(--idle-delay, 0s);
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cover-idle,
+  .cover-sheen {
+    animation: none;
+  }
+
+  .cover-sheen {
+    opacity: 0;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Shimmer skeleton (kept from the app language).
+--------------------------------------------------------------------------- */
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-shimmer {
+  background: linear-gradient(
+    90deg,
+    var(--card) 0%,
+    color-mix(in srgb, var(--foreground) 8%, var(--card)) 50%,
+    var(--card) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+}
+
+/* ---------------------------------------------------------------------------
+   Global reduced-motion guard.
+--------------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Hidden scrollbars for shelf scrollers. */
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}

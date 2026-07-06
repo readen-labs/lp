@@ -1,0 +1,33 @@
+---
+title: "Por que as capas no Readen parecem reais"
+description: "A história do relevo: como transformamos uma miniatura plana em uma capa dura física."
+date: 2026-07-01
+cover: https://covers.openlibrary.org/b/isbn/9780743273565-L.jpg
+tags:
+  - Detalhe
+  - Design
+---
+
+Todo app de livros mostra capas do mesmo jeito: um retângulo plano com cantos arredondados. Funciona. Também está errado.
+
+Livros não são cards. Uma capa dura tem lombada, um relevo onde o tecido encontra a cartolina, um grão sutil que capta a luz diferente no creme e no preto. Quando você tira isso, uma biblioteca parece uma planilha.
+
+## O ponto de partida
+
+Estudamos o goodbooks.io, o catálogo que inspirou o Descobrir do Readen. O tratamento usa uma textura multiply: um PNG sobre a arte que escurece em direção à lombada. Em capas brancas, lê-se como sombra. Em pretas, some.
+
+Queríamos o mesmo relevo em qualquer cor.
+
+## Cinza ambiental 80
+
+A virada foi converter a textura multiply para um modelo de composição em cinza ambiental. Em vez de escurecer a arte, o asset compõe em direção a um cinza fixo (80 na escala 0–255). Em capas claras, o relevo lê escuro. Em pretas, o mesmo relevo aparece como cinza suave mais claro.
+
+Composição alpha simples. Sem blend modes. Funciona em todo lugar.
+
+## Cantos quase retos
+
+Mais um detalhe: capas não são cards. Nosso raio escala com a largura mas para em 4px. Em tamanho hero, as capas são quase quadradas. A textura faz o resto.
+
+<Cover src="https://covers.openlibrary.org/b/isbn/9780743273565-L.jpg" alt="The Great Gatsby" width={140} />
+
+Esse é o relevo. Detalhe que você sente antes de ler uma única página.

@@ -1,0 +1,33 @@
+---
+title: "Por qué las portadas en Readen se sienten reales"
+description: "La historia del relevo: cómo convertimos una miniatura plana en una tapa dura física."
+date: 2026-07-01
+cover: https://covers.openlibrary.org/b/isbn/9780743273565-L.jpg
+tags:
+  - Detalle
+  - Diseño
+---
+
+Todas las apps de libros muestran portadas igual: un rectángulo plano con esquinas redondeadas. Funciona. También está mal.
+
+Los libros no son tarjetas. Una tapa dura tiene lomo, un relieve donde la tela encuentra la cartón, un grano sutil que capta la luz distinto en crema que en negro. Cuando quitas eso, una biblioteca parece una hoja de cálculo.
+
+## El punto de partida
+
+Estudiamos goodbooks.io, el catálogo que inspiró la sección Descubrir de Readen. Su tratamiento usa una textura multiply: un PNG sobre el arte que oscurece hacia el lomo. En portadas blancas se lee como sombra. En negras, desaparece.
+
+Queríamos el mismo relieve en cualquier color.
+
+## Gris ambiental 80
+
+La clave fue convertir la textura multiply a un modelo de composición hacia gris ambiental. En lugar de oscurecer el arte, el asset compone hacia un gris fijo (80 en escala 0–255). En portadas claras, el relieve se lee oscuro. En negras, el mismo relieve aparece como gris suave más claro.
+
+Composición alpha simple. Sin modos de mezcla. Funciona en todos lados.
+
+## Esquinas casi rectas
+
+Un detalle más: las portadas no son tarjetas. Nuestro radio escala con el ancho pero topa en 4px. A tamaño hero, las portadas son casi cuadradas. La textura hace el resto.
+
+<Cover src="https://covers.openlibrary.org/b/isbn/9780743273565-L.jpg" alt="The Great Gatsby" width={140} />
+
+Ese es el relevo. Detalle que sientes antes de leer una sola página.
