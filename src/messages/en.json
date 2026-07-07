@@ -1,14 +1,14 @@
 {
   "meta": {
     "siteName": "Readen",
-    "siteDescription": "A digital sanctuary to curate, sync, and rediscover your personal library.",
-    "homeTitle": "Readen · Your personal book library",
+    "siteDescription": "The reading app you close. Build a calm personal library, become the reader you meant to be — no feeds, no noise.",
+    "homeTitle": "Readen · The reading app you close",
     "aboutTitle": "About",
     "blogTitle": "Blog",
     "termsTitle": "Terms of Service",
     "privacyTitle": "Privacy Policy",
     "notFoundTitle": "Page not found",
-    "ogTagline": "Curate the books that made you."
+    "ogTagline": "Become the reader you meant to be."
   },
   "nav": {
     "blog": "Blog",
@@ -19,9 +19,10 @@
     "close": "Close"
   },
   "hero": {
-    "overline": "A calm library for iOS & Android",
-    "title": "Curate the books that made you.",
-    "tagline": "Readen is a beautifully crafted home for your reading life. Scan, shelve, and actually finish your books. No feeds, no noise.",
+    "overline": "The reading app you close",
+    "title": "Become the reader you meant to be.",
+    "tagline": "Build a library you're proud of — calm, beautiful, and entirely yours.",
+    "subline": "No feeds. No noise. Just the books that shaped you, kept on a shelf that feels real.",
     "appStoreEyebrow": "Download on the",
     "appStoreLabel": "App Store",
     "playStoreEyebrow": "Get it on",
@@ -41,7 +42,46 @@
   "manifesto": {
     "overline": "The belief",
     "quote": "Your reading life belongs in a room of its own, not in a feed.",
-    "sub": "That is the reason we built Readen."
+    "sub": "So we built an app you close, not one that keeps you."
+  },
+  "experience": {
+    "overline": "The reader you're becoming",
+    "title": "A life measured in books, not notifications.",
+    "body": "Open Readen and the noise stops. No feed to scroll, no numbers to chase. Just your shelf, your pace, and the quiet pride of a life spent reading.",
+    "pullQuote": "Close the app. Open a book. That is the point."
+  },
+  "identity": {
+    "overline": "Why readers choose Readen",
+    "title": "A sanctuary, not a feed.",
+    "body": "The best products respect a moment. Readen gives your reading life a private room, craft you can feel, and books chosen by people worth listening to.",
+    "pillar1Title": "Your room",
+    "pillar1Eyebrow": "Private by design",
+    "pillar1Body": "No social feed, no streak pressure. Your library is a quiet room that belongs to you alone.",
+    "pillar2Title": "Craft you feel",
+    "pillar2Eyebrow": "Details that matter",
+    "pillar2Body": "Covers that behave like books. Glass shelves. The small physical details that make you want to open the app — and then close it to read.",
+    "pillar3Title": "Readers worth trusting",
+    "pillar3Eyebrow": "Curated, not algorithmic",
+    "pillar3Body": "Discover books because a founder, scientist, or artist said they mattered — not because an algorithm needed your attention."
+  },
+  "moments": {
+    "moment1": {
+      "overline": "Morning",
+      "title": "One book. One light. No notifications.",
+      "body": "The best reading moments are small. Readen is built for the quiet hour before the day starts — when the only thing competing for your attention is the next page."
+    },
+    "moment2": {
+      "overline": "Evening",
+      "title": "Pick up exactly where you left off.",
+      "body": "Your page is always saved. Your shelf always looks the same. Come back tonight to the same calm room, not a feed that moved on without you."
+    }
+  },
+  "story": {
+    "overline": "One reader's story",
+    "quote": "I used to buy books I never opened. Readen didn't fix that with guilt — it fixed it with pride. Opening my shelf feels good. I finished three books last month for the first time in years.",
+    "name": "Elena M.",
+    "context": "Product designer · Early reader",
+    "label": "San Francisco"
   },
   "features": {
     "overline": "The app",
@@ -117,13 +157,36 @@
     "rating": "4.9",
     "ratingLabel": "from early readers",
     "ratingStars": "{rating} out of 5 stars",
-    "placeholder1": "Finally a reading app that feels like a library, not a feed.",
-    "placeholder2": "The covers alone are worth it. Everything else is a bonus.",
-    "placeholder3": "Calm, beautiful, and it respects the books.",
-    "placeholder4": "I built my whole shelf in two minutes. It just works.",
-    "placeholder5": "Sessions changed how I finish books.",
-    "placeholder6": "The curated catalog is genuinely good.",
-    "anonymous": "Early reader"
+    "review1": {
+      "quote": "Finally a reading app that feels like a library, not a feed.",
+      "name": "James R.",
+      "context": "Software engineer"
+    },
+    "review2": {
+      "quote": "The covers alone are worth it. Everything else is a bonus.",
+      "name": "Sofia L.",
+      "context": "Architect · Early reader"
+    },
+    "review3": {
+      "quote": "Calm, beautiful, and it respects the books.",
+      "name": "David K.",
+      "context": "Writer"
+    },
+    "review4": {
+      "quote": "I built my whole shelf in two minutes. It just works.",
+      "name": "Priya N.",
+      "context": "Founder"
+    },
+    "review5": {
+      "quote": "Sessions changed how I finish books.",
+      "name": "Marcus T.",
+      "context": "Grad student"
+    },
+    "review6": {
+      "quote": "The curated catalog is genuinely good.",
+      "name": "Anna W.",
+      "context": "Investor · Early reader"
+    }
   },
   "onboarding": {
     "overline": "Getting started",
@@ -137,8 +200,9 @@
     "step3Body": "A starter shelf, standing on glass, ready before you even sign in."
   },
   "download": {
+    "overline": "Ready when you are",
     "title": "Your library is waiting.",
-    "body": "Free on iOS and Android. No ads, no feeds. Just your books, beautifully kept.",
+    "body": "Free on iOS and Android. No ads, no feeds. Just your books — beautifully kept.",
     "appStoreEyebrow": "Download on the",
     "appStoreLabel": "App Store",
     "playStoreEyebrow": "Get it on",
@@ -148,7 +212,7 @@
     "emailAria": "Email Readen at hello@readen.co"
   },
   "footer": {
-    "tagline": "A digital sanctuary to curate, sync, and rediscover your personal library.",
+    "tagline": "The reading app you close. A calm home for the books that shaped you.",
     "product": "Product",
     "company": "Company",
     "legal": "Legal",

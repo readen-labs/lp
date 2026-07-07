@@ -12,35 +12,38 @@ export type DiscoverPerson = {
   avatar: string;
 };
 
+const avatarUrl = (seed: string) =>
+  `https://api.dicebear.com/9.x/notionists/png?seed=${seed}&size=112`;
+
 export const DISCOVER_PEOPLE: DiscoverPerson[] = [
   {
     name: 'Paul Graham',
     role: 'founder',
-    avatar: 'https://api.dicebear.com/9.x/notionists/svg?seed=paul',
+    avatar: avatarUrl('paul'),
   },
   {
     name: 'Reid Hoffman',
     role: 'investor',
-    avatar: 'https://api.dicebear.com/9.x/notionists/svg?seed=reid',
+    avatar: avatarUrl('reid'),
   },
   {
     name: 'Margaret Atwood',
     role: 'author',
-    avatar: 'https://api.dicebear.com/9.x/notionists/svg?seed=margaret',
+    avatar: avatarUrl('margaret'),
   },
   {
     name: 'Naval Ravikant',
     role: 'investor',
-    avatar: 'https://api.dicebear.com/9.x/notionists/svg?seed=naval',
+    avatar: avatarUrl('naval'),
   },
   {
     name: 'Yuval Noah Harari',
     role: 'historian',
-    avatar: 'https://api.dicebear.com/9.x/notionists/svg?seed=yuval',
+    avatar: avatarUrl('yuval'),
   },
   {
     name: 'Oprah Winfrey',
     role: 'media',
-    avatar: 'https://api.dicebear.com/9.x/notionists/svg?seed=oprah',
+    avatar: avatarUrl('oprah'),
   },
 ];

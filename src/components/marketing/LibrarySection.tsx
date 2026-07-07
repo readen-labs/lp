@@ -60,7 +60,7 @@ export const LibrarySection = async () => {
           </Reveal>
         </div>
 
-        <Reveal scale className="md:order-first">
+        <Reveal scale className="min-w-0 max-w-full overflow-hidden md:order-first">
           <Shelf>
             <div
               className="flex w-full items-end justify-center"

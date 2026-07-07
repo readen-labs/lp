@@ -1,14 +1,14 @@
 {
   "meta": {
     "siteName": "Readen",
-    "siteDescription": "Un refugio digital para curar, sincronizar y redescubrir tu biblioteca personal.",
-    "homeTitle": "Readen · Tu biblioteca personal",
+    "siteDescription": "La app de lectura que cierras. Construye una biblioteca tranquila y conviértete en el lector que quieres ser — sin feeds, sin ruido.",
+    "homeTitle": "Readen · La app de lectura que cierras",
     "aboutTitle": "Nosotros",
     "blogTitle": "Blog",
     "termsTitle": "Términos de servicio",
     "privacyTitle": "Política de privacidad",
     "notFoundTitle": "Página no encontrada",
-    "ogTagline": "Los libros que te formaron."
+    "ogTagline": "Conviértete en el lector que quieres ser."
   },
   "nav": {
     "blog": "Blog",
@@ -19,9 +19,10 @@
     "close": "Cerrar"
   },
   "hero": {
-    "overline": "Una biblioteca tranquila para iOS y Android",
-    "title": "Los libros que te formaron.",
-    "tagline": "Readen es un hogar cuidadosamente hecho para tu vida lectora. Escanea, ordena tu estante y termina tus libros. Sin feeds, sin ruido.",
+    "overline": "La app de lectura que cierras",
+    "title": "Conviértete en el lector que quieres ser.",
+    "tagline": "Construye una biblioteca de la que te sientas orgulloso — tranquila, bella y solo tuya.",
+    "subline": "Sin feeds. Sin ruido. Solo los libros que te formaron, en un estante que se siente real.",
     "appStoreEyebrow": "Descárgalo en el",
     "appStoreLabel": "App Store",
     "playStoreEyebrow": "Disponible en",
@@ -41,7 +42,46 @@
   "manifesto": {
     "overline": "La creencia",
     "quote": "Tu vida lectora merece una habitación propia, no un feed.",
-    "sub": "Por eso creamos Readen."
+    "sub": "Por eso creamos una app que cierras, no una que te retiene."
+  },
+  "experience": {
+    "overline": "El lector en que te conviertes",
+    "title": "Una vida medida en libros, no en notificaciones.",
+    "body": "Abre Readen y el ruido se detiene. Sin feed que recorrer, sin números que perseguir. Solo tu estante, tu ritmo y el orgullo tranquilo de una vida dedicada a leer.",
+    "pullQuote": "Cierra la app. Abre un libro. Ese es el punto."
+  },
+  "identity": {
+    "overline": "Por qué eligen Readen",
+    "title": "Un refugio, no un feed.",
+    "body": "Los mejores productos respetan un momento. Readen le da a tu vida lectora una habitación propia, un oficio que se siente y libros elegidos por personas que valen la pena escuchar.",
+    "pillar1Title": "Tu habitación",
+    "pillar1Eyebrow": "Privada por diseño",
+    "pillar1Body": "Sin feed social, sin presión de rachas. Tu biblioteca es una habitación tranquila que te pertenece solo a ti.",
+    "pillar2Title": "Oficio que se siente",
+    "pillar2Eyebrow": "Detalles que importan",
+    "pillar2Body": "Portadas que se comportan como libros. Estantes de cristal. Los pequeños detalles físicos que te dan ganas de abrir la app — y cerrarla para leer.",
+    "pillar3Title": "Lectores en quien confiar",
+    "pillar3Eyebrow": "Curado, no algorítmico",
+    "pillar3Body": "Descubre libros porque un fundador, científico o artista dijo que importaban — no porque un algoritmo necesitaba tu atención."
+  },
+  "moments": {
+    "moment1": {
+      "overline": "Mañana",
+      "title": "Un libro. Una luz. Sin notificaciones.",
+      "body": "Los mejores momentos de lectura son pequeños. Readen está hecho para la hora tranquila antes de que empiece el día — cuando lo único que compite por tu atención es la siguiente página."
+    },
+    "moment2": {
+      "overline": "Noche",
+      "title": "Retoma exactamente donde lo dejaste.",
+      "body": "Tu página siempre queda guardada. Tu estante siempre se ve igual. Vuelve esta noche al mismo lugar tranquilo, no a un feed que siguió sin ti."
+    }
+  },
+  "story": {
+    "overline": "La historia de una lectora",
+    "quote": "Solía comprar libros que nunca abría. Readen no lo arregló con culpa — lo arregló con orgullo. Abrir mi estante se siente bien. Terminé tres libros el mes pasado por primera vez en años.",
+    "name": "Elena M.",
+    "context": "Diseñadora de producto · Primera lectora",
+    "label": "San Francisco"
   },
   "features": {
     "overline": "La app",
@@ -117,13 +157,36 @@
     "rating": "4.9",
     "ratingLabel": "de los primeros lectores",
     "ratingStars": "{rating} de 5 estrellas",
-    "placeholder1": "Por fin una app que se siente como biblioteca, no como un feed.",
-    "placeholder2": "Las portadas ya valen la pena. Todo lo demás es un regalo.",
-    "placeholder3": "Tranquila, hermosa, y respeta los libros.",
-    "placeholder4": "Armé mi estante en dos minutos. Funciona.",
-    "placeholder5": "Las sesiones cambiaron cómo termino libros.",
-    "placeholder6": "El catálogo curado es genuinamente bueno.",
-    "anonymous": "Lector temprano"
+    "review1": {
+      "quote": "Por fin una app que se siente como biblioteca, no como un feed.",
+      "name": "James R.",
+      "context": "Ingeniero de software"
+    },
+    "review2": {
+      "quote": "Las portadas ya valen la pena. Todo lo demás es un regalo.",
+      "name": "Sofia L.",
+      "context": "Arquitecta · Primera lectora"
+    },
+    "review3": {
+      "quote": "Tranquila, hermosa, y respeta los libros.",
+      "name": "David K.",
+      "context": "Escritor"
+    },
+    "review4": {
+      "quote": "Armé mi estante en dos minutos. Funciona.",
+      "name": "Priya N.",
+      "context": "Fundadora"
+    },
+    "review5": {
+      "quote": "Las sesiones cambiaron cómo termino libros.",
+      "name": "Marcus T.",
+      "context": "Estudiante de posgrado"
+    },
+    "review6": {
+      "quote": "El catálogo curado es genuinamente bueno.",
+      "name": "Anna W.",
+      "context": "Inversora · Primera lectora"
+    }
   },
   "onboarding": {
     "overline": "Primeros pasos",
@@ -137,8 +200,9 @@
     "step3Body": "Un estante inicial, sobre vidrio, listo antes de que te registres."
   },
   "download": {
+    "overline": "Cuando estés listo",
     "title": "Tu biblioteca te espera.",
-    "body": "Gratis en iOS y Android. Sin anuncios, sin feeds. Solo tus libros, bien cuidados.",
+    "body": "Gratis en iOS y Android. Sin anuncios, sin feeds. Solo tus libros — bien cuidados.",
     "appStoreEyebrow": "Descárgalo en el",
     "appStoreLabel": "App Store",
     "playStoreEyebrow": "Disponible en",
@@ -148,7 +212,7 @@
     "emailAria": "Enviar correo a Readen en hello@readen.co"
   },
   "footer": {
-    "tagline": "Un refugio digital para curar, sincronizar y redescubrir tu biblioteca personal.",
+    "tagline": "La app de lectura que cierras. Un hogar tranquilo para los libros que te formaron.",
     "product": "Producto",
     "company": "Empresa",
     "legal": "Legal",

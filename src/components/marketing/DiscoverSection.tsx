@@ -6,8 +6,9 @@ import { EditorialHeader } from '@/components/brand/EditorialHeader';
 import { Button } from '@/components/ui/Button';
 import { Reveal } from '@/components/ui/Reveal';
 
+import { NumberTicker } from '@/components/ui/NumberTicker';
+
 import { CATALOG_STATS, STORE_LINKS } from '@/lib/config';
-import { formatCompactNumber } from '@/lib/format-number';
 import { DISCOVER_PEOPLE } from '@/lib/data/people';
 
 const AVATAR_SIZE = 56;
@@ -49,7 +50,7 @@ export const DiscoverSection = async () => {
                   <div key={stat.label}>
                     <dt className="sr-only">{stat.label}</dt>
                     <dd className="font-serif text-3xl font-semibold tabular-nums">
-                      {formatCompactNumber(stat.value, locale)}
+                      <NumberTicker value={stat.value} locale={locale} />
                       <span className="text-primary">+</span>
                     </dd>
                     <dd className="mt-1 text-sm text-foreground/50">

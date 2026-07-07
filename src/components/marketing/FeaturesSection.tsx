@@ -1,11 +1,23 @@
-import { getTranslations } from 'next-intl/server';
+import { getLocale, getTranslations } from 'next-intl/server';
 
 import { Cover } from '@/components/brand/Cover';
 import { EditorialHeader } from '@/components/brand/EditorialHeader';
 import { PhoneFrame } from '@/components/brand/PhoneFrame';
+import { NumberTicker } from '@/components/ui/NumberTicker';
 import { Reveal } from '@/components/ui/Reveal';
 
 import { FEATURE_MOCK_BOOKS } from '@/lib/data/feature-mock-books';
+
+/* Whole-number mock values count up when the phone scrolls into view; mixed
+   values (e.g. "1h 24m") render as-is. */
+const INTEGER_PATTERN = /^\d+$/;
+
+const MockNumber = ({ value, locale }: { value: string; locale: string }) =>
+  INTEGER_PATTERN.test(value) ? (
+    <NumberTicker value={Number(value)} locale={locale} />
+  ) : (
+    <>{value}</>
+  );
 
 type ScanMockProps = {
   hint: string;
@@ -161,6 +173,7 @@ type GoalsMockProps = {
   authorCoverSrc: string;
   whatYouRead: string;
   subjects: GoalsMockSubject[];
+  locale: string;
 };
 
 const GoalsMock = ({
@@ -176,6 +189,7 @@ const GoalsMock = ({
   authorCoverSrc,
   whatYouRead,
   subjects,
+  locale,
 }: GoalsMockProps) => (
   <div className="flex h-full flex-col gap-2.5 px-4 pt-11 pb-4">
     <div>
@@ -204,7 +218,7 @@ const GoalsMock = ({
       <p className="text-[10px] text-foreground/40">{range}</p>
       <p className="mt-1 flex items-baseline gap-1.5">
         <span className="font-serif text-[40px] leading-none font-bold tracking-tight">
-          {heroHours}
+          <MockNumber value={heroHours} locale={locale} />
         </span>
         <span className="font-serif text-[15px] font-bold text-foreground/45">
           {heroHoursUnit}
@@ -219,7 +233,7 @@ const GoalsMock = ({
             {card.label}
           </p>
           <p className="mt-1 font-serif text-[19px] leading-none font-bold tracking-tight">
-            {card.value}
+            <MockNumber value={card.value} locale={locale} />
             {card.suffix ? (
               <span className="text-[11px] text-foreground/45">
                 {' '}
@@ -313,6 +327,7 @@ const FeatureRow = ({
 );
 
 export const FeaturesSection = async () => {
+  const locale = await getLocale();
   const t = await getTranslations('features');
   const books = FEATURE_MOCK_BOOKS;
 
@@ -399,6 +414,7 @@ export const FeaturesSection = async () => {
                 { name: t('mock.subject1'), percent: 62 },
                 { name: t('mock.subject2'), percent: 38 },
               ]}
+              locale={locale}
             />
           }
         />

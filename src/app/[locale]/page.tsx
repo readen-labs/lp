@@ -1,15 +1,18 @@
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 
-import { ContactSection } from '@/components/marketing/ContactSection';
 import { DiscoverSection } from '@/components/marketing/DiscoverSection';
 import { DownloadCtaSection } from '@/components/marketing/DownloadCtaSection';
+import { ExperienceSection } from '@/components/marketing/ExperienceSection';
 import { FaqSection } from '@/components/marketing/FaqSection';
 import { FeaturesSection } from '@/components/marketing/FeaturesSection';
 import { HeroSection } from '@/components/marketing/HeroSection';
+import { IdentitySection } from '@/components/marketing/IdentitySection';
 import { LibrarySection } from '@/components/marketing/LibrarySection';
 import { ManifestoSection } from '@/components/marketing/ManifestoSection';
+import { MomentsSection } from '@/components/marketing/MomentsSection';
 import { OnboardingSection } from '@/components/marketing/OnboardingSection';
 import { ReviewsSection } from '@/components/marketing/ReviewsSection';
+import { StorySection } from '@/components/marketing/StorySection';
 
 import { buildMetadata, buildSoftwareApplicationJsonLd } from '@/lib/seo';
 
@@ -45,15 +48,18 @@ export default async function HomePage({ params }: HomePageProps) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <HeroSection />
+      <ExperienceSection />
+      <IdentitySection />
+      <MomentsSection />
+      <StorySection />
+      <ManifestoSection />
       <LibrarySection />
       <FeaturesSection />
-      <ManifestoSection />
       <DiscoverSection />
       <ReviewsSection />
       <OnboardingSection />
-      <FaqSection />
       <DownloadCtaSection />
-      <ContactSection />
+      <FaqSection />
     </>
   );
 }

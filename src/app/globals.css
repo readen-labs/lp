@@ -32,6 +32,7 @@
   --color-ink: var(--ink);
   --font-sans: var(--font-sans);
   --font-serif: var(--font-lora);
+  --animate-shine: shine var(--duration, 14s) infinite linear;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -49,6 +50,10 @@ body {
   font-family: var(--font-sans);
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
+}
+
+html {
+  overflow-x: clip;
 }
 
 ::selection {
@@ -70,6 +75,33 @@ body {
 .display-italic {
   font-style: italic;
   font-weight: 500;
+}
+
+.identity-pillar {
+  border: 1px solid color-mix(in srgb, var(--foreground) 6%, transparent);
+}
+
+.story-quote {
+  position: relative;
+}
+
+.story-quote::before {
+  content: '\201C';
+  position: absolute;
+  top: 1.25rem;
+  left: 1.5rem;
+  font-family: var(--font-lora), Georgia, serif;
+  font-size: 5rem;
+  line-height: 1;
+  color: color-mix(in srgb, var(--primary) 22%, transparent);
+  pointer-events: none;
+}
+
+@media (min-width: 768px) {
+  .story-quote::before {
+    top: 1.5rem;
+    left: 2rem;
+  }
 }
 
 /* ---------------------------------------------------------------------------
@@ -187,6 +219,73 @@ body {
 
 @media (prefers-reduced-motion: reduce) {
   .shelf-drift {
+    animation: none;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Reusable horizontal marquee (testimonial wall) — two identical groups, each
+   ending in a trailing gap, so translateX(-50%) loops seamlessly. Pauses on
+   hover/focus; static under reduced motion.
+--------------------------------------------------------------------------- */
+
+@keyframes marquee-x {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-track {
+  animation: marquee-x var(--marquee-duration, 60s) linear infinite;
+}
+
+.marquee-track:hover,
+.marquee-track:focus-within,
+.marquee-pause-hover:hover,
+.marquee-pause-hover:focus-within {
+  animation-play-state: paused;
+}
+
+.marquee-mask {
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    transparent,
+    #000 6%,
+    #000 94%,
+    transparent
+  );
+  mask-image: linear-gradient(
+    90deg,
+    transparent,
+    #000 6%,
+    #000 94%,
+    transparent
+  );
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
+}
+
+@keyframes shine {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .motion-safe\:animate-shine {
     animation: none;
   }
 }

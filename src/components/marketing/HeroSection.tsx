@@ -8,16 +8,17 @@ import { STORE_LINKS } from '@/lib/config';
 import { SHELF_BOOKS } from '@/lib/data/shelf-books';
 
 const HERO_COVER_WIDTH = 128;
+
 const PRIORITY_COVERS = 6;
 
 export const HeroSection = async () => {
   const t = await getTranslations('hero');
 
   return (
-    <section className="hero-wash relative -mt-20 overflow-hidden pt-40 pb-20 md:pt-48">
-      <div className="mx-auto max-w-5xl px-5 text-center">
+    <section className="hero-wash relative -mt-20 min-h-[92vh] overflow-hidden pt-40 pb-16 md:min-h-[94vh] md:pt-48 md:pb-20">
+      <div className="mx-auto flex max-w-5xl flex-col items-center px-5 text-center">
         <p
-          className="glass-pill animate-rise mx-auto inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-[0.8rem] font-medium text-foreground/70"
+          className="glass-pill animate-rise inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-[0.8rem] font-medium text-foreground/70"
           style={{ '--rise-delay': '0ms' } as React.CSSProperties}
         >
           <span className="h-1.5 w-1.5 rounded-full bg-primary" aria-hidden />
@@ -25,10 +26,10 @@ export const HeroSection = async () => {
         </p>
 
         <h1
-          className="display animate-rise mx-auto mt-6 max-w-4xl"
+          className="display animate-rise mt-6 max-w-4xl"
           style={
             {
-              fontSize: 'clamp(2.9rem, 8vw, 6rem)',
+              fontSize: 'clamp(2.75rem, 8.5vw, 6.25rem)',
               '--rise-delay': '90ms',
             } as React.CSSProperties
           }
@@ -37,15 +38,22 @@ export const HeroSection = async () => {
         </h1>
 
         <p
-          className="animate-rise mx-auto mt-6 max-w-xl text-lg text-foreground/60"
+          className="animate-rise mt-6 max-w-2xl text-lg leading-relaxed text-foreground/60 md:text-xl"
           style={{ '--rise-delay': '180ms' } as React.CSSProperties}
         >
           {t('tagline')}
         </p>
 
+        <p
+          className="animate-rise mt-4 max-w-xl text-[0.95rem] leading-relaxed text-foreground/45"
+          style={{ '--rise-delay': '240ms' } as React.CSSProperties}
+        >
+          {t('subline')}
+        </p>
+
         <div
           className="animate-rise mt-9 flex flex-wrap items-center justify-center gap-3"
-          style={{ '--rise-delay': '270ms' } as React.CSSProperties}
+          style={{ '--rise-delay': '300ms' } as React.CSSProperties}
         >
           <StoreBadge
             store="ios"
@@ -63,8 +71,8 @@ export const HeroSection = async () => {
       </div>
 
       <div
-        className="animate-rise relative mx-auto mt-16 max-w-6xl px-4 md:mt-20"
-        style={{ '--rise-delay': '380ms' } as React.CSSProperties}
+        className="animate-rise relative mx-auto mt-14 max-w-6xl px-4 md:mt-16"
+        style={{ '--rise-delay': '400ms' } as React.CSSProperties}
       >
         <Shelf drift>
           {SHELF_BOOKS.map((book, index) => (
