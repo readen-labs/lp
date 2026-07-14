@@ -11,7 +11,11 @@ export const OnboardingSection = async () => {
   return (
     <section className="mx-auto max-w-6xl px-5 py-24 md:py-32">
       <Reveal>
-        <EditorialHeader overline={t('overline')} title={t('title')} align="center" />
+        <EditorialHeader
+          overline={t('overline')}
+          title={t('title')}
+          align="center"
+        />
       </Reveal>
       <Reveal delay={100}>
         <p className="mx-auto mt-5 max-w-xl text-center text-lg text-foreground/60">

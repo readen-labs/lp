@@ -20,7 +20,7 @@
   },
   "hero": {
     "overline": "La app de lectura que cierras",
-    "title": "Conviértete en el lector que quieres ser.",
+    "title": "Conviértete en el lector que <i>quieres</i> ser.",
     "tagline": "Construye una biblioteca de la que te sientas orgulloso — tranquila, bella y solo tuya.",
     "subline": "Sin feeds. Sin ruido. Solo los libros que te formaron, en un estante que se siente real.",
     "appStoreEyebrow": "Descárgalo en el",
@@ -134,6 +134,25 @@
       "authorName": "George Orwell"
     }
   },
+  "widgets": {
+    "overline": "Más allá de la app",
+    "title": "Tu libro te acompaña a casa.",
+    "body": "Un widget en tu pantalla de inicio, una sesión en vivo en la Dynamic Island, una cita literaria que cambia con el libro que estás leyendo. Readen se queda cerca — y nunca pide tu atención.",
+    "continueCaption": "Continúa leyendo",
+    "sessionCaption": "Sesión de lectura",
+    "bookTitle": "El Alquimista",
+    "bookAuthor": "Paulo Coelho",
+    "pageProgress": "Estás en la página 184 de 320",
+    "quote": "Un lector vive mil vidas antes de morir.",
+    "quoteAuthor": "George R.R. Martin",
+    "lockDate": "domingo, 29 de junio",
+    "point1Title": "En tu pantalla de inicio",
+    "point1Body": "Tu libro actual, su portada y tu progreso — un toque y vuelves a la página.",
+    "point2Title": "En la Dynamic Island",
+    "point2Body": "Empieza una sesión y un temporizador discreto te acompaña hasta que cierres el libro.",
+    "point3Title": "Una cita que conoce tu libro",
+    "point3Body": "El widget grande acompaña tu progreso con una cita literaria elegida para lo que estás leyendo, renovada cada día."
+  },
   "discover": {
     "overline": "Descubrir",
     "title": "Curado por lectores que marcan el mundo.",
@@ -207,9 +226,6 @@
     "appStoreLabel": "App Store",
     "playStoreEyebrow": "Disponible en",
     "playStoreLabel": "Google Play"
-  },
-  "contact": {
-    "emailAria": "Enviar correo a Readen en hello@readen.co"
   },
   "footer": {
     "tagline": "La app de lectura que cierras. Un hogar tranquilo para los libros que te formaron.",

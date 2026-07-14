@@ -70,7 +70,10 @@ export default async function BlogPage({ params }: BlogPageProps) {
                   <BlogTagChip key={tag} tag={tag} />
                 ))}
               </div>
-              <h2 className="display" style={{ fontSize: FEATURED_TITLE_CLAMP }}>
+              <h2
+                className="display"
+                style={{ fontSize: FEATURED_TITLE_CLAMP }}
+              >
                 {featured.title}
               </h2>
               <p className="leading-relaxed text-foreground/60">

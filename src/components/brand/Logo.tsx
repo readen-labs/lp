@@ -16,7 +16,8 @@ export const LogoMark = ({
   className = '',
 }: LogoMarkProps) => {
   const uid = useId().replace(/:/g, '');
-  const maskId = variant === 'tile' ? `rdn-mark-tile-${uid}` : `rdn-mark-mono-${uid}`;
+  const maskId =
+    variant === 'tile' ? `rdn-mark-tile-${uid}` : `rdn-mark-mono-${uid}`;
   const gradientId = `rdn-tile-bg-${uid}`;
 
   return (
@@ -43,8 +44,22 @@ export const LogoMark = ({
       <defs>
         <mask id={maskId}>
           <rect width="48" height="48" fill="black" />
-          <rect x="7.5" y="12.5" width="6" height="25.5" rx="2.8" fill="white" />
-          <rect x="15.6" y="17.4" width="8.4" height="20.6" rx="2.8" fill="white" />
+          <rect
+            x="7.5"
+            y="12.5"
+            width="6"
+            height="25.5"
+            rx="2.8"
+            fill="white"
+          />
+          <rect
+            x="15.6"
+            y="17.4"
+            width="8.4"
+            height="20.6"
+            rx="2.8"
+            fill="white"
+          />
           <rect x="25.9" y="9" width="6.8" height="29" rx="2.8" fill="white" />
           <rect
             x="33.6"
@@ -55,8 +70,22 @@ export const LogoMark = ({
             fill="white"
             transform="rotate(7 36.8 26.1)"
           />
-          <rect x="17.7" y="20.5" width="4.4" height="2.1" rx="1.05" fill="black" />
-          <rect x="17.7" y="32.9" width="4.4" height="2.1" rx="1.05" fill="black" />
+          <rect
+            x="17.7"
+            y="20.5"
+            width="4.4"
+            height="2.1"
+            rx="1.05"
+            fill="black"
+          />
+          <rect
+            x="17.7"
+            y="32.9"
+            width="4.4"
+            height="2.1"
+            rx="1.05"
+            fill="black"
+          />
         </mask>
       </defs>
       <rect

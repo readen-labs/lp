@@ -25,7 +25,9 @@ export const LegalDocument = ({
     <p className="mb-8 leading-relaxed text-foreground/80">{intro}</p>
     {sections.map((section) => (
       <section key={section.title} className="mb-8">
-        <h2 className="mb-3 font-serif text-xl font-semibold">{section.title}</h2>
+        <h2 className="mb-3 font-serif text-xl font-semibold">
+          {section.title}
+        </h2>
         <p className="leading-relaxed text-foreground/80">{section.body}</p>
       </section>
     ))}

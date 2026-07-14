@@ -2,6 +2,7 @@ import { getTranslations } from 'next-intl/server';
 
 import { Cover } from '@/components/brand/Cover';
 import { Shelf } from '@/components/brand/Shelf';
+import { StarRating } from '@/components/ui/StarRating';
 import { StoreBadge } from '@/components/ui/StoreBadge';
 
 import { STORE_LINKS } from '@/lib/config';
@@ -13,6 +14,8 @@ const PRIORITY_COVERS = 6;
 
 export const HeroSection = async () => {
   const t = await getTranslations('hero');
+  const tReviews = await getTranslations('reviews');
+  const rating = Number.parseFloat(tReviews('rating'));
 
   return (
     <section className="hero-wash relative -mt-20 min-h-[92vh] overflow-hidden pt-40 pb-16 md:min-h-[94vh] md:pt-48 md:pb-20">
@@ -34,7 +37,9 @@ export const HeroSection = async () => {
             } as React.CSSProperties
           }
         >
-          {t('title')}
+          {t.rich('title', {
+            i: (chunks) => <em className="display-italic">{chunks}</em>,
+          })}
         </h1>
 
         <p
@@ -67,6 +72,23 @@ export const HeroSection = async () => {
             eyebrow={t('playStoreEyebrow')}
             label={t('playStoreLabel')}
           />
+        </div>
+
+        <div
+          className="animate-rise mt-6 flex items-center gap-2.5"
+          style={{ '--rise-delay': '360ms' } as React.CSSProperties}
+        >
+          <StarRating
+            rating={rating}
+            starClassName="h-3.5 w-3.5"
+            label={tReviews('ratingStars', { rating: tReviews('rating') })}
+          />
+          <p className="text-sm text-foreground/50">
+            <span className="font-semibold text-foreground/80">
+              {tReviews('rating')}
+            </span>{' '}
+            {tReviews('ratingLabel')}
+          </p>
         </div>
       </div>
 

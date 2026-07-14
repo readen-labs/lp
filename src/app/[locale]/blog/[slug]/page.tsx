@@ -94,8 +94,14 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       </header>
 
       {post.cover ? (
-        <div className={`mt-12 flex justify-center rounded-[2rem] ${BLOG_COVER_PANEL_GRADIENT} bg-card py-14 shadow-[0_20px_50px_-30px_rgba(0,0,0,0.3)]`}>
-          <Cover src={post.cover} alt={post.title} width={BLOG_POST_COVER_WIDTH} />
+        <div
+          className={`mt-12 flex justify-center rounded-[2rem] ${BLOG_COVER_PANEL_GRADIENT} bg-card py-14 shadow-[0_20px_50px_-30px_rgba(0,0,0,0.3)]`}
+        >
+          <Cover
+            src={post.cover}
+            alt={post.title}
+            width={BLOG_POST_COVER_WIDTH}
+          />
         </div>
       ) : null}
 

@@ -29,7 +29,9 @@ export const EditorialHeader = ({
       >
         <span className="h-px w-6 bg-primary-deep/60" aria-hidden />
         {overline}
-        {centered ? <span className="h-px w-6 bg-primary-deep/60" aria-hidden /> : null}
+        {centered ? (
+          <span className="h-px w-6 bg-primary-deep/60" aria-hidden />
+        ) : null}
       </p>
       <Heading className="display" style={{ fontSize: titleSize }}>
         {title}

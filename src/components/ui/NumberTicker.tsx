@@ -28,7 +28,7 @@ export const NumberTicker = ({
   className = '',
 }: NumberTickerProps) => {
   const ref = useRef<HTMLSpanElement>(null);
-  const [display, setDisplay] = useState(value);
+  const [display, setDisplay] = useState<number>(value);
 
   useEffect(() => {
     const element = ref.current;
@@ -80,7 +80,8 @@ export const NumberTicker = ({
 
         document.addEventListener('visibilitychange', onVisible);
 
-        return () => document.removeEventListener('visibilitychange', onVisible);
+        return () =>
+          document.removeEventListener('visibilitychange', onVisible);
       }
 
       if (delayMs > 0) {

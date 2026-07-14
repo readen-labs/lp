@@ -1,9 +1,5 @@
 import Image from 'next/image';
-import {
-  Children,
-  cloneElement,
-  isValidElement,
-} from 'react';
+import { Children, cloneElement, isValidElement } from 'react';
 
 import {
   COVER_GAP,

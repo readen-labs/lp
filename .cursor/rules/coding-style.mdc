@@ -1,0 +1,152 @@
+---
+description: Filipi's exact coding style — imports, types, naming, structure, comments, tooling (bun). Match or exceed on every edit. Web-adapted from the readen app's coding-style.mdc.
+alwaysApply: true
+---
+
+# Coding style
+
+Always match this style. No deviations.
+
+**Why:** Filipi applies "best and most beautiful code" as a hard standard. Any regression in style is unacceptable.
+
+**How to apply:** Before writing any code, verify it would pass this checklist.
+
+---
+
+## Guiding principles (apply to every change)
+
+1. **Always keep it simple.**
+2. **No workarounds** — fix the root cause, never paper over it.
+3. **No over-engineering** — reuse over new, smallest change that fully solves it.
+4. **Keep our UI/UX — or improve it** — never regress aesthetics or feel (see `design-system.mdc`).
+5. **Always optimize for the best performance and UX** — fast LCP, no layout shift, no hydration flash, minimal client JS.
+
+These are the lens for every decision. When two valid approaches exist, the simpler + faster + cleaner one wins.
+
+---
+
+## Imports — tiers, blank line between each
+
+1. **React / Next core** — `react`, `next/*` (`next/image`, `next/navigation`, …)
+2. **Third-party packages** — `next-intl`, other npm
+3. **Internal aliases, grouped by area** — `@/components/*` (brand → blog → layout → marketing → ui as needed), then `@/i18n/*`, then `@/lib/*`, then `import type` from internal modules
+
+Never mix tiers. Never skip blank lines between tiers/groups.
+
+**Multi-line imports get a blank line above AND below them** — any import whose braces wrap across multiple lines must be isolated from adjacent single-line imports, even within the same tier.
+
+```ts
+import Image from 'next/image';
+
+import { getTranslations } from 'next-intl/server';
+
+import { Cover } from '@/components/brand/Cover';
+import { EditorialHeader } from '@/components/brand/EditorialHeader';
+import { Reveal } from '@/components/ui/Reveal';
+
+import { STORE_LINKS } from '@/lib/config';
+import { SHELF_BOOKS } from '@/lib/data/shelf-books';
+
+import type { Locale } from '@/i18n/routing';
+```
+
+`import type { Foo }` for type-only imports.
+
+---
+
+## Comments
+
+- **No inline `//` comments.** Ever.
+- Docstrings only, using `/* ... */` block style or `/** ... */` JSDoc, only when the WHY is non-obvious.
+- Never explain what the code does — only why, if truly non-obvious.
+
+---
+
+## TypeScript
+
+- `type`, never `interface`.
+- Minimal types — only what is used.
+- Optional props with `?`.
+- **Never `any`.** Use the correct type, a union, `unknown`, or a generic. No exceptions, no `as any` casts either.
+- Props type named `ComponentNameProps` (e.g. `ButtonProps`, `CoverProps`), exported next to the component.
+- **Always explicit type on `useState`** — `useState<boolean>(false)`, `useState<MyType | null>(null)`. Never let it infer.
+
+---
+
+## Component structure
+
+**Arrow functions** for named/exported components:
+
+```ts
+export const Cover = ({ src, alt }: CoverProps) => { ... };
+```
+
+**`function` declarations** for App Router default exports (pages, layouts):
+
+```ts
+export default async function HomePage({ params }: HomePageProps) { ... }
+```
+
+- Props always **destructured inline** in the function signature — never `props.foo`.
+- Server components by default; `'use client'` only when the component genuinely needs state, effects, or browser APIs — and keep those leaf-sized (`Reveal`, `NumberTicker`, `SessionTimer`).
+- Translations: `getTranslations` in server components, `useTranslations` in client components.
+
+---
+
+## Reuse over new — avoid over-engineering
+
+Before creating a new component, hook, util, or section, check whether an existing one already does the job and reuse it. New sections compose the existing building blocks (`Cover`, `Shelf`, `EditorialHeader`, `Reveal`, `Button`, `StoreBadge`, `StarRating`, `glass-pill`/`shelf-glass` classes) rather than spawning near-duplicates. Only create something new when nothing existing fits.
+
+---
+
+## File structure order (within a file)
+
+1. Imports
+2. Local type definitions
+3. Module-level constants (`SCREAMING_SNAKE_CASE`)
+4. Local subcomponents / helpers
+5. Exported component
+
+---
+
+## Naming
+
+| Thing | Convention |
+|---|---|
+| Constants (module-level config) | `SCREAMING_SNAKE_CASE` — e.g. `HERO_COVER_WIDTH`, `STORE_LINKS` |
+| Everything else | `camelCase` |
+| Event handlers | `handle` prefix — `handleToggle`, `handleSubmit` |
+| Boolean state | descriptive noun/adj — `menuOpen`, `isVisible` |
+| Components | `PascalCase` |
+| Component files | `PascalCase.tsx` |
+| Util/lib files | `camelCase.ts` (kebab-case allowed where the folder already uses it, e.g. `format-date.ts`) |
+
+---
+
+## Async / effects
+
+- `async/await` everywhere — no `.then()` chains.
+- Effects always return their cleanup (`observer.disconnect`, `clearInterval`).
+
+---
+
+## JSX style
+
+- Multiple props → one prop per line.
+- Blank lines between logical JSX blocks.
+- No prop spreading.
+- Decorative elements get `aria-hidden`; meaningful images get real `alt`.
+
+---
+
+## i18n — hard invariant
+
+Every user-facing string lives in `src/messages/{en,pt,es}.json` — all three files updated together, same key structure. No hardcoded copy in components. `en.json` is the reference for key order.
+
+---
+
+## Tooling
+
+- **bun** — `bun install`, `bun run dev/build/lint/typecheck`, `bun format`. Never npm/yarn/pnpm.
+- Prettier (single quotes) is the formatter; husky + lint-staged run it on every commit. Don't hand-format against it.
+- This repo's Next.js version may differ from training data — read `node_modules/next/dist/docs/` before using unfamiliar APIs.

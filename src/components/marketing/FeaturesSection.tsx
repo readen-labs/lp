@@ -100,7 +100,11 @@ const SessionMock = ({
           </svg>
         </span>
         <span className="flex h-8 w-8 items-center justify-center rounded-full bg-primary text-white">
-          <svg viewBox="0 0 24 24" className="h-3.5 w-3.5 fill-current" aria-hidden>
+          <svg
+            viewBox="0 0 24 24"
+            className="h-3.5 w-3.5 fill-current"
+            aria-hidden
+          >
             <path d="M8 5.5h2.5v13H8zM13.5 5.5H16v13h-2.5z" />
           </svg>
         </span>
@@ -116,7 +120,9 @@ const SessionMock = ({
           <p className="mt-0.5 text-xs text-foreground/50">{bookAuthor}</p>
         </div>
 
-        <p className="text-[32px] leading-none font-bold tabular-nums">{timer}</p>
+        <p className="text-[32px] leading-none font-bold tabular-nums">
+          {timer}
+        </p>
 
         <div className="w-full">
           <div className="relative h-1 w-full rounded-full bg-foreground/15">
@@ -136,9 +142,7 @@ const SessionMock = ({
             ) : null}
             {after}
           </p>
-          <p className="mt-1 text-[10px] text-foreground/40">
-            — {quoteAuthor}
-          </p>
+          <p className="mt-1 text-[10px] text-foreground/40">— {quoteAuthor}</p>
         </div>
       </div>
 
@@ -265,9 +269,7 @@ const GoalsMock = ({
         <div key={subject.name}>
           <div className="flex items-baseline justify-between">
             <p className="text-[11px]">{subject.name}</p>
-            <p className="text-[10px] text-foreground/45">
-              {subject.percent}%
-            </p>
+            <p className="text-[10px] text-foreground/45">{subject.percent}%</p>
           </div>
           <div className="mt-1 flex h-[3px] overflow-hidden rounded-full bg-foreground/15">
             <div
@@ -347,12 +349,7 @@ export const FeaturesSection = async () => {
           overline={t('scan.title')}
           headline={t('scan.headline')}
           body={t('scan.body')}
-          mock={
-            <ScanMock
-              hint={t('scan.hint')}
-              coverSrc={books.scan.cover}
-            />
-          }
+          mock={<ScanMock hint={t('scan.hint')} coverSrc={books.scan.cover} />}
         />
         <FeatureRow
           index={2}

@@ -17,7 +17,9 @@ export type OpenGraphImageContentProps = {
   tagline: string;
 };
 
-export const OpenGraphImageContent = ({ tagline }: OpenGraphImageContentProps) => (
+export const OpenGraphImageContent = ({
+  tagline,
+}: OpenGraphImageContentProps) => (
   <div
     style={{
       width: '100%',

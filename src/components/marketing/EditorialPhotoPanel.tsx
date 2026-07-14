@@ -36,7 +36,8 @@ export const EditorialPhotoPanel = ({
   scrim = 'none',
 }: EditorialPhotoPanelProps) => {
   const resolvedCrop =
-    crop ?? (cropKey ? MARKETING_IMAGE_CROPS[cropKey] : { objectPosition: '50% 50%' });
+    crop ??
+    (cropKey ? MARKETING_IMAGE_CROPS[cropKey] : { objectPosition: '50% 50%' });
 
   return (
     <div className={`relative size-full overflow-hidden ${className}`}>

@@ -1,0 +1,49 @@
+---
+description: Readen landing page project context — purpose, stack, structure, i18n, relation to the app repo, collaboration with Filipi
+alwaysApply: true
+---
+
+# Readen landing page (lp)
+
+## Filipi (collaboration)
+
+Filipi Rafaeli is building Readen (readen.co). He's the product owner and sole developer.
+He thinks in product terms, gives blunt design feedback, and previews changes in the browser himself.
+Prefer concise, technical responses; execute end-to-end.
+
+---
+
+## Purpose
+
+The marketing site for the Readen app — "the reading app you close". It sells the app's calm, craft, and curation, and must itself meet the app's polish bar. The app repo at `../readen` is the source of truth for concept, palette, and any UI being showcased (widgets, session, shelves, goals).
+
+---
+
+## Tech stack
+
+- Next.js (App Router, `src/app/[locale]/…`) — version is ahead of training data; check `node_modules/next/dist/docs/` before using unfamiliar APIs
+- Tailwind CSS v4 (CSS-first config in `src/app/globals.css` via `@theme inline`)
+- next-intl — locales **en / pt / es**, messages in `src/messages/*.json`, routing in `src/i18n/`
+- MDX blog — content in `src/content/blog/{locale}/*.mdx`, helpers in `src/lib/mdx.ts`
+- bun as package manager and script runner
+- Deployed page routes: home, `/about`, `/blog(+slug)`, `/privacy`, `/terms`
+
+---
+
+## Structure
+
+- `src/components/brand/` — the identity primitives: `Logo`, `Cover`, `Shelf`, `PhoneFrame`, `EditorialHeader`
+- `src/components/marketing/` — one file per homepage section, composed in `src/app/[locale]/page.tsx`
+- `src/components/ui/` — small reusables (`Reveal`, `Button`, `StoreBadge`, `NumberTicker`, `SessionTimer`, `StarRating`, `Accordion`, `Marquee`, …)
+- `src/lib/config.ts` — store links, contact email, catalog stats; `src/lib/data/` — shelf books, people, mock books; `src/lib/constants/` — per-component layout constants
+- `src/lib/seo.ts` — `buildMetadata` + JSON-LD builders; every page defines `generateMetadata`
+
+---
+
+## Hard rules
+
+- **Every user-facing string** goes through next-intl and exists in all three of `en.json`, `pt.json`, `es.json` (same keys, `en` is the reference).
+- **Responsive is non-negotiable** — every section verified at mobile (375), tablet, and desktop, in light and dark.
+- Book covers come from `SHELF_BOOKS` (Open Library) via the `Cover` component; remote image hosts are allow-listed in `next.config.ts`.
+- Homepage sections Filipi considers done (keep, don't redesign without being asked): the three feature demos (scan/sessions/goals), Discover ("curate"), Reviews, Onboarding ("build your shelf"), FAQ, footer.
+- Verify with `bun run lint && bun run format:check && bun run typecheck && bun run build` before calling work done — CI runs exactly these.

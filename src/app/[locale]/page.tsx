@@ -13,6 +13,7 @@ import { MomentsSection } from '@/components/marketing/MomentsSection';
 import { OnboardingSection } from '@/components/marketing/OnboardingSection';
 import { ReviewsSection } from '@/components/marketing/ReviewsSection';
 import { StorySection } from '@/components/marketing/StorySection';
+import { WidgetsSection } from '@/components/marketing/WidgetsSection';
 
 import { buildMetadata, buildSoftwareApplicationJsonLd } from '@/lib/seo';
 
@@ -55,6 +56,7 @@ export default async function HomePage({ params }: HomePageProps) {
       <ManifestoSection />
       <LibrarySection />
       <FeaturesSection />
+      <WidgetsSection />
       <DiscoverSection />
       <ReviewsSection />
       <OnboardingSection />

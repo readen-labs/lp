@@ -10,7 +10,10 @@ export const StorySection = async () => {
 
   return (
     <section className="relative overflow-hidden py-24 md:py-32">
-      <div className="pointer-events-none absolute inset-0 opacity-[0.04]" aria-hidden>
+      <div
+        className="pointer-events-none absolute inset-0 opacity-[0.04]"
+        aria-hidden
+      >
         <EditorialPhotoPanel
           src={MARKETING_IMAGES.story}
           alt=""
@@ -37,7 +40,9 @@ export const StorySection = async () => {
                 </p>
                 <p className="text-sm text-foreground/50">{t('context')}</p>
               </div>
-              <p className="text-sm font-medium text-primary-deep">{t('label')}</p>
+              <p className="text-sm font-medium text-primary-deep">
+                {t('label')}
+              </p>
             </figcaption>
           </figure>
         </Reveal>

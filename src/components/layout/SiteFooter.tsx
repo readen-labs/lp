@@ -1,10 +1,7 @@
 import { getTranslations } from 'next-intl/server';
 
 import { Logo } from '@/components/brand/Logo';
-import {
-  SocialIconLink,
-  type SocialNetwork,
-} from '@/components/ui/SocialIcon';
+import { SocialIconLink, type SocialNetwork } from '@/components/ui/SocialIcon';
 
 import { Link } from '@/i18n/navigation';
 

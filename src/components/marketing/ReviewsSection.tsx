@@ -48,7 +48,9 @@ export const ReviewsSection = async () => {
               rating={aggregateRating}
               label={t('ratingStars', { rating: t('rating') })}
             />
-            <span className="text-sm text-foreground/50">{t('ratingLabel')}</span>
+            <span className="text-sm text-foreground/50">
+              {t('ratingLabel')}
+            </span>
           </div>
         </Reveal>
       </div>
@@ -75,7 +77,9 @@ export const ReviewsSection = async () => {
                 <StarRating
                   rating={REVIEW_CARD_RATING}
                   starClassName="h-3.5 w-3.5 shrink-0"
-                  label={t('ratingStars', { rating: String(REVIEW_CARD_RATING) })}
+                  label={t('ratingStars', {
+                    rating: String(REVIEW_CARD_RATING),
+                  })}
                 />
               </figcaption>
             </figure>

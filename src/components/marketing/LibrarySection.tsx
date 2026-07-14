@@ -18,6 +18,12 @@ const REVEAL_DELAY_POINTS_MS = 220;
 
 const COVER_IDLE_STAGGER_S = 1.3;
 
+/* The app's library tabs, rendered as a static segmented control with
+   "Reading" active — same pill treatment as the Goals mock's period picker. */
+const STATUS_TABS = ['statusWant', 'statusReading', 'statusRead'] as const;
+
+const ACTIVE_STATUS: (typeof STATUS_TABS)[number] = 'statusReading';
+
 type ValuePointProps = {
   index: number;
   text: string;
@@ -60,7 +66,29 @@ export const LibrarySection = async () => {
           </Reveal>
         </div>
 
-        <Reveal scale className="min-w-0 max-w-full overflow-hidden md:order-first">
+        <Reveal
+          scale
+          className="min-w-0 max-w-full overflow-hidden md:order-first"
+        >
+          <div className="mb-10 flex justify-center">
+            <div
+              className="flex w-full max-w-xs rounded-2xl bg-foreground/[0.06] p-1"
+              aria-hidden
+            >
+              {STATUS_TABS.map((status) => (
+                <span
+                  key={status}
+                  className={`flex-1 rounded-xl py-2 text-center text-sm ${
+                    status === ACTIVE_STATUS
+                      ? 'bg-card font-semibold shadow-[0_1px_3px_rgba(0,0,0,0.12)]'
+                      : 'font-medium text-foreground/45'
+                  }`}
+                >
+                  {t(status)}
+                </span>
+              ))}
+            </div>
+          </div>
           <Shelf>
             <div
               className="flex w-full items-end justify-center"

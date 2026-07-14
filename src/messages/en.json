@@ -20,7 +20,7 @@
   },
   "hero": {
     "overline": "The reading app you close",
-    "title": "Become the reader you meant to be.",
+    "title": "Become the reader you <i>meant</i> to be.",
     "tagline": "Build a library you're proud of — calm, beautiful, and entirely yours.",
     "subline": "No feeds. No noise. Just the books that shaped you, kept on a shelf that feels real.",
     "appStoreEyebrow": "Download on the",
@@ -134,6 +134,25 @@
       "authorName": "George Orwell"
     }
   },
+  "widgets": {
+    "overline": "Beyond the app",
+    "title": "Your book follows you home.",
+    "body": "A widget on your Home Screen, a live session in the Dynamic Island, a literary quote that changes with the book you're reading. Readen stays close — and never asks for your attention.",
+    "continueCaption": "Continue reading",
+    "sessionCaption": "Reading session",
+    "bookTitle": "The Alchemist",
+    "bookAuthor": "Paulo Coelho",
+    "pageProgress": "You're on page 184 of 320",
+    "quote": "A reader lives a thousand lives before he dies.",
+    "quoteAuthor": "George R.R. Martin",
+    "lockDate": "Sunday, June 29",
+    "point1Title": "On your Home Screen",
+    "point1Body": "Your current book, its cover, and your progress — one tap and you're back on the page.",
+    "point2Title": "In the Dynamic Island",
+    "point2Body": "Start a session and a quiet timer keeps you company until you close the book.",
+    "point3Title": "A quote that knows your book",
+    "point3Body": "The large widget pairs your progress with a literary quote matched to what you're reading, refreshed daily."
+  },
   "discover": {
     "overline": "Discover",
     "title": "Curated by readers who shape the world.",
@@ -207,9 +226,6 @@
     "appStoreLabel": "App Store",
     "playStoreEyebrow": "Get it on",
     "playStoreLabel": "Google Play"
-  },
-  "contact": {
-    "emailAria": "Email Readen at hello@readen.co"
   },
   "footer": {
     "tagline": "The reading app you close. A calm home for the books that shaped you.",

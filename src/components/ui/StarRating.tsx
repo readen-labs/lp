@@ -28,7 +28,10 @@ export const StarRating = ({
         const fill = Math.min(1, Math.max(0, clampedRating - index));
 
         return (
-          <span key={index} className={`relative inline-block ${starClassName}`}>
+          <span
+            key={index}
+            className={`relative inline-block ${starClassName}`}
+          >
             <svg
               viewBox="0 0 20 20"
               className={`${starClassName} fill-current text-foreground/15`}

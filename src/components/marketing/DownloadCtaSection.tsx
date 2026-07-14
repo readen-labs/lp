@@ -37,7 +37,11 @@ export const DownloadCtaSection = async () => {
               <p className="text-[0.8rem] font-semibold tracking-[0.16em] text-white/70 uppercase">
                 {t('overline')}
               </p>
-              <LogoMark size={64} variant="mono" className="mx-auto mt-6 text-white" />
+              <LogoMark
+                size={64}
+                variant="mono"
+                className="mx-auto mt-6 text-white"
+              />
               <h2
                 className="display mx-auto mt-7 max-w-2xl"
                 style={{ fontSize: 'clamp(2.25rem, 5.5vw, 4rem)' }}

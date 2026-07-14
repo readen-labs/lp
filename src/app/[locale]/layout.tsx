@@ -5,7 +5,6 @@ import { getMessages, setRequestLocale } from 'next-intl/server';
 
 import { SiteFooter } from '@/components/layout/SiteFooter';
 import { SiteHeader } from '@/components/layout/SiteHeader';
-import { ContactSection } from '@/components/marketing/ContactSection';
 
 import { routing, type Locale } from '@/i18n/routing';
 
@@ -34,7 +33,6 @@ export default async function LocaleLayout({
     <NextIntlClientProvider messages={messages}>
       <SiteHeader />
       <main className="flex-1 pt-20">{children}</main>
-      <ContactSection />
       <SiteFooter />
     </NextIntlClientProvider>
   );

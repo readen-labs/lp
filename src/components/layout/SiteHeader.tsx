@@ -13,7 +13,7 @@ import { STORE_LINKS } from '@/lib/config';
 
 export const SiteHeader = () => {
   const t = useTranslations('nav');
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState<boolean>(false);
 
   const navLinks = [
     { href: '/blog', label: t('blog') },
@@ -60,7 +60,12 @@ export const SiteHeader = () => {
             aria-label={menuOpen ? t('close') : t('menu')}
             onClick={() => setMenuOpen((open) => !open)}
           >
-            <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" aria-hidden>
+            <svg
+              viewBox="0 0 24 24"
+              className="h-5 w-5"
+              fill="none"
+              aria-hidden
+            >
               {menuOpen ? (
                 <path
                   d="M6 6l12 12M18 6L6 18"

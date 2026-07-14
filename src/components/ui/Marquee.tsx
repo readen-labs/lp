@@ -17,7 +17,9 @@ const DEFAULT_GAP = 20;
 
 const withKeys = (children: React.ReactNode, suffix: string): React.ReactNode =>
   Children.map(children, (child, index) =>
-    isValidElement(child) ? cloneElement(child, { key: `${suffix}-${index}` }) : child,
+    isValidElement(child)
+      ? cloneElement(child, { key: `${suffix}-${index}` })
+      : child,
   );
 
 export const Marquee = ({
@@ -33,7 +35,10 @@ export const Marquee = ({
   return (
     <div className={cn('marquee-mask overflow-hidden', className)}>
       <div
-        className={cn('marquee-track flex w-max', pauseOnHover && 'marquee-pause-hover')}
+        className={cn(
+          'marquee-track flex w-max',
+          pauseOnHover && 'marquee-pause-hover',
+        )}
         style={{
           ['--marquee-duration' as string]: `${durationS}s`,
           animationDirection: reverse ? 'reverse' : 'normal',

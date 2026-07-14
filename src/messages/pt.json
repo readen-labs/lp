@@ -20,7 +20,7 @@
   },
   "hero": {
     "overline": "O app de leitura que você fecha",
-    "title": "Torne-se o leitor que você quer ser.",
+    "title": "Torne-se o leitor que você <i>quer</i> ser.",
     "tagline": "Construa uma biblioteca da qual você se orgulhe — tranquila, bonita e só sua.",
     "subline": "Sem feeds. Sem ruído. Só os livros que te formaram, numa estante que parece real.",
     "appStoreEyebrow": "Baixe na",
@@ -134,6 +134,25 @@
       "authorName": "George Orwell"
     }
   },
+  "widgets": {
+    "overline": "Além do app",
+    "title": "Seu livro te acompanha em casa.",
+    "body": "Um widget na tela de início, uma sessão ao vivo na Dynamic Island, uma citação literária que muda com o livro que você está lendo. O Readen fica por perto — e nunca pede a sua atenção.",
+    "continueCaption": "Continue lendo",
+    "sessionCaption": "Sessão de leitura",
+    "bookTitle": "O Alquimista",
+    "bookAuthor": "Paulo Coelho",
+    "pageProgress": "Você está na página 184 de 320",
+    "quote": "Um leitor vive mil vidas antes de morrer.",
+    "quoteAuthor": "George R.R. Martin",
+    "lockDate": "domingo, 29 de junho",
+    "point1Title": "Na sua tela de início",
+    "point1Body": "Seu livro atual, a capa e o progresso — um toque e você volta para a página.",
+    "point2Title": "Na Dynamic Island",
+    "point2Body": "Comece uma sessão e um cronômetro discreto te acompanha até você fechar o livro.",
+    "point3Title": "Uma citação que conhece seu livro",
+    "point3Body": "O widget grande combina seu progresso com uma citação literária escolhida para o que você está lendo, renovada todo dia."
+  },
   "discover": {
     "overline": "Descobrir",
     "title": "Curadoria de leitores que moldam o mundo.",
@@ -207,9 +226,6 @@
     "appStoreLabel": "App Store",
     "playStoreEyebrow": "Disponível no",
     "playStoreLabel": "Google Play"
-  },
-  "contact": {
-    "emailAria": "Enviar e-mail para o Readen em hello@readen.co"
   },
   "footer": {
     "tagline": "O app de leitura que você fecha. Um lar tranquilo para os livros que te formaram.",

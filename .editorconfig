@@ -1,0 +1,19 @@
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+indent_size = 2
+indent_style = space
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+[*.md]
+trim_trailing_whitespace = false
+
+# Preserve manual (length-ascending) import order — stop the IDE from re-sorting
+[*.{js,jsx,ts,tsx}]
+ij_javascript_imports_sort_module_name = false
+ij_javascript_imports_sort_imported_member = false
+ij_typescript_imports_sort_module_name = false
+ij_typescript_imports_sort_imported_member = false

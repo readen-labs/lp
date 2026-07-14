@@ -13,9 +13,7 @@ type BuildMetadataParams = {
   siteName?: string;
 };
 
-export const buildAlternateLanguages = (
-  path: string,
-): Record<string, string> =>
+export const buildAlternateLanguages = (path: string): Record<string, string> =>
   Object.fromEntries(
     routing.locales.map((locale) => [locale, buildLocalizedUrl(locale, path)]),
   );

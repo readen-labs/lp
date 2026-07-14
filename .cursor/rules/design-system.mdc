@@ -1,0 +1,63 @@
+---
+description: Always preserve and elevate Readen's design system on the landing page — colors, tokens, typography, glass, shelves, motion. The app repo (../readen) is the design source of truth.
+alwaysApply: true
+---
+
+# Design system
+
+Always keep or improve the design system. Never regress on aesthetics.
+
+**Why:** Filipi treats visual quality as a hard requirement, same as code quality. The LP sells the app's craft — it must feel like the app.
+
+**How to apply:** Every UI change must respect these tokens and patterns. When recreating an app surface (widgets, session screen, shelves), read the real implementation in `../readen/src` first and stay pixel-honest to it.
+
+---
+
+## Colors (`src/app/globals.css` — mirrors the app's `constants.ts`)
+
+| Token | Light | Dark |
+|---|---|---|
+| `bg-background` | `#f1f1f1` | `#010101` |
+| `bg-card` | `#ffffff` | `#1c1c1e` |
+| `bg-primary` / `text-primary` | `#10b981` (always) | `#10b981` (always) |
+| `text-foreground` | `#000000` | `#ffffff` |
+
+- Primary is always emerald `#10b981`, regardless of theme. Deep/dark steps: `--primary-deep` `#059669`, `--primary-dark` `#047857`.
+- **Always `text-foreground` with opacity modifiers for hierarchy** — `/80` body, `/60` muted, `/45` faint. Never hardcode `text-black`/`text-white` except on deliberately always-dark stages (photo scrims, the lock-screen mock, `cta-emerald`) where white is the design.
+- Dark mode is automatic via `prefers-color-scheme` on the CSS tokens — never fork component markup per theme; style through the tokens.
+
+---
+
+## Typography
+
+- **Lora is reserved for editorial / brand voice** — display headlines (`.display`), book titles, quotes, big numbers (`font-serif`). Functional UI chrome (nav links, buttons, captions, labels) stays system sans.
+- Display headlines use `.display` (Lora 600, `-0.02em`, `line-height 1.05`, balanced) with `clamp()` font sizes; italic emphasis via `.display-italic`.
+- Overlines: `text-[0.8rem] font-semibold tracking-[0.14em] uppercase text-primary-deep`.
+
+---
+
+## Signature surfaces
+
+- **Book covers always stand on the Shelf** (`Shelf` + glass ledge + metal knobs) — never bare/floating cover grids. Same hard invariant as the app.
+- **Covers behave like books**: `Cover` component only — aspect ratio 329/494, hardcover texture overlay, hairline border, radius/shadow from `src/lib/constants/cover.ts`, idle sway + sheen unless `idle={false}` (dense mocks).
+- **Glass language**: `glass-pill` (header, chips) and `shelf-glass` (ledges) classes — real `backdrop-filter` frosting content behind, both themes covered.
+- **App mocks are pixel-honest**: `PhoneFrame` vignettes, widget recreations, and the Live Activity mirror the real app code (`../readen/src/widgets/*`, session screen). Sizes, weights, and accent usage come from the app source, not invention.
+
+---
+
+## Motion
+
+- Taste: **calm, editorial, Airbnb-level polish** — soft ease-out cubic, 400–900ms, small stagger delays. No bouncy springs, no gimmicks.
+- Scroll entrances: the `Reveal` component (`.reveal` / `is-visible`, `delay` for stagger, `scale` for cards). Above the fold: `.animate-rise` with `--rise-delay`.
+- Ambient life is CSS-only: `cover-idle` sway, `cover-sheen` sweep, `shelf-drift` / `marquee-track` loops that pause on hover/focus.
+- **Every animation respects `prefers-reduced-motion`** — the global guard exists; new keyframes still need their own sensible reduced state (hide sheens, stop drifts).
+
+---
+
+## Product voice (LP-specific)
+
+- "The reading app you close" — calm, anti-feed, anti-streak. Never introduce engagement-bait UI (badges, streak flames, popups, urgency).
+- **No language-switcher UI** — locale comes from the URL (`/`, `/pt`, `/es`).
+- **No Discord** (or community-chat) links.
+- Full-bleed photo sections keep their images edge-to-edge; scrims guarantee text contrast.
+- Store badges (`StoreBadge`) are the only download CTAs; social proof stays understated (4.9 ★ row, review wall).

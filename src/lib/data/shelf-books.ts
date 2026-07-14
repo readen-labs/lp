@@ -57,7 +57,7 @@ export const SHELF_BOOKS: ShelfBook[] = [
   },
   {
     isbn: '9780140283334',
-    title: 'The Handmaid\'s Tale',
+    title: "The Handmaid's Tale",
     cover: 'https://covers.openlibrary.org/b/isbn/9780140283334-L.jpg',
   },
   {

@@ -37,7 +37,11 @@ export const SocialIconLink = ({
     aria-label={label}
     className={`flex h-11 w-11 items-center justify-center rounded-full border border-foreground/15 text-foreground/60 transition-colors hover:border-foreground/40 hover:text-foreground ${className}`}
   >
-    <svg viewBox="0 0 24 24" className="h-[18px] w-[18px] fill-current" aria-hidden>
+    <svg
+      viewBox="0 0 24 24"
+      className="h-[18px] w-[18px] fill-current"
+      aria-hidden
+    >
       <path d={PATHS[network]} />
     </svg>
   </a>
