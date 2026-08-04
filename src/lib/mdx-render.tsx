@@ -1,7 +1,7 @@
-import { compile, run } from '@mdx-js/mdx';
+import { run, compile } from '@mdx-js/mdx';
 import * as runtime from 'react/jsx-runtime';
 
-import { Cover } from '@/components/brand/Cover';
+import { Cover } from '@/components/brand/cover';
 
 const mdxComponents = {
   Cover,

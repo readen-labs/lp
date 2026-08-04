@@ -1,8 +1,8 @@
 import {
+  OG_IMAGE_SIZE,
   createOpenGraphImage,
   OG_IMAGE_CONTENT_TYPE,
-  OG_IMAGE_SIZE,
-} from '@/components/og/OpenGraphImage';
+} from '@/components/og/open-graph-image';
 
 export const alt = 'Readen';
 export const size = OG_IMAGE_SIZE;

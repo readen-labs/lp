@@ -35,8 +35,12 @@ The marketing site for the Readen app — "the reading app you close". It sells 
 - `src/components/brand/` — the identity primitives: `Logo`, `Cover`, `Shelf`, `PhoneFrame`, `EditorialHeader`
 - `src/components/marketing/` — one file per homepage section, composed in `src/app/[locale]/page.tsx`
 - `src/components/ui/` — small reusables (`Reveal`, `Button`, `StoreBadge`, `NumberTicker`, `SessionTimer`, `StarRating`, `Accordion`, `Marquee`, …)
-- `src/lib/config.ts` — store links, contact email, catalog stats; `src/lib/data/` — shelf books, people, mock books; `src/lib/constants/` — per-component layout constants
-- `src/lib/seo.ts` — `buildMetadata` + JSON-LD builders; every page defines `generateMetadata`
+- `src/constants/config.ts` — store links, contact email, catalog stats; rest of `src/constants/` — per-component layout constants + `brand-colors.ts` (literal hex for Satori/SVG contexts)
+- `src/data/` — shelf books, people, mock books
+- `src/lib/seo.ts` — `buildMetadata` + JSON-LD builders (every page defines `generateMetadata`); `src/lib/mdx.ts`/`mdx-render.tsx` — blog content
+- `src/utils/` — pure helpers (`format-date`, `locale-path`, `cn`)
+
+Full folder-graph rules and rationale: `docs/architecture.md` §1.
 
 ---
 

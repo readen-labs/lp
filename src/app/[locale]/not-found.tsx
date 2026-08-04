@@ -1,6 +1,6 @@
 import { getTranslations } from 'next-intl/server';
 
-import { NotFoundContent } from '@/components/layout/NotFoundContent';
+import { NotFoundContent } from '@/components/layout/not-found-content';
 
 export default async function NotFoundPage() {
   const t = await getTranslations('notFound');

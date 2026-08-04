@@ -1,9 +1,8 @@
 import type { Metadata } from 'next';
 
-import { BRAND_NAME, OG_LOCALE_MAP } from '@/lib/config';
-import { buildLocalizedUrl } from '@/lib/locale-path';
-
 import { routing, type Locale } from '@/i18n/routing';
+import { buildLocalizedUrl } from '@/utils/locale-path';
+import { BRAND_NAME, OG_LOCALE_MAP } from '@/constants/config';
 
 type BuildMetadataParams = {
   locale: Locale;

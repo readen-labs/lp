@@ -2,13 +2,11 @@ import Image from 'next/image';
 
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 
-import { EditorialHeader } from '@/components/brand/EditorialHeader';
-import { Reveal } from '@/components/ui/Reveal';
-
-import { CATALOG_STATS, CONTACT_EMAIL } from '@/lib/config';
 import { buildMetadata } from '@/lib/seo';
-
 import type { Locale } from '@/i18n/routing';
+import { Reveal } from '@/components/ui/reveal';
+import { CATALOG_STATS, CONTACT_EMAIL } from '@/constants/config';
+import { EditorialHeader } from '@/components/brand/editorial-header';
 
 type AboutPageProps = {
   params: Promise<{ locale: string }>;

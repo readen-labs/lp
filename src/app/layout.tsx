@@ -1,10 +1,10 @@
 import type { Metadata } from 'next';
-
-import { Analytics } from '@vercel/analytics/next';
 import { Lora } from 'next/font/google';
-import { getLocale } from 'next-intl/server';
 
-import { SITE_URL } from '@/lib/config';
+import { getLocale } from 'next-intl/server';
+import { Analytics } from '@vercel/analytics/next';
+
+import { SITE_URL } from '@/constants/config';
 
 import './globals.css';
 

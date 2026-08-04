@@ -1,12 +1,11 @@
 import { getTranslations } from 'next-intl/server';
 
+import { routing } from '@/i18n/routing';
 import {
+  OG_IMAGE_SIZE,
   createOpenGraphImage,
   OG_IMAGE_CONTENT_TYPE,
-  OG_IMAGE_SIZE,
-} from '@/components/og/OpenGraphImage';
-
-import { routing } from '@/i18n/routing';
+} from '@/components/og/open-graph-image';
 
 export const alt = 'Readen';
 export const size = OG_IMAGE_SIZE;

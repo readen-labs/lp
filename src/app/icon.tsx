@@ -1,5 +1,11 @@
 import { ImageResponse } from 'next/og';
 
+import {
+  BRAND_WHITE,
+  BRAND_PRIMARY,
+  BRAND_PRIMARY_LIGHT,
+} from '@/constants/brand-colors';
+
 export const size = { width: 32, height: 32 };
 
 export const contentType = 'image/png';
@@ -15,7 +21,7 @@ export default function Icon() {
         alignItems: 'flex-end',
         justifyContent: 'center',
         gap: 1.5,
-        background: 'linear-gradient(180deg, #34d399 0%, #10b981 100%)',
+        background: `linear-gradient(180deg, ${BRAND_PRIMARY_LIGHT} 0%, ${BRAND_PRIMARY} 100%)`,
         borderRadius: 7,
         padding: '0 4px 7px 4px',
       }}
@@ -24,7 +30,7 @@ export default function Icon() {
         style={{
           width: 4,
           height: 17,
-          background: '#fff',
+          background: BRAND_WHITE,
           borderRadius: 2,
         }}
       />
@@ -32,7 +38,7 @@ export default function Icon() {
         style={{
           width: 6,
           height: 14,
-          background: '#fff',
+          background: BRAND_WHITE,
           borderRadius: 2,
           display: 'flex',
           flexDirection: 'column',
@@ -45,7 +51,7 @@ export default function Icon() {
           style={{
             width: 3,
             height: 1.5,
-            background: '#10b981',
+            background: BRAND_PRIMARY,
             borderRadius: 1,
           }}
         />
@@ -53,7 +59,7 @@ export default function Icon() {
           style={{
             width: 3,
             height: 1.5,
-            background: '#10b981',
+            background: BRAND_PRIMARY,
             borderRadius: 1,
           }}
         />
@@ -62,7 +68,7 @@ export default function Icon() {
         style={{
           width: 5,
           height: 20,
-          background: '#fff',
+          background: BRAND_WHITE,
           borderRadius: 2,
         }}
       />
@@ -70,7 +76,7 @@ export default function Icon() {
         style={{
           width: 4.5,
           height: 17,
-          background: '#fff',
+          background: BRAND_WHITE,
           borderRadius: 2,
           transform: 'rotate(8deg)',
           transformOrigin: 'bottom left',

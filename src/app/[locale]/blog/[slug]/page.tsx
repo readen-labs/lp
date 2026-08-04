@@ -2,21 +2,19 @@ import { notFound } from 'next/navigation';
 
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 
-import { BlogTagChip } from '@/components/blog/BlogTagChip';
-import { Cover } from '@/components/brand/Cover';
-
+import { renderMdx } from '@/lib/mdx-render';
+import type { Locale } from '@/i18n/routing';
+import { formatDate } from '@/utils/format-date';
+import { Cover } from '@/components/brand/cover';
+import { buildLocalizedUrl } from '@/utils/locale-path';
+import { getBlogPost, getAllBlogParams } from '@/lib/mdx';
+import { BlogTagChip } from '@/components/blog/blog-tag-chip';
+import { buildMetadata, buildArticleJsonLd } from '@/lib/seo';
 import {
-  BLOG_COVER_PANEL_GRADIENT,
   BLOG_POST_COVER_WIDTH,
   BLOG_POST_MAX_WIDTH_CH,
-} from '@/lib/constants/blog';
-import { formatDate } from '@/lib/format-date';
-import { getAllBlogParams, getBlogPost } from '@/lib/mdx';
-import { renderMdx } from '@/lib/mdx-render';
-import { buildLocalizedUrl } from '@/lib/locale-path';
-import { buildArticleJsonLd, buildMetadata } from '@/lib/seo';
-
-import type { Locale } from '@/i18n/routing';
+  BLOG_COVER_PANEL_GRADIENT,
+} from '@/constants/blog';
 
 type BlogPostPageProps = {
   params: Promise<{ locale: string; slug: string }>;

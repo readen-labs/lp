@@ -1,10 +1,9 @@
 import type { MetadataRoute } from 'next';
 
-import { buildLocalizedUrl } from '@/lib/locale-path';
-import { buildAlternateLanguages } from '@/lib/seo';
-import { getAllBlogParams } from '@/lib/mdx';
-
 import { routing } from '@/i18n/routing';
+import { getAllBlogParams } from '@/lib/mdx';
+import { buildAlternateLanguages } from '@/lib/seo';
+import { buildLocalizedUrl } from '@/utils/locale-path';
 
 const STATIC_PATHS = ['', '/about', '/blog', '/terms', '/privacy'] as const;
 

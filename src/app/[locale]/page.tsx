@@ -1,23 +1,21 @@
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 
-import { DiscoverSection } from '@/components/marketing/DiscoverSection';
-import { DownloadCtaSection } from '@/components/marketing/DownloadCtaSection';
-import { ExperienceSection } from '@/components/marketing/ExperienceSection';
-import { FaqSection } from '@/components/marketing/FaqSection';
-import { FeaturesSection } from '@/components/marketing/FeaturesSection';
-import { HeroSection } from '@/components/marketing/HeroSection';
-import { IdentitySection } from '@/components/marketing/IdentitySection';
-import { LibrarySection } from '@/components/marketing/LibrarySection';
-import { ManifestoSection } from '@/components/marketing/ManifestoSection';
-import { MomentsSection } from '@/components/marketing/MomentsSection';
-import { OnboardingSection } from '@/components/marketing/OnboardingSection';
-import { ReviewsSection } from '@/components/marketing/ReviewsSection';
-import { StorySection } from '@/components/marketing/StorySection';
-import { WidgetsSection } from '@/components/marketing/WidgetsSection';
-
-import { buildMetadata, buildSoftwareApplicationJsonLd } from '@/lib/seo';
-
 import type { Locale } from '@/i18n/routing';
+import { FaqSection } from '@/components/marketing/faq-section';
+import { HeroSection } from '@/components/marketing/hero-section';
+import { StorySection } from '@/components/marketing/story-section';
+import { LibrarySection } from '@/components/marketing/library-section';
+import { MomentsSection } from '@/components/marketing/moments-section';
+import { ReviewsSection } from '@/components/marketing/reviews-section';
+import { WidgetsSection } from '@/components/marketing/widgets-section';
+import { DiscoverSection } from '@/components/marketing/discover-section';
+import { FeaturesSection } from '@/components/marketing/features-section';
+import { IdentitySection } from '@/components/marketing/identity-section';
+import { buildMetadata, buildSoftwareApplicationJsonLd } from '@/lib/seo';
+import { ManifestoSection } from '@/components/marketing/manifesto-section';
+import { ExperienceSection } from '@/components/marketing/experience-section';
+import { OnboardingSection } from '@/components/marketing/onboarding-section';
+import { DownloadCtaSection } from '@/components/marketing/download-cta-section';
 
 type HomePageProps = {
   params: Promise<{ locale: string }>;

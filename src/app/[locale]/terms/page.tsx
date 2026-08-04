@@ -1,10 +1,8 @@
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 
-import { LegalDocument } from '@/components/legal/LegalDocument';
-
 import { buildMetadata } from '@/lib/seo';
-
 import type { Locale } from '@/i18n/routing';
+import { LegalDocument } from '@/components/legal/legal-document';
 
 type TermsPageProps = {
   params: Promise<{ locale: string }>;
