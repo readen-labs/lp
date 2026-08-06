@@ -3,6 +3,7 @@ import { Lora } from 'next/font/google';
 
 import { getLocale } from 'next-intl/server';
 import { Analytics } from '@vercel/analytics/next';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 import { SITE_URL } from '@/constants/config';
 
@@ -35,6 +36,7 @@ export default async function RootLayout({
       <body className="flex min-h-full flex-col bg-background font-sans text-foreground">
         {children}
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
