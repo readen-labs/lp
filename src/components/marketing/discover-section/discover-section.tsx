@@ -5,8 +5,8 @@ import { getLocale, getTranslations } from 'next-intl/server';
 import { Button } from '@/components/ui/button';
 import { Reveal } from '@/components/ui/reveal';
 import { DISCOVER_PEOPLE } from '@/data/people';
+import { CATALOG_STATS } from '@/constants/config';
 import { NumberTicker } from '@/components/ui/number-ticker';
-import { STORE_LINKS, CATALOG_STATS } from '@/constants/config';
 import { EditorialHeader } from '@/components/brand/editorial-header';
 
 const AVATAR_SIZE = 56;
@@ -30,7 +30,7 @@ export const DiscoverSection = async () => {
   ];
 
   return (
-    <section className="py-24 md:py-32">
+    <section id="discover" className="scroll-mt-24 py-28 md:py-40">
       <div className="mx-auto max-w-6xl px-5">
         <div className="grid items-center gap-14 md:grid-cols-2 md:gap-20">
           <div>
@@ -59,7 +59,7 @@ export const DiscoverSection = async () => {
               </dl>
             </Reveal>
             <Reveal delay={REVEAL_DELAY_CTA_MS}>
-              <Button href={STORE_LINKS.ios} external className="mt-9">
+              <Button href="/#download" variant="ink" className="mt-9">
                 {t('cta')}
               </Button>
             </Reveal>

@@ -288,7 +288,7 @@ export const WidgetsSection = async () => {
   };
 
   return (
-    <section className="overflow-hidden bg-card/40 py-24 md:py-32">
+    <section className="overflow-hidden py-28 md:py-40">
       <div className="mx-auto max-w-6xl px-5">
         <Reveal>
           <EditorialHeader

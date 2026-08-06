@@ -107,14 +107,15 @@ html {
 /* ---------------------------------------------------------------------------
    Scroll reveal — driven by the <Reveal> client component. Elements start
    hidden and transition in when .is-visible lands. Stagger via --reveal-delay.
+   Tuned for calm Rotina-like entrances: longer ease-out, soft lift.
 --------------------------------------------------------------------------- */
 
 .reveal {
   opacity: 0;
-  transform: translateY(24px);
+  transform: translateY(32px);
   transition:
-    opacity 700ms var(--ease-out-cubic),
-    transform 700ms var(--ease-out-cubic);
+    opacity 1100ms var(--ease-out-cubic),
+    transform 1100ms var(--ease-out-cubic);
   transition-delay: var(--reveal-delay, 0ms);
   will-change: opacity, transform;
 }
@@ -126,10 +127,14 @@ html {
 }
 
 .reveal-scale {
-  transform: translateY(24px) scale(0.97);
+  transform: translateY(40px) scale(0.96);
 }
 
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
   .reveal {
     opacity: 1;
     transform: none;
@@ -141,7 +146,7 @@ html {
 @keyframes rise {
   from {
     opacity: 0;
-    transform: translateY(28px);
+    transform: translateY(24px);
   }
   to {
     opacity: 1;
@@ -150,13 +155,88 @@ html {
 }
 
 .animate-rise {
-  animation: rise 900ms var(--ease-out-cubic) both;
+  animation: rise 1000ms var(--ease-out-cubic) both;
   animation-delay: var(--rise-delay, 0ms);
 }
 
 @media (prefers-reduced-motion: reduce) {
   .animate-rise {
     animation: none;
+  }
+}
+
+/* Hero phone fan — soft staggered rise, then scroll parallax on the inner. */
+.hero-phone-stage {
+  perspective: 1400px;
+}
+
+.hero-phone {
+  opacity: 0;
+  animation: hero-phone-in 1.15s var(--ease-out-cubic) both;
+  will-change: opacity, transform;
+}
+
+.hero-phone--left {
+  --hero-phone-from: translate3d(-1rem, 2.25rem, 0) rotate(-12deg) scale(0.94);
+  animation-delay: 220ms;
+}
+
+.hero-phone--center {
+  --hero-phone-from: translate3d(0, 2.75rem, 0) scale(0.96);
+  animation-delay: 360ms;
+}
+
+.hero-phone--right {
+  --hero-phone-from: translate3d(1rem, 2.25rem, 0) rotate(12deg) scale(0.94);
+  animation-delay: 480ms;
+}
+
+@media (min-width: 768px) {
+  .hero-phone--left {
+    --hero-phone-from: translate3d(-1.25rem, 2.75rem, 0) rotate(-16deg)
+      scale(0.94);
+  }
+
+  .hero-phone--center {
+    --hero-phone-from: translate3d(0, 3.25rem, 0) scale(0.96);
+  }
+
+  .hero-phone--right {
+    --hero-phone-from: translate3d(1.25rem, 2.75rem, 0) rotate(16deg)
+      scale(0.94);
+  }
+}
+
+.hero-phone-side {
+  --hero-phone-from: translate3d(0, 2.75rem, 0)
+    rotate(var(--phone-rotate, -8deg)) scale(0.94);
+  --hero-phone-to: rotate(var(--phone-rotate, -8deg));
+  transform: rotate(var(--phone-rotate, -8deg));
+  animation-delay: 280ms;
+}
+
+.hero-phone-center {
+  --hero-phone-from: translate3d(0, 3rem, 0) scale(0.97);
+  animation-delay: 400ms;
+}
+
+@keyframes hero-phone-in {
+  from {
+    opacity: 0;
+    transform: var(--hero-phone-from);
+  }
+  to {
+    opacity: 1;
+    transform: var(--hero-phone-to, none);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-phone,
+  .hero-phone-side,
+  .hero-phone-center {
+    animation: none;
+    opacity: 1;
   }
 }
 
@@ -321,13 +401,13 @@ html {
 .hero-wash {
   background:
     radial-gradient(
-      52rem 30rem at 50% -6rem,
-      color-mix(in srgb, var(--primary) 13%, transparent),
-      transparent 70%
+      48rem 28rem at 50% -8rem,
+      color-mix(in srgb, var(--primary) 9%, transparent),
+      transparent 72%
     ),
     radial-gradient(
-      40rem 26rem at 88% 22rem,
-      color-mix(in srgb, var(--primary) 6%, transparent),
+      36rem 24rem at 90% 24rem,
+      color-mix(in srgb, var(--primary) 4%, transparent),
       transparent 70%
     );
 }

@@ -39,7 +39,7 @@ export const FaqSection = async () => {
   return (
     <section
       id="faq"
-      className="mx-auto max-w-3xl scroll-mt-24 px-5 py-24 md:py-32"
+      className="mx-auto max-w-3xl scroll-mt-24 px-5 pt-16 pb-28 md:pt-20 md:pb-40"
     >
       <script
         type="application/ld+json"

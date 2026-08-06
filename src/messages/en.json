@@ -1,7 +1,7 @@
 {
   "meta": {
     "siteName": "Readen",
-    "siteDescription": "The reading app you close. Build a calm personal library, become the reader you meant to be — no feeds, no noise.",
+    "siteDescription": "The reading app you close. Build a calm personal library, become the reader you meant to be. No feeds, no noise.",
     "homeTitle": "Readen · The reading app you close",
     "aboutTitle": "About",
     "blogTitle": "Blog",
@@ -11,6 +11,8 @@
     "ogTagline": "Become the reader you meant to be."
   },
   "nav": {
+    "features": "Features",
+    "discover": "Discover",
     "blog": "Blog",
     "about": "About",
     "faq": "FAQ",
@@ -21,7 +23,7 @@
   "hero": {
     "overline": "The reading app you close",
     "title": "Become the reader you <i>meant</i> to be.",
-    "tagline": "Build a library you're proud of — calm, beautiful, and entirely yours.",
+    "tagline": "Build a library you're proud of.<br></br>Calm, beautiful, and entirely yours.",
     "subline": "No feeds. No noise. Just the books that shaped you, kept on a shelf that feels real.",
     "appStoreEyebrow": "Download on the",
     "appStoreLabel": "App Store",
@@ -31,7 +33,7 @@
   "library": {
     "overline": "Your library",
     "title": "Every book you own, in one calm place.",
-    "body": "Readen keeps your whole reading life on one shelf: what you want to read, what you are reading, and what you have finished.",
+    "body": "Want to read, reading, and read. Your whole reading life on one shelf.",
     "statusWant": "Want to read",
     "statusReading": "Reading",
     "statusRead": "Read",
@@ -59,26 +61,26 @@
     "pillar1Body": "No social feed, no streak pressure. Your library is a quiet room that belongs to you alone.",
     "pillar2Title": "Craft you feel",
     "pillar2Eyebrow": "Details that matter",
-    "pillar2Body": "Covers that behave like books. Glass shelves. The small physical details that make you want to open the app — and then close it to read.",
+    "pillar2Body": "Covers that behave like books. Glass shelves. The small physical details that make you want to open the app, and then close it to read.",
     "pillar3Title": "Readers worth trusting",
     "pillar3Eyebrow": "Curated, not algorithmic",
-    "pillar3Body": "Discover books because a founder, scientist, or artist said they mattered — not because an algorithm needed your attention."
+    "pillar3Body": "Discover books because a founder, scientist, or artist said they mattered, not because an algorithm needed your attention."
   },
   "moments": {
     "moment1": {
       "overline": "Morning",
       "title": "One book. One light. No notifications.",
-      "body": "The best reading moments are small. Readen is built for the quiet hour before the day starts — when the only thing competing for your attention is the next page."
+      "body": "Built for the quiet hour before the day starts, when the only competition is the next page."
     },
     "moment2": {
       "overline": "Evening",
       "title": "Pick up exactly where you left off.",
-      "body": "Your page is always saved. Your shelf always looks the same. Come back tonight to the same calm room, not a feed that moved on without you."
+      "body": "Your page is always saved. Come back to the same calm room, not a feed that moved on."
     }
   },
   "story": {
     "overline": "One reader's story",
-    "quote": "I used to buy books I never opened. Readen didn't fix that with guilt — it fixed it with pride. Opening my shelf feels good. I finished three books last month for the first time in years.",
+    "quote": "I used to buy books I never opened. Readen didn't fix that with guilt. It fixed it with pride. Opening my shelf feels good. I finished three books last month for the first time in years.",
     "name": "Elena M.",
     "context": "Product designer · Early reader",
     "label": "San Francisco"
@@ -137,7 +139,7 @@
   "widgets": {
     "overline": "Beyond the app",
     "title": "Your book follows you home.",
-    "body": "A widget on your Home Screen, a live session in the Dynamic Island, a literary quote that changes with the book you're reading. Readen stays close — and never asks for your attention.",
+    "body": "Home Screen, Dynamic Island, a quote for the book you're reading. Close by, never loud.",
     "continueCaption": "Continue reading",
     "sessionCaption": "Reading session",
     "bookTitle": "The Alchemist",
@@ -147,7 +149,7 @@
     "quoteAuthor": "George R.R. Martin",
     "lockDate": "Sunday, June 29",
     "point1Title": "On your Home Screen",
-    "point1Body": "Your current book, its cover, and your progress — one tap and you're back on the page.",
+    "point1Body": "Your current book, its cover, and your progress. One tap and you're back on the page.",
     "point2Title": "In the Dynamic Island",
     "point2Body": "Start a session and a quiet timer keeps you company until you close the book.",
     "point3Title": "A quote that knows your book",
@@ -221,7 +223,7 @@
   "download": {
     "overline": "Ready when you are",
     "title": "Your library is waiting.",
-    "body": "Free on iOS and Android. No ads, no feeds. Just your books — beautifully kept.",
+    "body": "Free on iOS and Android. No ads, no feeds. Just your books, beautifully kept.",
     "appStoreEyebrow": "Download on the",
     "appStoreLabel": "App Store",
     "playStoreEyebrow": "Get it on",

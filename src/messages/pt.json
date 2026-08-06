@@ -1,7 +1,7 @@
 {
   "meta": {
     "siteName": "Readen",
-    "siteDescription": "O app de leitura que você fecha. Construa uma biblioteca tranquila e torne-se o leitor que você quer ser — sem feeds, sem ruído.",
+    "siteDescription": "O app de leitura que você fecha. Construa uma biblioteca tranquila e torne-se o leitor que você quer ser. Sem feeds, sem ruído.",
     "homeTitle": "Readen · O app de leitura que você fecha",
     "aboutTitle": "Sobre",
     "blogTitle": "Blog",
@@ -11,6 +11,8 @@
     "ogTagline": "Torne-se o leitor que você quer ser."
   },
   "nav": {
+    "features": "Recursos",
+    "discover": "Descobrir",
     "blog": "Blog",
     "about": "Sobre",
     "faq": "FAQ",
@@ -21,7 +23,7 @@
   "hero": {
     "overline": "O app de leitura que você fecha",
     "title": "Torne-se o leitor que você <i>quer</i> ser.",
-    "tagline": "Construa uma biblioteca da qual você se orgulhe — tranquila, bonita e só sua.",
+    "tagline": "Construa uma biblioteca da qual você se orgulhe.<br></br>Tranquila, bonita e só sua.",
     "subline": "Sem feeds. Sem ruído. Só os livros que te formaram, numa estante que parece real.",
     "appStoreEyebrow": "Baixe na",
     "appStoreLabel": "App Store",
@@ -31,7 +33,7 @@
   "library": {
     "overline": "Sua biblioteca",
     "title": "Cada livro seu, em um só lugar tranquilo.",
-    "body": "O Readen reúne toda a sua vida de leitura em uma estante: o que você quer ler, o que está lendo e o que já terminou.",
+    "body": "Quero ler, lendo e lido. Toda a sua vida de leitura em uma estante.",
     "statusWant": "Quero ler",
     "statusReading": "Lendo",
     "statusRead": "Lido",
@@ -59,26 +61,26 @@
     "pillar1Body": "Sem feed social, sem pressão de sequência. Sua biblioteca é um quarto tranquilo que pertence só a você.",
     "pillar2Title": "Craft que se sente",
     "pillar2Eyebrow": "Detalhes que importam",
-    "pillar2Body": "Capas que se comportam como livros. Estantes de vidro. Os pequenos detalhes físicos que dão vontade de abrir o app — e fechá-lo para ler.",
+    "pillar2Body": "Capas que se comportam como livros. Estantes de vidro. Os pequenos detalhes físicos que dão vontade de abrir o app, e fechá-lo para ler.",
     "pillar3Title": "Leitores em quem confiar",
     "pillar3Eyebrow": "Curadoria, não algoritmo",
-    "pillar3Body": "Descubra livros porque um fundador, cientista ou artista disse que importavam — não porque um algoritmo precisava da sua atenção."
+    "pillar3Body": "Descubra livros porque um fundador, cientista ou artista disse que importavam, não porque um algoritmo precisava da sua atenção."
   },
   "moments": {
     "moment1": {
       "overline": "Manhã",
       "title": "Um livro. Uma luz. Sem notificações.",
-      "body": "Os melhores momentos de leitura são pequenos. O Readen foi feito para a hora tranquila antes do dia começar — quando a única coisa competindo pela sua atenção é a próxima página."
+      "body": "Feito para a hora tranquila antes do dia começar, quando a única competição é a próxima página."
     },
     "moment2": {
       "overline": "Noite",
       "title": "Retome exatamente de onde parou.",
-      "body": "Sua página fica sempre salva. Sua estante sempre parece a mesma. Volte esta noite ao mesmo lugar tranquilo, não a um feed que seguiu sem você."
+      "body": "Sua página fica sempre salva. Volte ao mesmo lugar tranquilo, não a um feed que seguiu sem você."
     }
   },
   "story": {
     "overline": "A história de uma leitora",
-    "quote": "Eu comprava livros que nunca abria. O Readen não resolveu isso com culpa — resolveu com orgulho. Abrir minha estante faz bem. Terminei três livros no mês passado pela primeira vez em anos.",
+    "quote": "Eu comprava livros que nunca abria. O Readen não resolveu isso com culpa. Resolveu com orgulho. Abrir minha estante faz bem. Terminei três livros no mês passado pela primeira vez em anos.",
     "name": "Elena M.",
     "context": "Designer de produto · Primeira leitora",
     "label": "San Francisco"
@@ -137,7 +139,7 @@
   "widgets": {
     "overline": "Além do app",
     "title": "Seu livro te acompanha em casa.",
-    "body": "Um widget na tela de início, uma sessão ao vivo na Dynamic Island, uma citação literária que muda com o livro que você está lendo. O Readen fica por perto — e nunca pede a sua atenção.",
+    "body": "Tela de início, Dynamic Island, uma citação do livro que você está lendo. Perto, sem pedir atenção.",
     "continueCaption": "Continue lendo",
     "sessionCaption": "Sessão de leitura",
     "bookTitle": "O Alquimista",
@@ -147,7 +149,7 @@
     "quoteAuthor": "George R.R. Martin",
     "lockDate": "domingo, 29 de junho",
     "point1Title": "Na sua tela de início",
-    "point1Body": "Seu livro atual, a capa e o progresso — um toque e você volta para a página.",
+    "point1Body": "Seu livro atual, a capa e o progresso. Um toque e você volta para a página.",
     "point2Title": "Na Dynamic Island",
     "point2Body": "Comece uma sessão e um cronômetro discreto te acompanha até você fechar o livro.",
     "point3Title": "Uma citação que conhece seu livro",
@@ -221,7 +223,7 @@
   "download": {
     "overline": "Quando você estiver pronto",
     "title": "Sua biblioteca está esperando.",
-    "body": "Grátis no iOS e Android. Sem anúncios, sem feeds. Só os seus livros — bem guardados.",
+    "body": "Grátis no iOS e Android. Sem anúncios, sem feeds. Só os seus livros, bem guardados.",
     "appStoreEyebrow": "Baixe na",
     "appStoreLabel": "App Store",
     "playStoreEyebrow": "Disponível no",

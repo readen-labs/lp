@@ -1,38 +1,31 @@
-import { getTranslations } from 'next-intl/server';
+import { getLocale, getTranslations } from 'next-intl/server';
 
 import { STORE_LINKS } from '@/constants/config';
-import { Cover } from '@/components/brand/cover';
-import { Shelf } from '@/components/brand/shelf';
-import { SHELF_BOOKS } from '@/data/shelf-books';
-import { StarRating } from '@/components/ui/star-rating';
 import { StoreBadge } from '@/components/ui/store-badge';
-
-const HERO_COVER_WIDTH = 128;
-
-const PRIORITY_COVERS = 6;
+import { PhoneFrame } from '@/components/brand/phone-frame';
+import { FEATURE_MOCK_BOOKS } from '@/data/feature-mock-books';
+import { HeroPhoneStage } from '@/components/marketing/hero-phone-stage';
+import {
+  ScanMock,
+  GoalsMock,
+  SessionMock,
+} from '@/components/marketing/feature-mocks';
 
 export const HeroSection = async () => {
+  const locale = await getLocale();
   const t = await getTranslations('hero');
-  const tReviews = await getTranslations('reviews');
-  const rating = Number.parseFloat(tReviews('rating'));
+  const tFeatures = await getTranslations('features');
+  const books = FEATURE_MOCK_BOOKS;
 
   return (
-    <section className="hero-wash relative -mt-20 min-h-[92vh] overflow-hidden pt-40 pb-16 md:min-h-[94vh] md:pt-48 md:pb-20">
-      <div className="mx-auto flex max-w-5xl flex-col items-center px-5 text-center">
-        <p
-          className="glass-pill animate-rise inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-[0.8rem] font-medium text-foreground/70"
-          style={{ '--rise-delay': '0ms' } as React.CSSProperties}
-        >
-          <span className="h-1.5 w-1.5 rounded-full bg-primary" aria-hidden />
-          {t('overline')}
-        </p>
-
+    <section className="hero-wash relative overflow-x-clip pt-8 pb-16 md:overflow-x-visible md:pt-14 md:pb-24">
+      <div className="mx-auto flex max-w-2xl flex-col items-center px-5 text-center">
         <h1
-          className="display animate-rise mt-6 max-w-4xl"
+          className="display animate-rise max-w-2xl"
           style={
             {
-              fontSize: 'clamp(2.75rem, 8.5vw, 6.25rem)',
-              '--rise-delay': '90ms',
+              fontSize: 'clamp(1.85rem, 7vw, 3.5rem)',
+              '--rise-delay': '0ms',
             } as React.CSSProperties
           }
         >
@@ -42,22 +35,17 @@ export const HeroSection = async () => {
         </h1>
 
         <p
-          className="animate-rise mt-6 max-w-2xl text-lg leading-relaxed text-foreground/60 md:text-xl"
-          style={{ '--rise-delay': '180ms' } as React.CSSProperties}
+          className="animate-rise mt-4 max-w-[28ch] text-pretty text-[1.05rem] leading-snug tracking-[-0.011em] text-foreground/55 sm:max-w-[32ch] md:mt-5 md:max-w-[34ch] md:text-[1.125rem] md:leading-snug"
+          style={{ '--rise-delay': '90ms' } as React.CSSProperties}
         >
-          {t('tagline')}
-        </p>
-
-        <p
-          className="animate-rise mt-4 max-w-xl text-[0.95rem] leading-relaxed text-foreground/45"
-          style={{ '--rise-delay': '240ms' } as React.CSSProperties}
-        >
-          {t('subline')}
+          {t.rich('tagline', {
+            br: () => <br />,
+          })}
         </p>
 
         <div
-          className="animate-rise mt-9 flex flex-wrap items-center justify-center gap-3"
-          style={{ '--rise-delay': '300ms' } as React.CSSProperties}
+          className="animate-rise mt-7 -mx-1 flex flex-nowrap items-center justify-center gap-1 sm:mx-0 sm:gap-3 md:mt-8 md:gap-3.5"
+          style={{ '--rise-delay': '160ms' } as React.CSSProperties}
         >
           <StoreBadge
             store="ios"
@@ -72,41 +60,77 @@ export const HeroSection = async () => {
             label={t('playStoreLabel')}
           />
         </div>
-
-        <div
-          className="animate-rise mt-6 flex items-center gap-2.5"
-          style={{ '--rise-delay': '360ms' } as React.CSSProperties}
-        >
-          <StarRating
-            rating={rating}
-            starClassName="h-3.5 w-3.5"
-            label={tReviews('ratingStars', { rating: tReviews('rating') })}
-          />
-          <p className="text-sm text-foreground/50">
-            <span className="font-semibold text-foreground/80">
-              {tReviews('rating')}
-            </span>{' '}
-            {tReviews('ratingLabel')}
-          </p>
-        </div>
       </div>
 
-      <div
-        className="animate-rise relative mx-auto mt-14 max-w-6xl px-4 md:mt-16"
-        style={{ '--rise-delay': '400ms' } as React.CSSProperties}
-      >
-        <Shelf drift>
-          {SHELF_BOOKS.map((book, index) => (
-            <Cover
-              key={book.isbn}
-              src={book.cover}
-              alt={book.title}
-              width={HERO_COVER_WIDTH}
-              priority={index < PRIORITY_COVERS}
+      <HeroPhoneStage
+        left={
+          <PhoneFrame size="fill">
+            <ScanMock
+              hint={tFeatures('scan.hint')}
+              coverSrc={books.scan.cover}
             />
-          ))}
-        </Shelf>
-      </div>
+          </PhoneFrame>
+        }
+        center={
+          <PhoneFrame size="fill">
+            <SessionMock
+              coverSrc={books.session.cover}
+              bookTitle={tFeatures('mock.bookTitle')}
+              bookAuthor={tFeatures('mock.bookAuthor')}
+              timer={tFeatures('mock.timer')}
+              pageProgress={tFeatures('mock.pageProgress')}
+              endLabel={tFeatures('mock.end')}
+              quote={tFeatures('mock.quote')}
+              quoteHighlight={tFeatures('mock.quoteHighlight')}
+              quoteAuthor={tFeatures('mock.quoteAuthor')}
+            />
+          </PhoneFrame>
+        }
+        right={
+          <PhoneFrame size="fill">
+            <GoalsMock
+              overline={tFeatures('mock.reading')}
+              title={tFeatures('goals.title')}
+              periods={[
+                tFeatures('mock.week'),
+                tFeatures('mock.month'),
+                tFeatures('mock.year'),
+              ]}
+              range={tFeatures('mock.thisWeek')}
+              heroHours={tFeatures('mock.heroHours')}
+              heroHoursUnit={tFeatures('mock.heroHoursUnit')}
+              cards={[
+                {
+                  label: tFeatures('mock.booksFinished'),
+                  value: tFeatures('mock.booksFinishedValue'),
+                },
+                {
+                  label: tFeatures('mock.daysRead'),
+                  value: tFeatures('mock.daysReadValue'),
+                  suffix: tFeatures('mock.daysReadSuffix'),
+                },
+                {
+                  label: tFeatures('mock.pagesRead'),
+                  value: tFeatures('mock.pagesReadValue'),
+                },
+                {
+                  label: tFeatures('mock.longestSitting'),
+                  value: tFeatures('mock.longestSittingValue'),
+                },
+              ]}
+              mostReadAuthor={tFeatures('mock.mostReadAuthor')}
+              authorName={tFeatures('mock.authorName')}
+              authorCoverSrc={books.author.cover}
+              whatYouRead={tFeatures('mock.whatYouRead')}
+              subjects={[
+                { name: tFeatures('mock.subject1'), percent: 62 },
+                { name: tFeatures('mock.subject2'), percent: 38 },
+              ]}
+              locale={locale}
+            />
+          </PhoneFrame>
+        }
+      />
     </section>
   );
 };
