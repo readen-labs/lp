@@ -1,17 +1,23 @@
+import { Iphone } from '@/components/ui/iphone';
+
 import type { PhoneFrameProps } from './phone-frame.types';
 
-/* Minimal device frame for the feature vignettes — ink body, dynamic-island
-   pill, screen inherits the theme background so mocks read as the real app. */
-export const PhoneFrame = ({ children, className = '' }: PhoneFrameProps) => (
+const SIZE_CLASS = {
+  md: 'w-[min(264px,100%)]',
+  lg: 'w-[min(280px,100%)] md:w-[300px]',
+  fill: 'w-full',
+} as const;
+
+/* Device frame for feature vignettes — Magic UI iPhone chrome wrapping the
+   live React mocks so screens stay pixel-honest to the app. */
+export const PhoneFrame = ({
+  children,
+  className = '',
+  size = 'md',
+}: PhoneFrameProps) => (
   <div
-    className={`relative w-[264px] shrink-0 rounded-[2.6rem] bg-ink p-[10px] shadow-[0_24px_60px_-20px_rgba(0,0,0,0.4)] ring-1 ring-black/10 dark:ring-white/10 ${className}`}
+    className={`relative shrink-0 drop-shadow-[0_28px_70px_-24px_rgba(0,0,0,0.45)] ${SIZE_CLASS[size]} ${className}`}
   >
-    <div className="relative aspect-[9/19] overflow-hidden rounded-[2rem] bg-background">
-      <div
-        className="absolute top-2.5 left-1/2 z-20 h-[18px] w-[72px] -translate-x-1/2 rounded-full bg-ink"
-        aria-hidden
-      />
-      {children}
-    </div>
+    <Iphone>{children}</Iphone>
   </div>
 );

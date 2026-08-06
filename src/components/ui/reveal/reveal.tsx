@@ -4,8 +4,8 @@ import { useRef, useEffect } from 'react';
 
 import type { RevealProps } from './reveal.types';
 
-const THRESHOLD = 0.15;
-const ROOT_MARGIN = '0px 0px -8% 0px';
+const THRESHOLD = 0.18;
+const ROOT_MARGIN = '0px 0px -10% 0px';
 
 export const Reveal = ({
   children,

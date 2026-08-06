@@ -54,7 +54,7 @@ export const SiteFooter = async () => {
   ];
 
   return (
-    <footer className="footer-ink relative mt-10 overflow-hidden text-foreground">
+    <footer className="footer-ink relative overflow-hidden text-foreground">
       <div className="mx-auto max-w-6xl px-5 pt-20 pb-10">
         <div className="grid gap-14 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
           <div>

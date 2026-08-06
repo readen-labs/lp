@@ -25,7 +25,7 @@ export const ReviewsSection = async () => {
   const aggregateRating = Number.parseFloat(t('rating'));
 
   return (
-    <section className="py-24 md:py-32">
+    <section className="py-28 md:py-40">
       <div className="mx-auto max-w-6xl px-5">
         <Reveal>
           <EditorialHeader
@@ -55,8 +55,8 @@ export const ReviewsSection = async () => {
         </Reveal>
       </div>
 
-      <Reveal delay={160} className="mt-14">
-        <Marquee durationS={64} gap={20} pauseOnHover>
+      <div className="mt-14">
+        <Marquee durationS={36} gap={20} pauseOnHover>
           {REVIEW_KEYS.map((key) => (
             <figure
               key={key}
@@ -85,7 +85,7 @@ export const ReviewsSection = async () => {
             </figure>
           ))}
         </Marquee>
-      </Reveal>
+      </div>
     </section>
   );
 };

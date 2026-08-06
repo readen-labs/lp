@@ -31,7 +31,7 @@ export default async function LocaleLayout({
   return (
     <NextIntlClientProvider messages={messages}>
       <SiteHeader />
-      <main className="flex-1 pt-20">{children}</main>
+      <main className="flex-1 pt-[4.5rem] md:pt-[5.75rem]">{children}</main>
       <SiteFooter />
     </NextIntlClientProvider>
   );
