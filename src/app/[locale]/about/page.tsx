@@ -1,16 +1,41 @@
-import Image from 'next/image';
-
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 
-import { buildMetadata } from '@/lib/seo';
 import type { Locale } from '@/i18n/routing';
 import { Reveal } from '@/components/ui/reveal';
+import { Cover } from '@/components/brand/cover';
+import { Shelf } from '@/components/brand/shelf';
+import { SHELF_BOOKS } from '@/data/shelf-books';
+import { buildLocalizedUrl } from '@/utils/locale-path';
+import { NumberTicker } from '@/components/ui/number-ticker';
+import { MARKETING_IMAGES } from '@/constants/marketing-images';
+import { buildMetadata, buildBreadcrumbJsonLd } from '@/lib/seo';
 import { CATALOG_STATS, CONTACT_EMAIL } from '@/constants/config';
 import { EditorialHeader } from '@/components/brand/editorial-header';
+import { DownloadCtaSection } from '@/components/marketing/download-cta-section';
+import { EditorialPhotoPanel } from '@/components/marketing/editorial-photo-panel';
 
 type AboutPageProps = {
   params: Promise<{ locale: string }>;
 };
+
+const REVEAL_DELAY_INTRO_MS = 120;
+
+const REVEAL_DELAY_PHOTO_MS = 200;
+
+const REVEAL_STAGGER_VALUE_MS = 80;
+
+const SHELF_COVER_WIDTH = 88;
+
+const SHELF_COVER_GAP = 14;
+
+const SHELF_BOOK_COUNT = 6;
+
+const SectionLabel = ({ children }: { children: React.ReactNode }) => (
+  <h2 className="mb-6 flex items-center gap-2.5 text-[0.8rem] font-semibold tracking-[0.14em] uppercase text-primary-deep">
+    <span className="h-px w-6 bg-primary-deep/60" aria-hidden />
+    {children}
+  </h2>
+);
 
 export const generateMetadata = async ({ params }: AboutPageProps) => {
   const { locale } = await params;
@@ -18,8 +43,8 @@ export const generateMetadata = async ({ params }: AboutPageProps) => {
 
   return buildMetadata({
     locale: locale as Locale,
-    title: `${t('aboutTitle')} · ${t('siteName')}`,
-    description: t('siteDescription'),
+    title: t('aboutTitle'),
+    description: t('aboutDescription'),
     path: '/about',
     siteName: t('siteName'),
   });
@@ -28,13 +53,11 @@ export const generateMetadata = async ({ params }: AboutPageProps) => {
 export default async function AboutPage({ params }: AboutPageProps) {
   const { locale } = await params;
   setRequestLocale(locale);
-  const t = await getTranslations('about');
 
-  const numbers = t('numbers', {
-    books: CATALOG_STATS.books.toLocaleString(locale),
-    people: CATALOG_STATS.people.toLocaleString(locale),
-    recommendations: CATALOG_STATS.recommendations.toLocaleString(locale),
-  });
+  const t = await getTranslations('about');
+  const tNav = await getTranslations('nav');
+  const tMeta = await getTranslations('meta');
+  const tDiscover = await getTranslations('discover');
 
   const values = [
     { title: t('value1Title'), body: t('value1') },
@@ -42,97 +65,163 @@ export default async function AboutPage({ params }: AboutPageProps) {
     { title: t('value3Title'), body: t('value3') },
   ];
 
+  const stats = [
+    { value: CATALOG_STATS.books, label: tDiscover('statBooks') },
+    { value: CATALOG_STATS.people, label: tDiscover('statPeople') },
+    {
+      value: CATALOG_STATS.recommendations,
+      label: tDiscover('statRecommendations'),
+    },
+  ];
+
+  const shelfBooks = SHELF_BOOKS.slice(0, SHELF_BOOK_COUNT);
+
+  const breadcrumbJsonLd = buildBreadcrumbJsonLd([
+    { name: tNav('home'), url: buildLocalizedUrl(locale as Locale, '/') },
+    {
+      name: tMeta('aboutTitle'),
+      url: buildLocalizedUrl(locale as Locale, '/about'),
+    },
+  ]);
+
   return (
-    <article className="mx-auto max-w-4xl px-5 pt-16 pb-24">
-      <EditorialHeader
-        overline={t('overline')}
-        title={t('title')}
-        size="hero"
-        headingLevel="h1"
+    <article>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
 
-      <Reveal className="mt-14">
-        <div className="relative aspect-[21/9] overflow-hidden rounded-[2rem] shadow-[0_30px_60px_-30px_rgba(0,0,0,0.35)]">
-          <Image
-            src="/images/library.jpg"
-            alt=""
-            fill
-            priority
-            sizes="(max-width: 896px) 100vw, 896px"
-            className="object-cover"
-          />
+      <section className="hero-wash px-5 pt-16 pb-16 md:pt-24 md:pb-20">
+        <div className="mx-auto max-w-4xl text-center">
+          <Reveal>
+            <EditorialHeader
+              overline={t('overline')}
+              title={t('title')}
+              size="hero"
+              align="center"
+              headingLevel="h1"
+            />
+          </Reveal>
+          <Reveal delay={REVEAL_DELAY_INTRO_MS}>
+            <p className="mx-auto mt-7 max-w-2xl text-lg leading-relaxed text-foreground/60">
+              {t('intro')}
+            </p>
+          </Reveal>
         </div>
-      </Reveal>
+      </section>
 
-      <Reveal className="mt-20">
-        <section className="grid gap-8 md:grid-cols-[200px_1fr]">
-          <h2 className="font-serif text-2xl font-bold">{t('storyTitle')}</h2>
-          <p className="text-lg leading-relaxed text-foreground/75">
-            {t('story')}
-          </p>
-        </section>
-      </Reveal>
+      <div className="mx-auto max-w-5xl px-5">
+        <Reveal delay={REVEAL_DELAY_PHOTO_MS} scale>
+          <div className="relative aspect-[21/9] overflow-hidden rounded-[2rem]">
+            <EditorialPhotoPanel
+              src={MARKETING_IMAGES.heroLibrary}
+              alt=""
+              cropKey="heroLibrary"
+              priority
+            />
+          </div>
+        </Reveal>
 
-      <Reveal className="mt-20">
-        <section>
-          <h2 className="mb-8 font-serif text-2xl font-bold">
-            {t('valuesTitle')}
-          </h2>
-          <div className="grid gap-5 sm:grid-cols-3">
+        <Reveal className="mt-24 md:mt-32">
+          <section className="mx-auto max-w-3xl">
+            <SectionLabel>{t('storyTitle')}</SectionLabel>
+            <p className="font-serif text-[1.4rem] leading-[1.65] tracking-tight text-foreground/85 md:text-[1.6rem]">
+              {t('story')}
+            </p>
+          </section>
+        </Reveal>
+
+        <section className="mt-24 md:mt-32">
+          <Reveal>
+            <SectionLabel>{t('valuesTitle')}</SectionLabel>
+          </Reveal>
+          <div className="grid gap-6 md:grid-cols-3">
             {values.map((value, index) => (
-              <div
+              <Reveal
                 key={value.title}
-                className="rounded-2xl bg-card p-7 shadow-[0_10px_30px_-18px_rgba(0,0,0,0.25)]"
+                delay={index * REVEAL_STAGGER_VALUE_MS}
+                scale
               >
-                <p className="font-serif text-sm font-bold text-primary-deep">
-                  0{index + 1}
-                </p>
-                <h3 className="mt-3 font-serif text-xl font-semibold tracking-tight">
-                  {value.title}
-                </h3>
-                <p className="mt-3 text-sm leading-relaxed text-foreground/60">
-                  {value.body}
-                </p>
-              </div>
+                <div className="flex h-full flex-col rounded-[1.75rem] bg-card p-8">
+                  <p className="font-serif text-sm font-bold text-primary-deep">
+                    0{index + 1}
+                  </p>
+                  <h3 className="font-serif mt-3 text-2xl font-semibold tracking-tight">
+                    {value.title}
+                  </h3>
+                  <p className="mt-4 flex-1 leading-relaxed text-foreground/65">
+                    {value.body}
+                  </p>
+                </div>
+              </Reveal>
             ))}
           </div>
         </section>
-      </Reveal>
 
-      <Reveal className="mt-20">
-        <section className="rounded-[2rem] bg-card px-8 py-10">
-          <h2 className="mb-4 font-serif text-2xl font-bold">
-            {t('numbersTitle')}
-          </h2>
-          <p className="font-serif text-xl leading-relaxed text-foreground/75">
-            {numbers}
-          </p>
-        </section>
-      </Reveal>
+        <Reveal className="mt-24 md:mt-32" scale>
+          <section className="rounded-[2rem] bg-card px-8 py-10 md:px-12">
+            <SectionLabel>{t('numbersTitle')}</SectionLabel>
+            <dl className="flex flex-wrap gap-x-12 gap-y-6">
+              {stats.map((stat) => (
+                <div key={stat.label}>
+                  <dt className="sr-only">{stat.label}</dt>
+                  <dd className="font-serif text-4xl font-semibold tabular-nums">
+                    <NumberTicker value={stat.value} locale={locale} />
+                    <span className="text-primary">+</span>
+                  </dd>
+                  <dd className="mt-1 text-sm text-foreground/50">
+                    {stat.label}
+                  </dd>
+                </div>
+              ))}
+            </dl>
+          </section>
+        </Reveal>
 
-      <Reveal className="mt-20">
-        <section className="grid gap-8 md:grid-cols-[200px_1fr]">
-          <h2 className="font-serif text-2xl font-bold">{t('roadmapTitle')}</h2>
-          <p className="text-lg leading-relaxed text-foreground/75">
-            {t('roadmap')}
-          </p>
+        <section className="mt-24 grid items-center gap-12 md:mt-32 md:grid-cols-2 md:gap-16">
+          <Reveal>
+            <div>
+              <SectionLabel>{t('roadmapTitle')}</SectionLabel>
+              <p className="text-lg leading-relaxed text-foreground/70">
+                {t('roadmap')}
+              </p>
+            </div>
+          </Reveal>
+          <Reveal delay={REVEAL_DELAY_INTRO_MS} scale>
+            <Shelf drift>
+              <div className="flex items-end" style={{ gap: SHELF_COVER_GAP }}>
+                {shelfBooks.map((book, index) => (
+                  <Cover
+                    key={book.isbn}
+                    src={book.cover}
+                    alt={book.title}
+                    width={SHELF_COVER_WIDTH}
+                    idle
+                    idleDelay={index}
+                  />
+                ))}
+              </div>
+            </Shelf>
+          </Reveal>
         </section>
-      </Reveal>
 
-      <Reveal className="mt-20">
-        <section className="grid gap-8 md:grid-cols-[200px_1fr]">
-          <h2 className="font-serif text-2xl font-bold">{t('contactTitle')}</h2>
-          <p className="text-lg leading-relaxed text-foreground/75">
-            {t('contactIntro')}{' '}
-            <a
-              href={`mailto:${CONTACT_EMAIL}`}
-              className="font-medium text-primary-deep underline-offset-4 hover:underline"
-            >
-              {CONTACT_EMAIL}
-            </a>
-          </p>
-        </section>
-      </Reveal>
+        <Reveal className="mt-24 pb-24 md:mt-32 md:pb-28">
+          <section className="mx-auto max-w-3xl">
+            <SectionLabel>{t('contactTitle')}</SectionLabel>
+            <p className="text-lg leading-relaxed text-foreground/70">
+              {t('contactIntro')}{' '}
+              <a
+                href={`mailto:${CONTACT_EMAIL}`}
+                className="font-medium text-primary-deep underline-offset-4 hover:underline"
+              >
+                {CONTACT_EMAIL}
+              </a>
+            </p>
+          </section>
+        </Reveal>
+      </div>
+
+      <DownloadCtaSection />
     </article>
   );
 }

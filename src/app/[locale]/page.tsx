@@ -20,13 +20,16 @@ export const generateMetadata = async ({ params }: HomePageProps) => {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'meta' });
 
-  return buildMetadata({
-    locale: locale as Locale,
-    title: t('homeTitle'),
-    description: t('siteDescription'),
-    path: '/',
-    siteName: t('siteName'),
-  });
+  return {
+    ...buildMetadata({
+      locale: locale as Locale,
+      title: t('homeTitle'),
+      description: t('homeDescription'),
+      path: '/',
+      siteName: t('siteName'),
+    }),
+    title: { absolute: t('homeTitle') },
+  };
 };
 
 export default async function HomePage({ params }: HomePageProps) {

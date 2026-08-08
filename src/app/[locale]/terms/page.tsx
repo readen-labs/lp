@@ -14,7 +14,7 @@ export const generateMetadata = async ({ params }: TermsPageProps) => {
 
   return buildMetadata({
     locale: locale as Locale,
-    title: `${t('termsTitle')} · ${t('siteName')}`,
+    title: t('termsTitle'),
     description: t('siteDescription'),
     path: '/terms',
     siteName: t('siteName'),
@@ -28,9 +28,13 @@ export default async function TermsPage({ params }: TermsPageProps) {
 
   const sections = [
     { title: t('terms.use'), body: t('terms.useBody') },
+    { title: t('terms.account'), body: t('terms.accountBody') },
     { title: t('terms.content'), body: t('terms.contentBody') },
+    { title: t('terms.bookData'), body: t('terms.bookDataBody') },
+    { title: t('terms.acceptable'), body: t('terms.acceptableBody') },
     { title: t('terms.termination'), body: t('terms.terminationBody') },
     { title: t('terms.liability'), body: t('terms.liabilityBody') },
+    { title: t('terms.changes'), body: t('terms.changesBody') },
     { title: t('terms.contact'), body: t('terms.contactBody') },
   ];
 

@@ -14,7 +14,7 @@ export const generateMetadata = async ({ params }: PrivacyPageProps) => {
 
   return buildMetadata({
     locale: locale as Locale,
-    title: `${t('privacyTitle')} · ${t('siteName')}`,
+    title: t('privacyTitle'),
     description: t('siteDescription'),
     path: '/privacy',
     siteName: t('siteName'),
@@ -28,9 +28,12 @@ export default async function PrivacyPage({ params }: PrivacyPageProps) {
 
   const sections = [
     { title: t('privacy.collect'), body: t('privacy.collectBody') },
+    { title: t('privacy.notCollect'), body: t('privacy.notCollectBody') },
     { title: t('privacy.use'), body: t('privacy.useBody') },
+    { title: t('privacy.storage'), body: t('privacy.storageBody') },
     { title: t('privacy.thirdParty'), body: t('privacy.thirdPartyBody') },
-    { title: t('privacy.delete'), body: t('privacy.deleteBody') },
+    { title: t('privacy.rights'), body: t('privacy.rightsBody') },
+    { title: t('privacy.changes'), body: t('privacy.changesBody') },
     { title: t('privacy.contact'), body: t('privacy.contactBody') },
   ];
 

@@ -4,15 +4,15 @@ import type { StoreBadgeProps } from './store-badge.types';
 
 const BADGE = {
   ios: {
-    src: '/assets/apple-button.png',
-    darkSrc: '/assets/apple-button-dark.png',
+    src: '/assets/apple-button.svg',
+    darkSrc: '/assets/apple-button-dark.svg',
     width: 958,
     height: 320,
   },
   android: {
-    src: '/assets/google-play-badge.png',
-    darkSrc: '/assets/google-play-badge-dark.png',
-    width: 1057,
+    src: '/assets/google-play-badge.svg',
+    darkSrc: '/assets/google-play-badge-dark.svg',
+    width: 1080,
     height: 320,
   },
 } as const;

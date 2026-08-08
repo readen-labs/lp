@@ -8,6 +8,8 @@ const withNextIntl = createNextIntlPlugin('./src/i18n/request.ts');
 const nextConfig: NextConfig = {
   pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
   images: {
+    formats: ['image/avif', 'image/webp'],
+    minimumCacheTTL: 86400,
     remotePatterns: [
       {
         protocol: 'https',

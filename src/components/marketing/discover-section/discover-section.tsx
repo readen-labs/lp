@@ -68,7 +68,7 @@ export const DiscoverSection = async () => {
           <div className="grid grid-cols-2 gap-4">
             {DISCOVER_PEOPLE.map((person, index) => (
               <Reveal key={person.name} delay={index * REVEAL_STAGGER_MS} scale>
-                <div className="flex items-center gap-4 rounded-2xl bg-card px-5 py-4 shadow-[0_10px_30px_-18px_rgba(0,0,0,0.3)]">
+                <div className="flex items-center gap-4 rounded-2xl bg-card px-5 py-4">
                   <Image
                     src={person.avatar}
                     alt={person.name}

@@ -29,7 +29,7 @@ export const SiteFooter = async () => {
           href: STORE_LINKS.android,
           external: true,
         },
-        { label: t('faq'), href: '/#faq', external: false },
+        { label: t('faq'), href: '/faq', external: false },
       ],
     },
     {
@@ -37,6 +37,7 @@ export const SiteFooter = async () => {
       links: [
         { label: t('about'), href: '/about', external: false },
         { label: t('blog'), href: '/blog', external: false },
+        { label: t('careers'), href: '/careers', external: false },
         {
           label: t('support'),
           href: `mailto:${CONTACT_EMAIL}`,

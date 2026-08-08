@@ -6,9 +6,15 @@ export const BRAND_PRIMARY = '#10b981';
 
 export const BRAND_PRIMARY_LIGHT = '#34d399';
 
+export const BRAND_PRIMARY_DEEP = '#059669';
+
 export const BRAND_WHITE = '#ffffff';
 
 export const BRAND_BLACK = '#000000';
+
+export const BRAND_BACKGROUND_LIGHT = '#f1f1f1';
+
+export const BRAND_BACKGROUND_DARK = '#010101';
 
 export const COVER_PLACEHOLDER_BG = '#e8e8e8';
 

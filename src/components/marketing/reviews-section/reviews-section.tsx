@@ -36,7 +36,7 @@ export const ReviewsSection = async () => {
         </Reveal>
 
         <Reveal delay={100}>
-          <div className="mx-auto mt-8 flex w-fit items-center gap-3 rounded-full bg-card px-6 py-3 shadow-[0_10px_30px_-18px_rgba(0,0,0,0.3)]">
+          <div className="mx-auto mt-8 flex w-fit items-center gap-3 rounded-full bg-card px-6 py-3">
             <span className="font-serif text-2xl font-bold tabular-nums">
               <NumberTicker
                 value={aggregateRating}
@@ -60,7 +60,7 @@ export const ReviewsSection = async () => {
           {REVIEW_KEYS.map((key) => (
             <figure
               key={key}
-              className="flex w-[300px] shrink-0 flex-col justify-between gap-6 rounded-2xl bg-card p-7 shadow-[0_10px_30px_-18px_rgba(0,0,0,0.25)] sm:w-[360px]"
+              className="flex w-[300px] shrink-0 flex-col justify-between gap-6 rounded-2xl bg-card p-7 sm:w-[360px]"
             >
               <blockquote className="font-serif text-[1.1rem] leading-relaxed text-foreground/85">
                 “{t(`${key}.quote`)}”

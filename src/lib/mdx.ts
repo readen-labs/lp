@@ -1,3 +1,5 @@
+import { cache } from 'react';
+
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
@@ -10,6 +12,8 @@ export type BlogPost = {
   title: string;
   description: string;
   date: string;
+  updated?: string;
+  author?: string;
   cover?: string;
   tags: string[];
   readingMinutes: number;
@@ -32,35 +36,64 @@ export const getBlogSlugs = (locale: Locale): string[] => {
     .map((file) => file.replace(/\.mdx$/, ''));
 };
 
-export const getBlogPost = (locale: Locale, slug: string): BlogPost | null => {
-  const filePath = path.join(CONTENT_DIR, locale, `${slug}.mdx`);
-
-  if (!fs.existsSync(filePath)) {
-    return null;
+const toIsoDate = (value: unknown): string => {
+  if (value instanceof Date) {
+    return value.toISOString();
   }
 
-  const raw = fs.readFileSync(filePath, 'utf8');
-  const { data, content } = matter(raw);
-  const stats = readingTime(content);
-
-  return {
-    slug,
-    locale,
-    title: String(data.title ?? ''),
-    description: String(data.description ?? ''),
-    date: String(data.date ?? ''),
-    cover: data.cover ? String(data.cover) : undefined,
-    tags: Array.isArray(data.tags) ? data.tags.map(String) : [],
-    readingMinutes: Math.ceil(stats.minutes),
-    content,
-  };
+  return value ? String(value) : '';
 };
 
-export const getAllBlogPosts = (locale: Locale): BlogPost[] => {
+export const getBlogPost = cache(
+  (locale: Locale, slug: string): BlogPost | null => {
+    const filePath = path.join(CONTENT_DIR, locale, `${slug}.mdx`);
+
+    if (!fs.existsSync(filePath)) {
+      return null;
+    }
+
+    const raw = fs.readFileSync(filePath, 'utf8');
+    const { data, content } = matter(raw);
+    const stats = readingTime(content);
+
+    return {
+      slug,
+      locale,
+      title: String(data.title ?? ''),
+      description: String(data.description ?? ''),
+      date: toIsoDate(data.date),
+      updated: data.updated ? toIsoDate(data.updated) : undefined,
+      author: data.author ? String(data.author) : undefined,
+      cover: data.cover ? String(data.cover) : undefined,
+      tags: Array.isArray(data.tags) ? data.tags.map(String) : [],
+      readingMinutes: Math.ceil(stats.minutes),
+      content,
+    };
+  },
+);
+
+export const getAllBlogPosts = cache((locale: Locale): BlogPost[] => {
   return getBlogSlugs(locale)
     .map((slug) => getBlogPost(locale, slug))
     .filter((post): post is BlogPost => post !== null)
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+});
+
+export const getRelatedPosts = (
+  locale: Locale,
+  slug: string,
+  tags: string[],
+  limit: number,
+): BlogPost[] => {
+  const others = getAllBlogPosts(locale).filter((post) => post.slug !== slug);
+
+  const sharesTag = (post: BlogPost) =>
+    post.tags.some((tag) => tags.includes(tag));
+
+  return [
+    ...others.filter(sharesTag),
+    ...others.filter((p) => !sharesTag(p)),
+  ].slice(0, limit);
 };
 
 export const getAllBlogParams = (): { locale: Locale; slug: string }[] => {

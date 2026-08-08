@@ -3,14 +3,22 @@
     "siteName": "Readen",
     "siteDescription": "La app de lectura que cierras. Construye una biblioteca tranquila y conviértete en el lector que quieres ser. Sin feeds, sin ruido.",
     "homeTitle": "Readen · La app de lectura que cierras",
+    "homeDescription": "Un registro de lectura tranquilo para iOS y Android. Escanea tus libros, guárdalos en estantes que se sienten reales, lee en sesiones enfocadas y descubre títulos elegidos por lectores extraordinarios. Sin feeds, sin ruido.",
     "aboutTitle": "Nosotros",
+    "aboutDescription": "Por qué creamos Readen: una biblioteca personal en lugar de otro feed. La historia, los valores y el camino por delante de la app de lectura que cierras.",
     "blogTitle": "Blog",
+    "blogDescription": "Ensayos y guías prácticas para leer más, registrar tus libros y construir una biblioteca de la que te sientas orgulloso, del equipo detrás de Readen.",
+    "faqTitle": "Preguntas frecuentes",
+    "faqDescription": "Respuestas a las preguntas más comunes sobre Readen: plataformas, precio, escaneo de códigos de barras, uso sin conexión, tus datos y cómo funciona el catálogo curado.",
+    "careersTitle": "Empleo",
+    "careersDescription": "Trabaja en la app de lectura que cierras. Cómo construye el equipo de Readen, qué valoramos y cómo escribirnos.",
     "termsTitle": "Términos de servicio",
     "privacyTitle": "Política de privacidad",
     "notFoundTitle": "Página no encontrada",
     "ogTagline": "Conviértete en el lector que quieres ser."
   },
   "nav": {
+    "home": "Inicio",
     "features": "Funciones",
     "discover": "Descubrir",
     "blog": "Blog",
@@ -40,50 +48,6 @@
     "point1": "Tres estantes que lo mantienen claro: por leer, leyendo, leído.",
     "point2": "Tu página siempre queda guardada. Retoma cualquier libro justo donde lo dejaste.",
     "point3": "Redescubre los libros que ya tienes en vez de comprar otro que no abrirás."
-  },
-  "manifesto": {
-    "overline": "La creencia",
-    "quote": "Tu vida lectora merece una habitación propia, no un feed.",
-    "sub": "Por eso creamos una app que cierras, no una que te retiene."
-  },
-  "experience": {
-    "overline": "El lector en que te conviertes",
-    "title": "Una vida medida en libros, no en notificaciones.",
-    "body": "Abre Readen y el ruido se detiene. Sin feed que recorrer, sin números que perseguir. Solo tu estante, tu ritmo y el orgullo tranquilo de una vida dedicada a leer.",
-    "pullQuote": "Cierra la app. Abre un libro. Ese es el punto."
-  },
-  "identity": {
-    "overline": "Por qué eligen Readen",
-    "title": "Un refugio, no un feed.",
-    "body": "Los mejores productos respetan un momento. Readen le da a tu vida lectora una habitación propia, un oficio que se siente y libros elegidos por personas que valen la pena escuchar.",
-    "pillar1Title": "Tu habitación",
-    "pillar1Eyebrow": "Privada por diseño",
-    "pillar1Body": "Sin feed social, sin presión de rachas. Tu biblioteca es una habitación tranquila que te pertenece solo a ti.",
-    "pillar2Title": "Oficio que se siente",
-    "pillar2Eyebrow": "Detalles que importan",
-    "pillar2Body": "Portadas que se comportan como libros. Estantes de cristal. Los pequeños detalles físicos que te dan ganas de abrir la app, y cerrarla para leer.",
-    "pillar3Title": "Lectores en quien confiar",
-    "pillar3Eyebrow": "Curado, no algorítmico",
-    "pillar3Body": "Descubre libros porque un fundador, científico o artista dijo que importaban, no porque un algoritmo necesitaba tu atención."
-  },
-  "moments": {
-    "moment1": {
-      "overline": "Mañana",
-      "title": "Un libro. Una luz. Sin notificaciones.",
-      "body": "Hecho para la hora tranquila antes de que empiece el día, cuando la única competencia es la siguiente página."
-    },
-    "moment2": {
-      "overline": "Noche",
-      "title": "Retoma exactamente donde lo dejaste.",
-      "body": "Tu página siempre queda guardada. Vuelve al mismo lugar tranquilo, no a un feed que siguió sin ti."
-    }
-  },
-  "story": {
-    "overline": "La historia de una lectora",
-    "quote": "Solía comprar libros que nunca abría. Readen no lo arregló con culpa. Lo arregló con orgullo. Abrir mi estante se siente bien. Terminé tres libros el mes pasado por primera vez en años.",
-    "name": "Elena M.",
-    "context": "Diseñadora de producto · Primera lectora",
-    "label": "San Francisco"
   },
   "features": {
     "overline": "La app",
@@ -238,6 +202,7 @@
     "downloadAndroid": "Descargar para Android",
     "blog": "Blog",
     "about": "Nosotros",
+    "careers": "Empleo",
     "faq": "FAQ",
     "support": "Soporte",
     "terms": "Términos de servicio",
@@ -255,6 +220,7 @@
   "about": {
     "overline": "Nosotros",
     "title": "Un refugio digital para lectores.",
+    "intro": "Readen es una biblioteca personal, no otro feed. Aquí está por qué existe, en qué creemos y hacia dónde va.",
     "storyTitle": "La historia",
     "story": "Las apps de lectura se volvieron feeds: ruidosas, sociales, pensadas para el engagement y no para el libro. Creé Readen porque extrañaba la sensación de una biblioteca personal. Un estante tuyo. Libros que quedan donde los pones. Un lugar tranquilo para leer, registrar y redescubrir lo que importa.",
     "valuesTitle": "Lo que creemos",
@@ -265,15 +231,38 @@
     "value3Title": "Tu biblioteca es tuya",
     "value3": "Sin anuncios, sin vender datos. Tu vida lectora te pertenece.",
     "numbersTitle": "El producto en números",
-    "numbers": "{books} libros curados · {people} lectores · {recommendations} recomendaciones · iOS y Android",
     "roadmapTitle": "El camino adelante",
     "roadmap": "Readen recién empieza. Un catálogo web, clubes de lectura y una experiencia web con cuenta están en el horizonte, siempre al servicio de la misma idea: una biblioteca personal de la que te sientas orgulloso.",
     "contactTitle": "Contacto",
     "contactIntro": "Prensa, alianzas o un simple hola. Escríbenos a"
   },
+  "careers": {
+    "overline": "Empleo",
+    "title": "Ayúdanos a crear la app que la gente cierra.",
+    "intro": "Readen es un equipo pequeño con una convicción simple: tu vida lectora merece un hogar tranquilo, no un feed. Construimos despacio, cuidamos detalles que la mayoría de las apps ignora y medimos el éxito en libros terminados, no en minutos de uso.",
+    "quote": "El mejor trabajo, como la mejor lectura, sucede en sesiones largas y tranquilas.",
+    "quoteSub": "Lanzamos cuando está listo. Preferimos hacer menos, pero hacerlo bello.",
+    "howOverline": "Cómo trabajamos",
+    "howTitle": "Equipo pequeño, estándares altos.",
+    "pillar1Title": "El oficio primero",
+    "pillar1Eyebrow": "Detalles sobre plazos",
+    "pillar1Body": "Las portadas que se comportan como libros y los estantes que se sienten de vidrio existen porque alguien se preocupó más allá de lo razonable. Ese es el trabajo.",
+    "pillar2Title": "Calma por defecto",
+    "pillar2Eyebrow": "Sin trucos de crecimiento",
+    "pillar2Body": "No perseguimos rachas, feeds ni engagement. Creamos funciones que cierran bien las sesiones: para los lectores y para nosotros.",
+    "pillar3Title": "Dueños, no pasajeros",
+    "pillar3Eyebrow": "Confianza sobre procesos",
+    "pillar3Body": "Aquí todos dan forma al producto. Tu criterio termina en el estante, no en un backlog.",
+    "ctaTitle": "No hay vacantes abiertas ahora.",
+    "ctaBody": "Pero las personas extraordinarias rara vez esperan una publicación. Si Readen se siente como el trabajo que estabas destinado a hacer, cuéntanos qué construirías."
+  },
   "faq": {
     "overline": "FAQ",
     "title": "Preguntas, respondidas.",
+    "intro": "Todo sobre la app, tus datos y cómo funciona Readen. Si tu pregunta no está aquí, estamos a un correo de distancia.",
+    "ctaTitle": "¿Aún tienes preguntas?",
+    "ctaBody": "Escríbenos y una persona real te responderá, normalmente en un día.",
+    "ctaButton": "Escríbenos",
     "items": {
       "what": {
         "q": "¿Qué es Readen?",
@@ -293,7 +282,7 @@
       },
       "data": {
         "q": "¿De dónde vienen los datos de los libros?",
-        "a": "Los metadatos provienen de ISBNdb y otros proveedores. El catálogo curado se construye con recomendaciones de lectores extraordinarios."
+        "a": "Los metadatos de los libros provienen de proveedores de catálogo establecidos. Nuestro catálogo curado de descubrimiento se construye con recomendaciones de lectores de clase mundial."
       },
       "account": {
         "q": "¿Necesito una cuenta?",
@@ -320,10 +309,10 @@
   "blog": {
     "overline": "Diario",
     "title": "Blog",
-    "featured": "Destacado",
-    "allPosts": "Todos los artículos",
-    "readMore": "Leer más",
     "minRead": "{minutes} min de lectura",
+    "byAuthor": "Por {author}",
+    "breadcrumbLabel": "Ruta de navegación",
+    "relatedTitle": "Sigue leyendo",
     "tags": {
       "all": "Todos",
       "craft": "Detalle",
@@ -337,36 +326,50 @@
     "home": "Volver al inicio"
   },
   "legal": {
-    "termsDraft": "BORRADOR: revisión legal pendiente",
-    "privacyDraft": "BORRADOR: revisión legal pendiente",
-    "lastUpdated": "Última actualización: 2 de julio de 2026",
+    "termsDraft": "BORRADOR: pendiente de revisión legal",
+    "privacyDraft": "BORRADOR: pendiente de revisión legal",
+    "lastUpdated": "Última actualización: 8 de agosto de 2026",
     "terms": {
       "title": "Términos de servicio",
-      "intro": "Estos Términos de servicio rigen el uso de Readen, una aplicación de biblioteca personal operada por Readen (\"nosotros\"). Al usar Readen, aceptas estos términos.",
+      "intro": "Estos Términos de Servicio regulan tu uso de Readen, una biblioteca personal y registro de lectura operado por Readen (\"nosotros\"). Al crear una cuenta o usar la app, aceptas estos términos.",
       "use": "Uso del servicio",
-      "useBody": "Readen se proporciona para uso personal y no comercial. No puedes hacer ingeniería inversa, extraer datos ni hacer un uso indebido del servicio. Eres responsable de la seguridad de tu cuenta.",
-      "content": "Tu contenido",
-      "contentBody": "Los datos de tu biblioteca te pertenecen. Al usar Readen, nos otorgas el derecho limitado de almacenar y sincronizar tus datos para prestar el servicio.",
+      "useBody": "Readen está hecha para tu vida lectora personal: catalogar los libros que tienes, registrar sesiones de lectura y descubrir nuevos títulos. Se ofrece para uso personal, no comercial.",
+      "account": "Tu cuenta",
+      "accountBody": "Puedes armar un estante inicial sin cuenta. Para guardar y sincronizar tu biblioteca entre dispositivos, inicias sesión con Google o Apple. Eres responsable de mantener seguro el acceso a tu cuenta.",
+      "content": "Tu biblioteca",
+      "contentBody": "Tu biblioteca es tuya: los libros que agregas, tus estantes, sesiones de lectura y metas. Al usar Readen nos concedes el derecho limitado de almacenar y sincronizar estos datos solo para prestar el servicio. No reclamamos ninguna propiedad sobre ellos.",
+      "bookData": "Datos de libros",
+      "bookDataBody": "Las portadas, títulos y metadatos provienen de proveedores de catálogo editoriales establecidos. Trabajamos para mantener el catálogo preciso, pero no podemos garantizar que cada edición, portada o número de páginas sea correcto.",
+      "acceptable": "Uso aceptable",
+      "acceptableBody": "No hagas scraping, ingeniería inversa, reventa ni interrumpas el servicio, y no uses Readen para almacenar contenido ilegal o que infrinja los derechos de otros.",
       "termination": "Terminación",
-      "terminationBody": "Puedes eliminar tu cuenta en cualquier momento desde Ajustes → Cuenta en la app. Podemos suspender cuentas que violen estos términos.",
-      "liability": "Limitación de responsabilidad",
-      "liabilityBody": "Readen se proporciona \"tal cual\" sin garantías. No somos responsables de daños indirectos derivados del uso del servicio.",
+      "terminationBody": "Puedes eliminar tu cuenta en cualquier momento en Ajustes → Cuenta; tus datos se eliminan de forma permanente. Podemos suspender cuentas que violen estos términos, con aviso cuando sea razonable.",
+      "liability": "Garantía y responsabilidad",
+      "liabilityBody": "Readen se ofrece \"tal cual\", sin garantías de ningún tipo. En la medida en que la ley lo permita, no somos responsables de daños indirectos derivados del uso del servicio.",
+      "changes": "Cambios en estos términos",
+      "changesBody": "Podemos actualizar estos términos a medida que el producto evoluciona. Si un cambio es significativo, te avisaremos en la app antes de que entre en vigor. Seguir usando Readen después significa que aceptas los términos actualizados.",
       "contact": "Contacto",
       "contactBody": "¿Preguntas sobre estos términos? Escribe a hello@readen.co."
     },
     "privacy": {
       "title": "Política de privacidad",
-      "intro": "Readen respeta tu privacidad. Esta política explica qué datos recopilamos, cómo los usamos y tus derechos.",
+      "intro": "Readen es la app de lectura que cierras, y esa filosofía se extiende a tus datos: recopilamos lo mínimo necesario para mantener tu biblioteca sincronizada, y nunca los vendemos. Esta política explica qué recopilamos, por qué y cuáles son tus derechos.",
       "collect": "Qué recopilamos",
-      "collectBody": "Información de cuenta (vía Google o Apple), datos de tu biblioteca (libros, sesiones, metas) y analíticas anónimas de uso. No vendemos tus datos.",
-      "use": "Cómo los usamos",
-      "useBody": "Para proporcionar y mejorar Readen: sincronizar tu biblioteca, registrar sesiones y mostrar metadatos relevantes. Las analíticas son respetuosas con la privacidad (sin cookies, sin rastreo entre sitios).",
+      "collectBody": "Datos básicos de tu cuenta al iniciar sesión con Google o Apple (nombre, correo, avatar), tu biblioteca (libros, estantes, sesiones de lectura, metas) y analíticas de uso anonimizadas que nos ayudan a entender qué funciones importan.",
+      "notCollect": "Qué no recopilamos",
+      "notCollectBody": "Sin anuncios, sin rastreo publicitario, sin vender ni alquilar tus datos, sin perfiles entre sitios. El escaneo de códigos ocurre en tu dispositivo: la cámara lee el ISBN y la imagen se descarta, nunca se sube.",
+      "use": "Cómo usamos tus datos",
+      "useBody": "Para ofrecer Readen: sincronizar tu biblioteca entre dispositivos, guardar tu página, registrar sesiones y metas, y mostrar metadatos de libros. Estadísticas agregadas y anónimas guían las decisiones de producto.",
+      "storage": "Dónde viven tus datos",
+      "storageBody": "Tu biblioteca se almacena en infraestructura en la nube de confianza, cifrada en tránsito. Las sesiones registradas sin conexión quedan en tu dispositivo y se sincronizan cuando vuelves a estar en línea.",
       "thirdParty": "Servicios de terceros",
-      "thirdPartyBody": "Usamos Supabase (autenticación y base de datos), ISBNdb (metadatos de libros) y analíticas respetuosas con la privacidad. Cada proveedor procesa datos según sus propias políticas.",
-      "delete": "Eliminación de cuenta",
-      "deleteBody": "Puedes eliminar tu cuenta en la app desde Ajustes → Cuenta. Todos los datos asociados se eliminan permanentemente.",
+      "thirdPartyBody": "Dependemos de un grupo pequeño de proveedores para autenticación, base de datos, metadatos de libros y analíticas centradas en la privacidad (sin cookies ni rastreo entre sitios). Cada uno procesa datos solo en la medida necesaria para prestar el servicio.",
+      "rights": "Tus derechos y eliminación",
+      "rightsBody": "Puedes ver y editar tu biblioteca en la app cuando quieras, y eliminar tu cuenta en Ajustes → Cuenta: todos los datos asociados se eliminan de forma permanente. Para cualquier otra cosa (exportación, corrección, dudas), escríbenos.",
+      "changes": "Cambios en esta política",
+      "changesBody": "Si cambiamos la forma en que tratamos tus datos, actualizaremos esta página y lo indicaremos en la app. Nunca debilitaremos tu privacidad en silencio.",
       "contact": "Contacto",
-      "contactBody": "¿Preguntas de privacidad? Escribe a hello@readen.co."
+      "contactBody": "¿Dudas de privacidad? Escribe a hello@readen.co."
     }
   }
 }

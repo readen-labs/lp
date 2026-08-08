@@ -1,6 +1,4 @@
-export const BLOG_FEATURED_COVER_WIDTH = 168;
-
-export const BLOG_LIST_COVER_WIDTH = 104;
+export const BLOG_LIST_COVER_WIDTH = 128;
 
 export const BLOG_POST_COVER_WIDTH = 172;
 
