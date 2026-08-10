@@ -74,6 +74,7 @@ export const DiscoverSection = async () => {
                     alt={person.name}
                     width={AVATAR_SIZE}
                     height={AVATAR_SIZE}
+                    unoptimized
                     className="rounded-full bg-background"
                   />
                   <div className="min-w-0">

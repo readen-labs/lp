@@ -12,38 +12,40 @@ export type DiscoverPerson = {
   avatar: string;
 };
 
-const avatarUrl = (seed: string) =>
-  `https://api.dicebear.com/9.x/notionists/png?seed=${seed}&size=112`;
+const AVATARS_BASE_URL =
+  'https://qksmdkcxwljszptmykyj.supabase.co/storage/v1/object/public/avatars';
+
+const avatarUrl = (slug: string) => `${AVATARS_BASE_URL}/${slug}.avif`;
 
 export const DISCOVER_PEOPLE: DiscoverPerson[] = [
   {
-    name: 'Paul Graham',
+    name: 'Bill Gates',
     role: 'founder',
-    avatar: avatarUrl('paul'),
-  },
-  {
-    name: 'Reid Hoffman',
-    role: 'investor',
-    avatar: avatarUrl('reid'),
-  },
-  {
-    name: 'Margaret Atwood',
-    role: 'author',
-    avatar: avatarUrl('margaret'),
+    avatar: avatarUrl('bill-gates'),
   },
   {
     name: 'Naval Ravikant',
     role: 'investor',
-    avatar: avatarUrl('naval'),
+    avatar: avatarUrl('naval-ravikant'),
+  },
+  {
+    name: 'J.K. Rowling',
+    role: 'author',
+    avatar: avatarUrl('jk-rowling'),
   },
   {
     name: 'Yuval Noah Harari',
     role: 'historian',
-    avatar: avatarUrl('yuval'),
+    avatar: avatarUrl('yuval-noah-harari'),
   },
   {
-    name: 'Oprah Winfrey',
+    name: 'Tim Ferriss',
     role: 'media',
-    avatar: avatarUrl('oprah'),
+    avatar: avatarUrl('tim-ferriss'),
+  },
+  {
+    name: 'Adam Grant',
+    role: 'scientist',
+    avatar: avatarUrl('adam-grant'),
   },
 ];
