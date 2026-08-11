@@ -2,14 +2,16 @@ import Image from 'next/image';
 
 import { getLocale, getTranslations } from 'next-intl/server';
 
+import { Link } from '@/i18n/navigation';
 import { Button } from '@/components/ui/button';
 import { Reveal } from '@/components/ui/reveal';
-import { DISCOVER_PEOPLE } from '@/data/people';
+import { getFeaturedFigures } from '@/lib/figures';
 import { CATALOG_STATS } from '@/constants/config';
+import { DISCOVER_TEASER_SLUGS } from '@/data/people';
 import { NumberTicker } from '@/components/ui/number-ticker';
 import { EditorialHeader } from '@/components/brand/editorial-header';
 
-const AVATAR_SIZE = 56;
+const AVATAR_SIZE = 72;
 
 const REVEAL_DELAY_BODY_MS = 120;
 
@@ -28,6 +30,8 @@ export const DiscoverSection = async () => {
     { value: CATALOG_STATS.people, label: t('statPeople') },
     { value: CATALOG_STATS.recommendations, label: t('statRecommendations') },
   ];
+
+  const figures = getFeaturedFigures(DISCOVER_TEASER_SLUGS);
 
   return (
     <section id="discover" className="scroll-mt-24 py-28 md:py-40">
@@ -59,33 +63,44 @@ export const DiscoverSection = async () => {
               </dl>
             </Reveal>
             <Reveal delay={REVEAL_DELAY_CTA_MS}>
-              <Button href="/#download" variant="ink" className="mt-9">
-                {t('cta')}
-              </Button>
+              <div className="mt-9 flex flex-wrap items-center gap-x-8 gap-y-3">
+                <Button href="/#download" variant="ink">
+                  {t('cta')}
+                </Button>
+                <Link
+                  href="/discover"
+                  className="text-sm font-semibold text-foreground/60 transition-colors hover:text-foreground"
+                >
+                  {t('browseAll')}
+                </Link>
+              </div>
             </Reveal>
           </div>
 
-          <div className="grid grid-cols-2 gap-4">
-            {DISCOVER_PEOPLE.map((person, index) => (
-              <Reveal key={person.name} delay={index * REVEAL_STAGGER_MS} scale>
-                <div className="flex items-center gap-4 rounded-2xl bg-card px-5 py-4">
+          <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
+            {figures.map((figure, index) => (
+              <Reveal key={figure.slug} delay={index * REVEAL_STAGGER_MS} scale>
+                <Link
+                  href={`/discover/${figure.slug}`}
+                  className="group flex flex-col items-center gap-3 rounded-2xl px-4 py-6 text-center transition-colors hover:bg-card/50"
+                >
                   <Image
-                    src={person.avatar}
-                    alt={person.name}
+                    src={figure.avatarUrl ?? ''}
+                    alt={figure.name}
                     width={AVATAR_SIZE}
                     height={AVATAR_SIZE}
                     unoptimized
                     className="rounded-full bg-background"
                   />
                   <div className="min-w-0">
-                    <p className="truncate font-serif font-semibold">
-                      {person.name}
+                    <p className="line-clamp-2 font-serif font-semibold">
+                      {figure.name}
                     </p>
-                    <p className="text-sm text-foreground/50">
-                      {t(`roles.${person.role}`)}
+                    <p className="mt-1 line-clamp-1 text-sm text-foreground/50">
+                      {figure.industries[0]}
                     </p>
                   </div>
-                </div>
+                </Link>
               </Reveal>
             ))}
           </div>

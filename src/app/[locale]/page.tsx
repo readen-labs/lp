@@ -3,14 +3,11 @@ import { getTranslations, setRequestLocale } from 'next-intl/server';
 import type { Locale } from '@/i18n/routing';
 import { FaqSection } from '@/components/marketing/faq-section';
 import { HeroSection } from '@/components/marketing/hero-section';
-import { LibrarySection } from '@/components/marketing/library-section';
 import { ReviewsSection } from '@/components/marketing/reviews-section';
 import { WidgetsSection } from '@/components/marketing/widgets-section';
 import { DiscoverSection } from '@/components/marketing/discover-section';
 import { FeaturesSection } from '@/components/marketing/features-section';
 import { buildMetadata, buildSoftwareApplicationJsonLd } from '@/lib/seo';
-import { OnboardingSection } from '@/components/marketing/onboarding-section';
-import { DownloadCtaSection } from '@/components/marketing/download-cta-section';
 
 type HomePageProps = {
   params: Promise<{ locale: string }>;
@@ -46,12 +43,9 @@ export default async function HomePage({ params }: HomePageProps) {
       />
       <HeroSection />
       <FeaturesSection />
-      <LibrarySection />
       <WidgetsSection />
       <DiscoverSection />
       <ReviewsSection />
-      <OnboardingSection />
-      <DownloadCtaSection />
       <FaqSection />
     </>
   );

@@ -38,17 +38,6 @@
     "playStoreEyebrow": "Get it on",
     "playStoreLabel": "Google Play"
   },
-  "library": {
-    "overline": "Your library",
-    "title": "Every book you own, in one calm place.",
-    "body": "Want to read, reading, and read. Your whole reading life on one shelf.",
-    "statusWant": "Want to read",
-    "statusReading": "Reading",
-    "statusRead": "Read",
-    "point1": "Three shelves keep it honest: want to read, reading, read.",
-    "point2": "Your page is always saved. Pick any book back up right where you stopped.",
-    "point3": "Rediscover the books you already own instead of buying another one you will not open."
-  },
   "features": {
     "overline": "The app",
     "title": "A library that works like you read.",
@@ -127,14 +116,32 @@
     "statPeople": "world-class readers",
     "statRecommendations": "recommendations",
     "cta": "Explore in the app",
-    "roles": {
-      "founder": "Founder",
-      "investor": "Investor",
-      "author": "Author",
-      "historian": "Historian",
-      "media": "Media",
-      "scientist": "Scientist"
-    }
+    "browseAll": "Browse the full library →"
+  },
+  "discoverDirectory": {
+    "overline": "Discover",
+    "title": "Every reader who shaped our catalog",
+    "body": "Browse founders, scientists, artists, and investors, and the books that made them who they are.",
+    "metaTitle": "Discover — Book Recommendations From Notable Readers",
+    "metaDescription": "Browse founders, scientists, authors, and investors and the books they recommend, on Readen.",
+    "breadcrumbLabel": "Breadcrumb",
+    "industryAll": "All",
+    "recommendationCount": "{count, plural, one {# book} other {# books}}",
+    "paginationPrev": "Previous",
+    "paginationNext": "Next",
+    "paginationPageLabel": "Page {page} of {total}",
+    "industryTitle": "{industry} readers and what they recommend",
+    "industryMetaTitle": "Books Recommended By People In {industry}",
+    "industryMetaDescription": "Real book recommendations from {count} people in {industry}, on Readen."
+  },
+  "discoverFigure": {
+    "metaTitle": "Books {name} Recommends",
+    "metaDescription": "{name} recommends {count, plural, one {one book} other {# books}} — {excerpt}",
+    "booksOverline": "Recommended by {name}",
+    "booksTitle": "{count, plural, one {1 book} other {# books}} on {name}'s list",
+    "breadcrumbLabel": "Breadcrumb",
+    "byAuthor": "by {author}",
+    "backToDiscover": "Back to Discover"
   },
   "reviews": {
     "overline": "Readers",
@@ -172,17 +179,6 @@
       "name": "Anna W.",
       "context": "Investor · Early reader"
     }
-  },
-  "onboarding": {
-    "overline": "Getting started",
-    "title": "Build your shelf in two minutes.",
-    "body": "Answer two questions and Readen sets up your starter shelf. No empty-library cold start.",
-    "step1": "Pick your subjects",
-    "step1Body": "Philosophy, sci-fi, strategy, memoirs. Choose what pulls you in.",
-    "step2": "Choose your industries",
-    "step2Body": "Readen matches books recommended by remarkable people in your world.",
-    "step3": "Your shelf fills up",
-    "step3Body": "A starter shelf, standing on glass, ready before you even sign in."
   },
   "download": {
     "overline": "Ready when you are",
@@ -231,8 +227,6 @@
     "value3Title": "Your library is yours",
     "value3": "No ads, no data selling. Your reading life belongs to you.",
     "numbersTitle": "The product in numbers",
-    "roadmapTitle": "The road ahead",
-    "roadmap": "Readen is just getting started. A web discover catalog, book clubs, and a signed-in web experience are on the horizon, always in service of the same idea: a personal library you are proud of.",
     "contactTitle": "Contact",
     "contactIntro": "Press, partnerships, or just hello. Reach us at"
   },
@@ -240,8 +234,6 @@
     "overline": "Careers",
     "title": "Help build the app people close.",
     "intro": "Readen is a small team with a simple conviction: your reading life deserves a calm home, not a feed. We build slowly, sweat details most apps skip, and measure success in books finished, not minutes spent.",
-    "quote": "The best work, like the best reading, happens in long quiet sessions.",
-    "quoteSub": "We ship when it's ready. We'd rather do less, beautifully.",
     "howOverline": "How we work",
     "howTitle": "Small team, high standards.",
     "pillar1Title": "Craft first",
@@ -253,8 +245,12 @@
     "pillar3Title": "Owners, not passengers",
     "pillar3Eyebrow": "Trust over process",
     "pillar3Body": "Everyone here shapes the product. Your judgment ends up on the shelf, not in a backlog.",
-    "ctaTitle": "No open roles right now.",
-    "ctaBody": "But remarkable people rarely wait for a posting. If Readen feels like the work you were meant to do, tell us what you would build."
+    "ctaTitle": "Open roles.",
+    "ctaBody": "Two roles, both foundational to what Readen becomes next. Write to us with what you'd build.",
+    "role1Title": "Founding Engineer",
+    "role1Body": "Full-stack, mobile-first. You'd own features end to end, from the Supabase schema to the shelf that renders it.",
+    "role2Title": "Product Designer",
+    "role2Body": "You'd shape every screen a reader sees, and decide what calm actually looks like in this app."
   },
   "faq": {
     "overline": "FAQ",

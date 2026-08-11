@@ -2,9 +2,6 @@ import { getTranslations, setRequestLocale } from 'next-intl/server';
 
 import type { Locale } from '@/i18n/routing';
 import { Reveal } from '@/components/ui/reveal';
-import { Cover } from '@/components/brand/cover';
-import { Shelf } from '@/components/brand/shelf';
-import { SHELF_BOOKS } from '@/data/shelf-books';
 import { buildLocalizedUrl } from '@/utils/locale-path';
 import { NumberTicker } from '@/components/ui/number-ticker';
 import { MARKETING_IMAGES } from '@/constants/marketing-images';
@@ -23,12 +20,6 @@ const REVEAL_DELAY_INTRO_MS = 120;
 const REVEAL_DELAY_PHOTO_MS = 200;
 
 const REVEAL_STAGGER_VALUE_MS = 80;
-
-const SHELF_COVER_WIDTH = 88;
-
-const SHELF_COVER_GAP = 14;
-
-const SHELF_BOOK_COUNT = 6;
 
 const SectionLabel = ({ children }: { children: React.ReactNode }) => (
   <h2 className="mb-6 flex items-center gap-2.5 text-[0.8rem] font-semibold tracking-[0.14em] uppercase text-primary-deep">
@@ -73,8 +64,6 @@ export default async function AboutPage({ params }: AboutPageProps) {
       label: tDiscover('statRecommendations'),
     },
   ];
-
-  const shelfBooks = SHELF_BOOKS.slice(0, SHELF_BOOK_COUNT);
 
   const breadcrumbJsonLd = buildBreadcrumbJsonLd([
     { name: tNav('home'), url: buildLocalizedUrl(locale as Locale, '/') },
@@ -177,33 +166,6 @@ export default async function AboutPage({ params }: AboutPageProps) {
             </dl>
           </section>
         </Reveal>
-
-        <section className="mt-24 grid items-center gap-12 md:mt-32 md:grid-cols-2 md:gap-16">
-          <Reveal>
-            <div>
-              <SectionLabel>{t('roadmapTitle')}</SectionLabel>
-              <p className="text-lg leading-relaxed text-foreground/70">
-                {t('roadmap')}
-              </p>
-            </div>
-          </Reveal>
-          <Reveal delay={REVEAL_DELAY_INTRO_MS} scale>
-            <Shelf drift>
-              <div className="flex items-end" style={{ gap: SHELF_COVER_GAP }}>
-                {shelfBooks.map((book, index) => (
-                  <Cover
-                    key={book.isbn}
-                    src={book.cover}
-                    alt={book.title}
-                    width={SHELF_COVER_WIDTH}
-                    idle
-                    idleDelay={index}
-                  />
-                ))}
-              </div>
-            </Shelf>
-          </Reveal>
-        </section>
 
         <Reveal className="mt-24 pb-24 md:mt-32 md:pb-28">
           <section className="mx-auto max-w-3xl">

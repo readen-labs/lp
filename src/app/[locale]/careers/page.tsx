@@ -2,9 +2,6 @@ import { getTranslations, setRequestLocale } from 'next-intl/server';
 
 import type { Locale } from '@/i18n/routing';
 import { Reveal } from '@/components/ui/reveal';
-import { Cover } from '@/components/brand/cover';
-import { Shelf } from '@/components/brand/shelf';
-import { SHELF_BOOKS } from '@/data/shelf-books';
 import { CONTACT_EMAIL } from '@/constants/config';
 import { buildLocalizedUrl } from '@/utils/locale-path';
 import { buildMetadata, buildBreadcrumbJsonLd } from '@/lib/seo';
@@ -12,31 +9,21 @@ import { EditorialHeader } from '@/components/brand/editorial-header';
 
 const PILLARS = ['pillar1', 'pillar2', 'pillar3'] as const;
 
+const OPEN_ROLES = ['role1', 'role2'] as const;
+
 const REVEAL_DELAY_INTRO_MS = 120;
-
-const REVEAL_DELAY_QUOTE_SUB_MS = 120;
-
-const REVEAL_DELAY_SHELF_MS = 200;
 
 const REVEAL_STAGGER_PILLAR_MS = 90;
 
 const REVEAL_DELAY_CTA_BODY_MS = 100;
 
-const REVEAL_DELAY_CTA_EMAIL_MS = 200;
+const REVEAL_DELAY_ROLES_MS = 160;
 
-const QUOTE_CLAMP = 'clamp(1.75rem, 3.4vw, 2.6rem)';
+const REVEAL_DELAY_CTA_EMAIL_MS = 240;
 
 const CTA_TITLE_CLAMP = 'clamp(1.85rem, 5vw, 2.75rem)';
 
 const EMAIL_CLAMP = 'clamp(1.6rem, 10vw, 7.5rem)';
-
-const SHELF_COVER_WIDTH = 88;
-
-const SHELF_COVER_GAP = 14;
-
-const SHELF_BOOK_START = 6;
-
-const SHELF_BOOK_END = 12;
 
 type CareersPageProps = {
   params: Promise<{ locale: string }>;
@@ -61,8 +48,6 @@ export default async function CareersPage({ params }: CareersPageProps) {
   const t = await getTranslations('careers');
   const tNav = await getTranslations('nav');
   const tMeta = await getTranslations('meta');
-
-  const shelfBooks = SHELF_BOOKS.slice(SHELF_BOOK_START, SHELF_BOOK_END);
 
   const breadcrumbJsonLd = buildBreadcrumbJsonLd([
     { name: tNav('home'), url: buildLocalizedUrl(locale as Locale, '/') },
@@ -96,37 +81,6 @@ export default async function CareersPage({ params }: CareersPageProps) {
             </p>
           </Reveal>
         </div>
-      </section>
-
-      <section className="mx-auto grid max-w-6xl items-center gap-12 px-5 py-16 md:grid-cols-2 md:gap-20 md:py-24">
-        <div>
-          <Reveal>
-            <p className="display" style={{ fontSize: QUOTE_CLAMP }}>
-              {t('quote')}
-            </p>
-          </Reveal>
-          <Reveal delay={REVEAL_DELAY_QUOTE_SUB_MS}>
-            <p className="mt-6 max-w-md text-lg leading-relaxed text-foreground/60">
-              {t('quoteSub')}
-            </p>
-          </Reveal>
-        </div>
-        <Reveal delay={REVEAL_DELAY_SHELF_MS} scale>
-          <Shelf drift>
-            <div className="flex items-end" style={{ gap: SHELF_COVER_GAP }}>
-              {shelfBooks.map((book, index) => (
-                <Cover
-                  key={book.isbn}
-                  src={book.cover}
-                  alt={book.title}
-                  width={SHELF_COVER_WIDTH}
-                  idle
-                  idleDelay={index}
-                />
-              ))}
-            </div>
-          </Shelf>
-        </Reveal>
       </section>
 
       <section className="mx-auto max-w-4xl px-5 py-16 md:py-24">
@@ -175,6 +129,20 @@ export default async function CareersPage({ params }: CareersPageProps) {
             {t('ctaBody')}
           </p>
         </Reveal>
+
+        <Reveal delay={REVEAL_DELAY_ROLES_MS}>
+          <div className="mx-auto mt-10 flex max-w-md flex-col gap-6">
+            {OPEN_ROLES.map((role) => (
+              <div key={role}>
+                <h3 className="font-serif text-lg font-semibold">
+                  {t(`${role}Title`)}
+                </h3>
+                <p className="mt-1 text-foreground/60">{t(`${role}Body`)}</p>
+              </div>
+            ))}
+          </div>
+        </Reveal>
+
         <Reveal delay={REVEAL_DELAY_CTA_EMAIL_MS}>
           <a
             href={`mailto:${CONTACT_EMAIL}`}

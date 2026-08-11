@@ -1,0 +1,114 @@
+{
+  "industries": [
+    {
+      "figureCount": 240,
+      "name": "Entrepreneurship",
+      "slug": "entrepreneurship"
+    },
+    {
+      "figureCount": 219,
+      "name": "Writing",
+      "slug": "writing"
+    },
+    {
+      "figureCount": 164,
+      "name": "Technology",
+      "slug": "technology"
+    },
+    {
+      "figureCount": 103,
+      "name": "Venture Capital",
+      "slug": "venture-capital"
+    },
+    {
+      "figureCount": 89,
+      "name": "Education",
+      "slug": "education"
+    },
+    {
+      "figureCount": 85,
+      "name": "Media",
+      "slug": "media"
+    },
+    {
+      "figureCount": 75,
+      "name": "Entertainment",
+      "slug": "entertainment"
+    },
+    {
+      "figureCount": 66,
+      "name": "Science",
+      "slug": "science"
+    },
+    {
+      "figureCount": 52,
+      "name": "Film",
+      "slug": "film"
+    },
+    {
+      "figureCount": 50,
+      "name": "Sport",
+      "slug": "sport"
+    },
+    {
+      "figureCount": 47,
+      "name": "Investing",
+      "slug": "investing"
+    },
+    {
+      "figureCount": 43,
+      "name": "Design",
+      "slug": "design"
+    },
+    {
+      "figureCount": 40,
+      "name": "Journalism",
+      "slug": "journalism"
+    },
+    {
+      "figureCount": 34,
+      "name": "Politics",
+      "slug": "politics"
+    },
+    {
+      "figureCount": 29,
+      "name": "Activism",
+      "slug": "activism"
+    },
+    {
+      "figureCount": 27,
+      "name": "Comedy",
+      "slug": "comedy"
+    },
+    {
+      "figureCount": 20,
+      "name": "Music",
+      "slug": "music"
+    },
+    {
+      "figureCount": 14,
+      "name": "Hospitality",
+      "slug": "hospitality"
+    },
+    {
+      "figureCount": 11,
+      "name": "Marketing",
+      "slug": "marketing"
+    },
+    {
+      "figureCount": 11,
+      "name": "Modelling",
+      "slug": "modelling"
+    },
+    {
+      "figureCount": 7,
+      "name": "Photography",
+      "slug": "photography"
+    },
+    {
+      "figureCount": 6,
+      "name": "Crypto",
+      "slug": "crypto"
+    }
+  ]
+}

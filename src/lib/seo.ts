@@ -164,6 +164,59 @@ export const buildBreadcrumbJsonLd = (
   })),
 });
 
+export const buildProfilePageJsonLd = (params: {
+  name: string;
+  jobTitle: string | null;
+  description: string | null;
+  image: string | null;
+  url: string;
+  locale: Locale;
+  books: {
+    title: string;
+    isbn: string;
+    image: string | null;
+    authors: string[];
+    pages: number | null;
+  }[];
+}) => ({
+  '@context': 'https://schema.org',
+  '@type': 'ProfilePage',
+  url: params.url,
+  inLanguage: params.locale,
+  mainEntity: {
+    '@type': 'Person',
+    name: params.name,
+    url: params.url,
+    ...(params.jobTitle ? { jobTitle: params.jobTitle } : {}),
+    ...(params.description ? { description: params.description } : {}),
+    ...(params.image ? { image: params.image } : {}),
+  },
+  about: {
+    '@type': 'ItemList',
+    name: `Books recommended by ${params.name}`,
+    numberOfItems: params.books.length,
+    itemListElement: params.books.map((book, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      item: {
+        '@type': 'Book',
+        name: book.title,
+        isbn: book.isbn,
+        ...(book.image ? { image: book.image } : {}),
+        ...(book.pages ? { numberOfPages: book.pages } : {}),
+        ...(book.authors.length
+          ? {
+              author: book.authors.map((name) => ({
+                '@type': 'Person',
+                name,
+              })),
+            }
+          : {}),
+      },
+    })),
+  },
+});
+
 export const buildArticleJsonLd = (params: {
   title: string;
   description: string;

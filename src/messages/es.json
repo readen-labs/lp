@@ -38,17 +38,6 @@
     "playStoreEyebrow": "Disponible en",
     "playStoreLabel": "Google Play"
   },
-  "library": {
-    "overline": "Tu biblioteca",
-    "title": "Cada libro tuyo, en un solo lugar tranquilo.",
-    "body": "Por leer, leyendo y leído. Toda tu vida lectora en un estante.",
-    "statusWant": "Por leer",
-    "statusReading": "Leyendo",
-    "statusRead": "Leído",
-    "point1": "Tres estantes que lo mantienen claro: por leer, leyendo, leído.",
-    "point2": "Tu página siempre queda guardada. Retoma cualquier libro justo donde lo dejaste.",
-    "point3": "Redescubre los libros que ya tienes en vez de comprar otro que no abrirás."
-  },
   "features": {
     "overline": "La app",
     "title": "Una biblioteca que funciona como tú lees.",
@@ -127,14 +116,32 @@
     "statPeople": "lectores de clase mundial",
     "statRecommendations": "recomendaciones",
     "cta": "Explorar en la app",
-    "roles": {
-      "founder": "Fundador",
-      "investor": "Inversor",
-      "author": "Autora",
-      "historian": "Historiador",
-      "media": "Medios",
-      "scientist": "Científico"
-    }
+    "browseAll": "Explora la biblioteca completa →"
+  },
+  "discoverDirectory": {
+    "overline": "Descubrir",
+    "title": "Cada lector que dio forma a nuestro catálogo",
+    "body": "Explora fundadores, científicos, artistas e inversores, y los libros que los hicieron quienes son.",
+    "metaTitle": "Descubrir — Recomendaciones de libros de lectores notables",
+    "metaDescription": "Explora fundadores, científicos, autores e inversores y los libros que recomiendan, en Readen.",
+    "breadcrumbLabel": "Ruta de navegación",
+    "industryAll": "Todos",
+    "recommendationCount": "{count, plural, one {# libro} other {# libros}}",
+    "paginationPrev": "Anterior",
+    "paginationNext": "Siguiente",
+    "paginationPageLabel": "Página {page} de {total}",
+    "industryTitle": "Lectores de {industry} y lo que recomiendan",
+    "industryMetaTitle": "Libros recomendados por personas de {industry}",
+    "industryMetaDescription": "Recomendaciones reales de {count} personas de {industry}, en Readen."
+  },
+  "discoverFigure": {
+    "metaTitle": "Los libros que recomienda {name}",
+    "metaDescription": "{name} recomienda {count, plural, one {un libro} other {# libros}} — {excerpt}",
+    "booksOverline": "Recomendado por {name}",
+    "booksTitle": "{count, plural, one {1 libro} other {# libros}} en la lista de {name}",
+    "breadcrumbLabel": "Ruta de navegación",
+    "byAuthor": "de {author}",
+    "backToDiscover": "Volver a Descubrir"
   },
   "reviews": {
     "overline": "Lectores",
@@ -172,17 +179,6 @@
       "name": "Anna W.",
       "context": "Inversora · Primera lectora"
     }
-  },
-  "onboarding": {
-    "overline": "Primeros pasos",
-    "title": "Arma tu estante en dos minutos.",
-    "body": "Responde dos preguntas y Readen prepara tu estante inicial. Nada de bibliotecas vacías.",
-    "step1": "Elige tus temas",
-    "step1Body": "Filosofía, ciencia ficción, estrategia, memorias. Elige lo que te atrapa.",
-    "step2": "Elige tus industrias",
-    "step2Body": "Readen encuentra libros recomendados por personas extraordinarias de tu mundo.",
-    "step3": "Tu estante se llena",
-    "step3Body": "Un estante inicial, sobre vidrio, listo antes de que te registres."
   },
   "download": {
     "overline": "Cuando estés listo",
@@ -231,8 +227,6 @@
     "value3Title": "Tu biblioteca es tuya",
     "value3": "Sin anuncios, sin vender datos. Tu vida lectora te pertenece.",
     "numbersTitle": "El producto en números",
-    "roadmapTitle": "El camino adelante",
-    "roadmap": "Readen recién empieza. Un catálogo web, clubes de lectura y una experiencia web con cuenta están en el horizonte, siempre al servicio de la misma idea: una biblioteca personal de la que te sientas orgulloso.",
     "contactTitle": "Contacto",
     "contactIntro": "Prensa, alianzas o un simple hola. Escríbenos a"
   },
@@ -240,8 +234,6 @@
     "overline": "Empleo",
     "title": "Ayúdanos a crear la app que la gente cierra.",
     "intro": "Readen es un equipo pequeño con una convicción simple: tu vida lectora merece un hogar tranquilo, no un feed. Construimos despacio, cuidamos detalles que la mayoría de las apps ignora y medimos el éxito en libros terminados, no en minutos de uso.",
-    "quote": "El mejor trabajo, como la mejor lectura, sucede en sesiones largas y tranquilas.",
-    "quoteSub": "Lanzamos cuando está listo. Preferimos hacer menos, pero hacerlo bello.",
     "howOverline": "Cómo trabajamos",
     "howTitle": "Equipo pequeño, estándares altos.",
     "pillar1Title": "El oficio primero",
@@ -253,8 +245,12 @@
     "pillar3Title": "Dueños, no pasajeros",
     "pillar3Eyebrow": "Confianza sobre procesos",
     "pillar3Body": "Aquí todos dan forma al producto. Tu criterio termina en el estante, no en un backlog.",
-    "ctaTitle": "No hay vacantes abiertas ahora.",
-    "ctaBody": "Pero las personas extraordinarias rara vez esperan una publicación. Si Readen se siente como el trabajo que estabas destinado a hacer, cuéntanos qué construirías."
+    "ctaTitle": "Vacantes abiertas.",
+    "ctaBody": "Dos roles, ambos fundamentales para lo que sigue en Readen. Escríbenos contándonos qué construirías.",
+    "role1Title": "Ingeniero/a fundador/a",
+    "role1Body": "Full-stack, mobile-first. Serías dueño/a de las funciones de punta a punta, desde el esquema en Supabase hasta el estante que lo muestra.",
+    "role2Title": "Diseñador/a de producto",
+    "role2Body": "Darías forma a cada pantalla que ve un lector, y decidirías cómo se ve la calma en esta app."
   },
   "faq": {
     "overline": "FAQ",
