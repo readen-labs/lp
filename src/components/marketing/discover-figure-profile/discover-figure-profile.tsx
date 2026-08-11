@@ -64,7 +64,7 @@ export const DiscoverFigureProfile = ({
             width={DISCOVER_FIGURE_HERO_AVATAR_SIZE}
             height={DISCOVER_FIGURE_HERO_AVATAR_SIZE}
             unoptimized
-            className="mx-auto rounded-full bg-background"
+            className="mx-auto bg-background"
           />
         </Reveal>
         <Reveal delay={REVEAL_DELAY_TITLE_MS}>
@@ -116,11 +116,9 @@ export const DiscoverFigureProfile = ({
           />
           <div className="mt-10 grid grid-cols-2 justify-items-center gap-x-6 gap-y-10 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
             {books.map((book) => (
-              <a
+              <Link
                 key={book.id}
-                href={`https://openlibrary.org/isbn/${book.isbn}`}
-                target="_blank"
-                rel="noopener noreferrer"
+                href={`/discover/book/${book.id}`}
                 className="group transition-transform duration-300 hover:scale-[1.04]"
               >
                 <Cover
@@ -129,7 +127,7 @@ export const DiscoverFigureProfile = ({
                   width={DISCOVER_BOOK_COVER_WIDTH}
                   glow
                 />
-              </a>
+              </Link>
             ))}
           </div>
           <DiscoverPagination

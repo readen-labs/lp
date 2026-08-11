@@ -143,6 +143,15 @@
     "byAuthor": "de {author}",
     "backToDiscover": "Voltar para Descobrir"
   },
+  "discoverBook": {
+    "metaTitle": "{title} — Recomendações de leitura",
+    "metaDescription": "{title}, de {author} — {excerpt}",
+    "breadcrumbLabel": "Trilha de navegação",
+    "byAuthor": "de {author}",
+    "recommendedByOverline": "Recomendado por",
+    "recommendedByTitle": "{count, plural, one {1 leitor recomenda este livro} other {# leitores recomendam este livro}}",
+    "backToDiscover": "Voltar para Descobrir"
+  },
   "reviews": {
     "overline": "Leitores",
     "title": "Amado pelos primeiros leitores.",

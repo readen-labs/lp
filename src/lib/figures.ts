@@ -12,6 +12,7 @@ export type DiscoverBook = {
   cover: string | null;
   publishedAt: string | null;
   pages: number | null;
+  synopsis: string | null;
   authors: string[];
 };
 
@@ -210,6 +211,15 @@ export const getFiguresByIndustry = (
     totalPages: totalPagesFor(figures.length, pageSize),
   };
 };
+
+export const getBook = (id: string): DiscoverBook | null =>
+  getBooksById().get(id) ?? null;
+
+export const getAllBookIds = (): string[] =>
+  getAllBooks().map((book) => book.id);
+
+export const getBookRecommenders = (bookId: string): DiscoverFigure[] =>
+  getAllFigures().filter((figure) => figure.bookIds.includes(bookId));
 
 export const getFeaturedFigures = (slugs: string[]): DiscoverFigure[] => {
   const bySlug = new Map(

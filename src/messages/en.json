@@ -143,6 +143,15 @@
     "byAuthor": "by {author}",
     "backToDiscover": "Back to Discover"
   },
+  "discoverBook": {
+    "metaTitle": "{title} — Book Recommendations",
+    "metaDescription": "{title} by {author} — {excerpt}",
+    "breadcrumbLabel": "Breadcrumb",
+    "byAuthor": "by {author}",
+    "recommendedByOverline": "Recommended by",
+    "recommendedByTitle": "{count, plural, one {1 reader recommends this book} other {# readers recommend this book}}",
+    "backToDiscover": "Back to Discover"
+  },
   "reviews": {
     "overline": "Readers",
     "title": "Loved by early readers.",

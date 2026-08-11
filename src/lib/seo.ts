@@ -217,6 +217,45 @@ export const buildProfilePageJsonLd = (params: {
   },
 });
 
+export const buildBookJsonLd = (params: {
+  title: string;
+  isbn: string;
+  synopsis: string | null;
+  image: string | null;
+  url: string;
+  locale: Locale;
+  authors: string[];
+  pages: number | null;
+  recommenders: { name: string; url: string }[];
+}) => ({
+  '@context': 'https://schema.org',
+  '@type': 'Book',
+  name: params.title,
+  isbn: params.isbn,
+  url: params.url,
+  inLanguage: params.locale,
+  ...(params.synopsis ? { description: params.synopsis } : {}),
+  ...(params.image ? { image: params.image } : {}),
+  ...(params.pages ? { numberOfPages: params.pages } : {}),
+  ...(params.authors.length
+    ? {
+        author: params.authors.map((name) => ({
+          '@type': 'Person',
+          name,
+        })),
+      }
+    : {}),
+  ...(params.recommenders.length
+    ? {
+        mentions: params.recommenders.map((recommender) => ({
+          '@type': 'Person',
+          name: recommender.name,
+          url: recommender.url,
+        })),
+      }
+    : {}),
+});
+
 export const buildArticleJsonLd = (params: {
   title: string;
   description: string;

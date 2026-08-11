@@ -8,6 +8,7 @@ type DiscoverBookOutput = {
   cover: string | null;
   publishedAt: string | null;
   pages: number | null;
+  synopsis: string | null;
   authors: string[];
 };
 
@@ -81,6 +82,7 @@ const transformDiscoverData = (raw: DiscoverRawData): DiscoverSnapshot => {
       isbn: book.isbn,
       pages: book.pages,
       publishedAt: book.published_at,
+      synopsis: book.synopsis,
       title: book.title,
     }));
 

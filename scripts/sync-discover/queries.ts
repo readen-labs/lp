@@ -18,6 +18,7 @@ type BookRow = {
   cover: string | null;
   published_at: string | null;
   pages: number | null;
+  synopsis: string | null;
 };
 
 type BookFigureRow = { figure_id: string; book_id: string };
@@ -102,7 +103,7 @@ const fetchDiscoverData = async (): Promise<DiscoverRawData> => {
     fetchAllRows<BookRow>(
       supabase,
       'books',
-      'id, isbn, title, cover, published_at, pages',
+      'id, isbn, title, cover, published_at, pages, synopsis',
     ),
     fetchAllRows<BookFigureRow>(supabase, 'book_figure', 'figure_id, book_id'),
     fetchAllRows<IndustryRow>(supabase, 'industries', 'id, name'),

@@ -143,6 +143,15 @@
     "byAuthor": "de {author}",
     "backToDiscover": "Volver a Descubrir"
   },
+  "discoverBook": {
+    "metaTitle": "{title} — Recomendaciones de lectura",
+    "metaDescription": "{title}, de {author} — {excerpt}",
+    "breadcrumbLabel": "Ruta de navegación",
+    "byAuthor": "de {author}",
+    "recommendedByOverline": "Recomendado por",
+    "recommendedByTitle": "{count, plural, one {1 lector recomienda este libro} other {# lectores recomiendan este libro}}",
+    "backToDiscover": "Volver a Descubrir"
+  },
   "reviews": {
     "overline": "Lectores",
     "title": "Querida por los primeros lectores.",

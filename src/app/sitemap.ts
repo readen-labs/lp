@@ -9,6 +9,7 @@ import {
   DISCOVER_FIGURE_BOOKS_PAGE_SIZE,
 } from '@/constants/discover';
 import {
+  getAllBookIds,
   getAllIndustries,
   getAllFigureSlugs,
   getFigureBooksPage,
@@ -99,6 +100,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
           },
         });
       }
+    }
+  }
+
+  for (const locale of routing.locales) {
+    for (const id of getAllBookIds()) {
+      const path = `/discover/book/${id}`;
+      entries.push({
+        url: buildLocalizedUrl(locale, path),
+        changeFrequency: 'monthly',
+        priority: 0.5,
+        alternates: {
+          languages: buildAlternateLanguages(path),
+        },
+      });
     }
   }
 
