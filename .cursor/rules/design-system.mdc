@@ -25,6 +25,7 @@ Always keep or improve the design system. Never regress on aesthetics.
 - Primary is always emerald `#10b981`, regardless of theme. Deep/dark steps: `--primary-deep` `#059669`, `--primary-dark` `#047857`.
 - **Always `text-foreground` with opacity modifiers for hierarchy** — `/80` body, `/60` muted, `/45` faint. Never hardcode `text-black`/`text-white` except on deliberately always-dark stages (photo scrims, the lock-screen mock, `cta-emerald`) where white is the design.
 - Dark mode is automatic via `prefers-color-scheme` on the CSS tokens — never fork component markup per theme; style through the tokens.
+- **Grid rule:** every padding/margin/gap/width/height/inset is a multiple of 4px (ESLint-enforced, `docs/architecture.md` §6). A design value that lands off-grid gets flagged for review, not silently rounded.
 
 ---
 
@@ -33,6 +34,7 @@ Always keep or improve the design system. Never regress on aesthetics.
 - **Lora is reserved for editorial / brand voice** — display headlines (`.display`), book titles, quotes, big numbers (`font-serif`). Functional UI chrome (nav links, buttons, captions, labels) stays system sans.
 - Display headlines use `.display` (Lora 600, `-0.02em`, `line-height 1.05`, balanced) with `clamp()` font sizes; italic emphasis via `.display-italic`.
 - Overlines: `text-[0.8rem] font-semibold tracking-[0.14em] uppercase text-primary-deep`.
+- **Don't hand-roll a one-off size/weight to match a single screen.** Pick the closest existing pattern (`.display`, system sans body/caption sizes, the overline recipe above) and flag a genuinely off-scale design value back instead of inventing a new arbitrary `text-[…]`/`font-[…]` for it.
 
 ---
 

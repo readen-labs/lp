@@ -1,6 +1,7 @@
 'use client';
 
 import { useId } from 'react';
+import Image from 'next/image';
 
 import type { IphoneProps } from './iphone.types';
 
@@ -69,9 +70,10 @@ export const Iphone = ({
           className="pointer-events-none absolute z-0 overflow-hidden"
           style={screenStyle}
         >
-          <img
+          <Image
             src={src}
             alt=""
+            fill
             className="block size-full object-cover object-top"
           />
         </div>

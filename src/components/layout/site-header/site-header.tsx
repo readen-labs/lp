@@ -21,7 +21,7 @@ export const SiteHeader = () => {
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-foreground/[0.03] bg-background/30 backdrop-blur-xl">
       <nav
-        className="mx-auto flex h-[4.5rem] max-w-6xl items-center justify-between gap-3 px-4 md:h-[5.75rem] md:gap-4 md:px-8"
+        className="mx-auto flex h-18 max-w-6xl items-center justify-between gap-3 px-4 md:h-23 md:gap-4 md:px-8"
         aria-label="Main"
       >
         <Link
@@ -98,7 +98,7 @@ export const SiteHeader = () => {
               <Link
                 key={link.href}
                 href={link.href}
-                className="flex min-h-[44px] items-center rounded-xl px-1 text-[0.95rem] font-medium text-foreground/55 transition-colors hover:text-foreground"
+                className="flex min-h-11 items-center rounded-xl px-1 text-[0.95rem] font-medium text-foreground/55 transition-colors hover:text-foreground"
                 onClick={handleCloseMenu}
               >
                 {link.label}

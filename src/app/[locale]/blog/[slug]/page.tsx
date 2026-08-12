@@ -20,7 +20,7 @@ import {
 import {
   buildMetadata,
   buildArticleJsonLd,
-  buildBreadcrumbJsonLd,
+  buildPageBreadcrumbJsonLd,
 } from '@/lib/seo';
 
 type BlogPostPageProps = {
@@ -89,14 +89,14 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     modifiedDate: post.updated,
     authorName: author,
   });
-  const breadcrumbJsonLd = buildBreadcrumbJsonLd([
-    { name: tNav('home'), url: buildLocalizedUrl(locale as Locale, '/') },
-    {
-      name: tMeta('blogTitle'),
-      url: buildLocalizedUrl(locale as Locale, '/blog'),
-    },
-    { name: post.title, url },
-  ]);
+  const breadcrumbJsonLd = buildPageBreadcrumbJsonLd(
+    locale as Locale,
+    tNav('home'),
+    [
+      { name: tMeta('blogTitle'), path: '/blog' },
+      { name: post.title, url },
+    ],
+  );
 
   return (
     <div>

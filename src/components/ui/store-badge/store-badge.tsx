@@ -33,10 +33,13 @@ export const StoreBadge = ({
       target="_blank"
       rel="noopener noreferrer"
       className={cn(
-        'inline-flex h-[3.5rem] w-auto shrink-0 items-center justify-center sm:h-[3.65rem] md:h-[4.65rem] lg:h-[4.9rem]',
+        // eslint-disable-next-line check-grid-spacing/grid-spacing -- sm/md/lg heights are off-grid (58.4px/74.4px/78.4px); flagged for design review, not silently rounded.
+        'inline-flex h-14 w-auto shrink-0 items-center justify-center sm:h-[3.65rem] md:h-[4.65rem] lg:h-[4.9rem]',
         className,
       )}
     >
+      {/* <picture>+<source media> gives an instant, zero-JS dark/light SVG
+          swap that next/image's single-src Image component can't express. */}
       <picture className="block h-full w-auto">
         <source media="(prefers-color-scheme: dark)" srcSet={badge.darkSrc} />
         <img

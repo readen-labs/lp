@@ -104,7 +104,7 @@ const MediumWidget = ({ copy }: { copy: WidgetCopy }) => (
 /* systemSmall: the stat leads — caption + big serif accent percent — and the
    cover tilts and bleeds off the clipped bottom edge, like a book on a desk. */
 const SmallWidget = ({ copy }: { copy: WidgetCopy }) => (
-  <WidgetCard className="relative h-[160px] w-[160px] shrink-0 overflow-hidden">
+  <WidgetCard className="relative h-40 w-40 shrink-0 overflow-hidden">
     <div className="relative z-10 flex flex-col items-center pt-6">
       <p className="text-[11px] font-semibold">{copy.continueCaption}</p>
       <p className="font-serif text-[32px] font-bold text-primary tabular-nums">
@@ -183,11 +183,12 @@ const LargeWidget = ({ copy }: { copy: WidgetCopy }) => (
    banner always draw on black, exactly like iOS. */
 const LockScreen = ({ copy }: { copy: LockScreenCopy }) => (
   <div
-    className="relative flex h-full min-h-[540px] w-full flex-col overflow-hidden rounded-[2.75rem] p-5 pt-4 shadow-[0_32px_80px_-32px_rgba(0,0,0,0.55)] ring-1 ring-white/10"
+    className="relative flex h-full min-h-135 w-full flex-col overflow-hidden rounded-[2.75rem] p-5 pt-4 shadow-[0_32px_80px_-32px_rgba(0,0,0,0.55)] ring-1 ring-white/10"
     style={{
       background: `radial-gradient(30rem 22rem at 50% 118%, rgba(16,185,129,0.22), transparent 70%), linear-gradient(180deg, ${WIDGETS_STAGE_GRADIENT_START} 0%, ${WIDGETS_STAGE_GRADIENT_END} 100%)`,
     }}
   >
+    {/* eslint-disable-next-line check-grid-spacing/grid-spacing -- Dynamic-Island mock sized 34x190px to match the real app pixel-for-pixel; flagged for design review. */}
     <div className="mx-auto flex h-[34px] w-[190px] items-center justify-between rounded-full bg-black px-4 ring-1 ring-white/10">
       <BookGlyph className="h-4 w-4 text-primary" />
       <SessionTimer

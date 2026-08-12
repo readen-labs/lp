@@ -3,7 +3,7 @@ import { Link } from '@/i18n/navigation';
 import type { ButtonProps } from './button.types';
 
 const BASE_CLASSES =
-  'inline-flex h-11 min-h-[44px] items-center justify-center gap-2 rounded-full px-6 text-sm font-semibold transition-[transform,opacity,background-color] duration-300 hover:scale-[1.03] active:scale-[0.98]';
+  'inline-flex h-11 min-h-11 items-center justify-center gap-2 rounded-full px-6 text-sm font-semibold transition-[transform,opacity,background-color] duration-300 hover:scale-[1.03] active:scale-[0.98]';
 
 const VARIANT_CLASSES = {
   primary: 'bg-primary text-white hover:opacity-95',

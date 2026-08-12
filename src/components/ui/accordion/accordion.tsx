@@ -23,7 +23,7 @@ export const Accordion = ({ items }: AccordionProps) => {
             <button
               id={buttonId}
               type="button"
-              className="flex min-h-[44px] w-full items-center justify-between gap-4 py-4 text-left text-base font-medium"
+              className="flex min-h-11 w-full items-center justify-between gap-4 py-4 text-left text-base font-medium"
               aria-expanded={isOpen}
               aria-controls={panelId}
               onClick={() => handleToggle(item.id)}

@@ -6,12 +6,11 @@ import { Button } from '@/components/ui/button';
 import { FAQ_ITEM_KEYS } from '@/constants/faq';
 import { CONTACT_EMAIL } from '@/constants/config';
 import { Accordion } from '@/components/ui/accordion';
-import { buildLocalizedUrl } from '@/utils/locale-path';
 import { EditorialHeader } from '@/components/brand/editorial-header';
 import {
   buildMetadata,
   buildFaqJsonLd,
-  buildBreadcrumbJsonLd,
+  buildPageBreadcrumbJsonLd,
 } from '@/lib/seo';
 
 const REVEAL_DELAY_INTRO_MS = 100;
@@ -55,13 +54,11 @@ export default async function FaqPage({ params }: FaqPageProps) {
     locale as Locale,
   );
 
-  const breadcrumbJsonLd = buildBreadcrumbJsonLd([
-    { name: tNav('home'), url: buildLocalizedUrl(locale as Locale, '/') },
-    {
-      name: tMeta('faqTitle'),
-      url: buildLocalizedUrl(locale as Locale, '/faq'),
-    },
-  ]);
+  const breadcrumbJsonLd = buildPageBreadcrumbJsonLd(
+    locale as Locale,
+    tNav('home'),
+    [{ name: tMeta('faqTitle'), path: '/faq' }],
+  );
 
   return (
     <div className="mx-auto max-w-3xl px-5 pt-16 pb-28 md:pt-20 md:pb-36">

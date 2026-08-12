@@ -8,6 +8,7 @@ import noHardcodedHexPlugin from './eslint/plugins/check-no-hardcoded-hex.js';
 import kebabCaseFilenamesPlugin from './eslint/plugins/check-kebab-case-filenames.js';
 import indexReexportOnlyPlugin from './eslint/plugins/check-index-reexport-only.js';
 import propsNamingPlugin from './eslint/plugins/check-props-naming.js';
+import gridSpacingPlugin from './eslint/plugins/check-grid-spacing.js';
 
 // Rules here enforce docs/architecture.md — see that file for the "why" behind each one.
 const eslintConfig = defineConfig([
@@ -104,6 +105,15 @@ const eslintConfig = defineConfig([
     plugins: { 'check-no-inline-comments': noInlineCommentsPlugin },
     rules: {
       'check-no-inline-comments/no-inline-comments': 'error',
+    },
+  },
+  {
+    // architecture.md §6 — every arbitrary Tailwind spacing/sizing value is a
+    // multiple of 4px (the grid rule).
+    files: ['src/**/*.{ts,tsx}'],
+    plugins: { 'check-grid-spacing': gridSpacingPlugin },
+    rules: {
+      'check-grid-spacing/grid-spacing': 'error',
     },
   },
   {

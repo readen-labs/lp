@@ -31,6 +31,7 @@ export const ScanMock = ({ hint, coverSrc }: ScanMockProps) => (
           className="text-foreground/70"
         />
       </svg>
+      {/* eslint-disable-next-line check-grid-spacing/grid-spacing -- 3px bar gap is off-grid; flagged for design review. */}
       <div className="flex gap-[3px]" aria-hidden>
         {[3, 1, 2, 1, 3, 2, 1, 3, 1, 2].map((barWidth, index) => (
           <span
@@ -109,6 +110,7 @@ export const SessionMock = ({
         <div className="w-full">
           <div className="relative h-1 w-full rounded-full bg-foreground/15">
             <div className="absolute inset-y-0 left-0 w-[57%] rounded-full bg-primary" />
+            {/* eslint-disable-next-line check-grid-spacing/grid-spacing -- 18px progress-thumb dot is off-grid; flagged for design review. */}
             <span className="absolute top-1/2 left-[57%] h-[18px] w-[18px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-white shadow-[0_1px_4px_rgba(0,0,0,0.3)]" />
           </div>
           <p className="mt-2 text-center text-[11px] text-foreground/60">
@@ -226,6 +228,7 @@ export const GoalsMock = ({
             <p className="text-[11px]">{subject.name}</p>
             <p className="text-[10px] text-foreground/45">{subject.percent}%</p>
           </div>
+          {/* eslint-disable-next-line check-grid-spacing/grid-spacing -- 3px track height is off-grid; flagged for design review. */}
           <div className="mt-1 flex h-[3px] overflow-hidden rounded-full bg-foreground/15">
             <div
               className="rounded-full bg-primary"

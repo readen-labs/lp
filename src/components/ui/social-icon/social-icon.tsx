@@ -27,6 +27,7 @@ export const SocialIconLink = ({
   >
     <svg
       viewBox="0 0 24 24"
+      // eslint-disable-next-line check-grid-spacing/grid-spacing -- 18px icon inside the 44px (h-11) button is off-grid; flagged for design review.
       className="h-[18px] w-[18px] fill-current"
       aria-hidden
     >

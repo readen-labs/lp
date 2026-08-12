@@ -102,7 +102,7 @@ export default async function LocaleLayout({
         />
         <NextIntlClientProvider messages={{ nav: messages.nav }}>
           <SiteHeader />
-          <main className="flex-1 pt-[4.5rem] md:pt-[5.75rem]">{children}</main>
+          <main className="flex-1 pt-18 md:pt-23">{children}</main>
           <SiteFooter />
         </NextIntlClientProvider>
         <Analytics />

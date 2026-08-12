@@ -2,11 +2,10 @@ import { getTranslations, setRequestLocale } from 'next-intl/server';
 
 import type { Locale } from '@/i18n/routing';
 import { Reveal } from '@/components/ui/reveal';
-import { buildLocalizedUrl } from '@/utils/locale-path';
 import { NumberTicker } from '@/components/ui/number-ticker';
 import { MARKETING_IMAGES } from '@/constants/marketing-images';
-import { buildMetadata, buildBreadcrumbJsonLd } from '@/lib/seo';
 import { CATALOG_STATS, CONTACT_EMAIL } from '@/constants/config';
+import { buildMetadata, buildPageBreadcrumbJsonLd } from '@/lib/seo';
 import { EditorialHeader } from '@/components/brand/editorial-header';
 import { DownloadCtaSection } from '@/components/marketing/download-cta-section';
 import { EditorialPhotoPanel } from '@/components/marketing/editorial-photo-panel';
@@ -65,13 +64,11 @@ export default async function AboutPage({ params }: AboutPageProps) {
     },
   ];
 
-  const breadcrumbJsonLd = buildBreadcrumbJsonLd([
-    { name: tNav('home'), url: buildLocalizedUrl(locale as Locale, '/') },
-    {
-      name: tMeta('aboutTitle'),
-      url: buildLocalizedUrl(locale as Locale, '/about'),
-    },
-  ]);
+  const breadcrumbJsonLd = buildPageBreadcrumbJsonLd(
+    locale as Locale,
+    tNav('home'),
+    [{ name: tMeta('aboutTitle'), path: '/about' }],
+  );
 
   return (
     <article>

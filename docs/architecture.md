@@ -36,6 +36,8 @@ One-directional dependency graph. A layer may import from anything in its "may i
 
 **Deliberate divergence:** `lib/mdx-render.tsx` imports `Cover` from `components/brand/cover` so blog MDX content can use `<Cover />` inline — the MDX component-substitution map necessarily needs the real component, and inventing a sixth layer to hold one file isn't worth it. This is the one `lib/` file allowed to import from `components/`, scoped narrowly in ESLint — don't extend it to other `lib/` files or use it as precedent for a lib file reaching into hooks/routes.
 
+**A hook never imports a third-party SDK directly.** Wrap it once in `src/lib/<domain>.ts` and depend on that — `lib/mdx.ts` (filesystem/gray-matter), `lib/seo.ts` (`Metadata`/JSON-LD shaping), `lib/figures.ts` (the Supabase snapshot) are this repo's version of that wrapper. True today with zero violations (every hook only imports React); written down so it stays true as hooks pick up new browser/third-party APIs. React and Next's own APIs are not "SDKs" in this sense.
+
 **Domain and prop types are co-located, not centralized.** `src/global.d.ts` is ambient-only (next-intl's `AppConfig`); component props live in the component's own `.types.ts`, and file-local domain types (e.g. `BlogPost` in `mdx.ts`, `ShelfBook` in `shelf-books.ts`) live next to the data/logic they describe.
 
 `@/` resolves to `src/` (see `tsconfig.json`).
@@ -115,6 +117,10 @@ Server components stay the default; `'use client'` is only for leaf-sized compon
 
 No hardcoded hex anywhere outside `src/constants/brand-colors.ts` — ESLint-enforced as an error. `brand-colors.ts` exists specifically for the contexts that can't read CSS custom properties: Satori-rendered OG images/icons (`app/icon.tsx`, `app/opengraph-image.tsx`, `components/og/`) and inline SVG `stopColor`s (`Logo`). Every hex value in those files, including one-off tones, is a named export from that file.
 
+**Grid rule:** every layout length — padding, margin, gap, width, height, size, inset, position offsets, translate — is a multiple of 4px. Prefer the scale class over the arbitrary-value bracket when one exists exactly (`h-14` not `h-[3.5rem]`). Exempt: font-size/line-height/tracking, opacity, border/stroke width, radius, shadow, z-index, animation duration, `aspect-ratio`, and percentage/viewport-unit values — none of those are a "length on the layout grid." ESLint-enforced (`check-grid-spacing`) against `px`/`rem` arbitrary values on the spacing/sizing utility families. A value that's genuinely off-grid (matching a pixel-exact design reference, an odd icon size, etc.) isn't silently rounded — it's called out with a scoped `eslint-disable-next-line` and a one-line reason, the same way `lib/mdx-render.tsx` documents its one layer exception, so it stays visible for design review instead of getting buried.
+
+**Bare `<img>` vs `next/image`:** remote/caller-supplied images always go through `next/image` (`Iphone`'s screen content is the example — arbitrary screenshot/photo `src`, real win from lazy-loading and format optimization). `store-badge.tsx` is the one documented exception: it uses `<picture><source media="(prefers-color-scheme: dark)">` for an instant, zero-JS, zero-hydration-flash dark/light SVG swap that `next/image`'s single-`src` API can't express — don't extend this exception to other images without the same constraint.
+
 Full token table, typography, motion, and glass-effect detail: `.cursor/rules/design-system.mdc`.
 
 ---
@@ -147,6 +153,8 @@ Every user-facing string lives in `src/messages/{en,es,pt}.json` — all three f
 - Building a new component/hook/util when an existing one already does the job.
 - `useState`/`useReducer` in a route or component (§5).
 - A hardcoded hex color outside `src/constants/brand-colors.ts` (§6).
+- An off-grid arbitrary spacing/sizing value with no design-review flag (§6).
+- A hook importing a third-party SDK directly instead of a `lib/` wrapper (§1).
 - `interface` instead of `type`, `any`, a type declared inside a `.tsx` file (§7).
 - A malformed `index.ts` that isn't a pure re-export (§4).
 - A props type not named `{ComponentName}Props` (§3).
@@ -163,6 +171,7 @@ Every user-facing string lives in `src/messages/{en,es,pt}.json` — all three f
 - [ ] Imports sorted, no `../`
 - [ ] No state in a route or component — state lives in a hook
 - [ ] No hardcoded hex outside `src/constants/brand-colors.ts`
+- [ ] Every layout length on the 4px grid, or flagged with a scoped `eslint-disable-next-line` + reason
 - [ ] Component folder shape correct, `index.ts` re-export only, types in `<name>.types.ts`
 - [ ] `type` not `interface`, no `any`
 - [ ] No inline comments
@@ -171,3 +180,16 @@ Every user-facing string lives in `src/messages/{en,es,pt}.json` — all three f
 - [ ] `bun run lint` clean
 - [ ] `bun run typecheck` clean — lint does not catch type errors; a green lint is not enough
 - [ ] `bun run build` clean
+
+---
+
+## §12 Deliberately not adopted from the mobile standard
+
+The app repo's mobile architecture standard (`../readen/docs/architecture.md`) is written for a React Native/Expo runtime with server state, native gestures, and on-device QA. This site is a stateless-server, no-backend Next.js marketing site, so some of that standard's sections don't transfer. Rather than silently skip them, here's what was considered and why it's out:
+
+- **Domain layer (business-logic layer).** This site has no non-trivial business rules to isolate — `lib/`, `utils/`, and `data/` already cover everything it actually does. Adding an empty `domain/` layer would be an abstraction with nothing in it.
+- **Data layer (`options/`/`queries`/`mutations` over a generated API client).** This site makes no backend calls (§1) — `src/data/` is static presentational fixtures, not server state. TanStack Query has no role here.
+- **A dedicated `providers.tsx` file.** The mobile standard composes every context provider once, in one file, because RN screens accumulate many (theme, auth, query client, ...). This site has exactly one — `NextIntlClientProvider`, inlined in `src/app/[locale]/layout.tsx`. Extracting a file to hold one provider is premature; revisit if a second provider shows up.
+- **Test-ID convention (`MODULE-SCREEN-TYPE-PURPOSE`, `SCREEN_REGISTRY`, `TESTID_TYPES`).** This repo has no test framework, no e2e tooling, and no `data-testid` usage today. A four-segment ID taxonomy with an append-only screen registry is real infrastructure for a consumer that doesn't exist yet — revisit if/when Playwright/Cypress e2e is introduced.
+- **A numeric `SCREEN_LINE_CAP` on route files, ESLint-enforced.** Investigated directly: the route files that ran long (`about`, `blog/[slug]`, `careers`, the `discover` figure pages) are long because they're one-time, server-rendered editorial JSX compositions, not because of tangled state or business logic — this site's routes have no client state to extract into a hook the way an RN screen would. Forcing them under an arbitrary line count would mean splitting one-off sections into one-off subcomponents, which this repo's own §5/coding-style.mdc already reject as an anti-pattern ("do not wrap a screen in a one-off component that only that screen renders"). What _was_ real, and got fixed instead: all seven routes duplicated the same breadcrumb-JSON-LD-building block — that's now `buildPageBreadcrumbJsonLd` in `lib/seo.ts`, one helper instead of seven copies.
+- **Everything mobile-runtime-specific.** UI-thread animation library (Reanimated/worklets), native gesture recognizer (RN Gesture Handler), `expo-image`, OS permission-prompt `-request.ts` files, the mobile keyboard-footer component, native profiling. No native runtime exists here — this site already uses CSS-only motion, `next/image`, and has no permission prompts or on-screen keyboard to manage.

@@ -3,8 +3,7 @@ import { getTranslations, setRequestLocale } from 'next-intl/server';
 import type { Locale } from '@/i18n/routing';
 import { Reveal } from '@/components/ui/reveal';
 import { CONTACT_EMAIL } from '@/constants/config';
-import { buildLocalizedUrl } from '@/utils/locale-path';
-import { buildMetadata, buildBreadcrumbJsonLd } from '@/lib/seo';
+import { buildMetadata, buildPageBreadcrumbJsonLd } from '@/lib/seo';
 import { EditorialHeader } from '@/components/brand/editorial-header';
 
 const PILLARS = ['pillar1', 'pillar2', 'pillar3'] as const;
@@ -49,13 +48,11 @@ export default async function CareersPage({ params }: CareersPageProps) {
   const tNav = await getTranslations('nav');
   const tMeta = await getTranslations('meta');
 
-  const breadcrumbJsonLd = buildBreadcrumbJsonLd([
-    { name: tNav('home'), url: buildLocalizedUrl(locale as Locale, '/') },
-    {
-      name: tMeta('careersTitle'),
-      url: buildLocalizedUrl(locale as Locale, '/careers'),
-    },
-  ]);
+  const breadcrumbJsonLd = buildPageBreadcrumbJsonLd(
+    locale as Locale,
+    tNav('home'),
+    [{ name: tMeta('careersTitle'), path: '/careers' }],
+  );
 
   return (
     <div>

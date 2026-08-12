@@ -13,7 +13,7 @@ import { DiscoverBookProfile } from '@/components/marketing/discover-book-profil
 import {
   buildMetadata,
   buildBookJsonLd,
-  buildBreadcrumbJsonLd,
+  buildPageBreadcrumbJsonLd,
 } from '@/lib/seo';
 
 type DiscoverBookPageProps = {
@@ -86,14 +86,14 @@ export default async function DiscoverBookPage({
     })),
   });
 
-  const breadcrumbJsonLd = buildBreadcrumbJsonLd([
-    { name: tNav('home'), url: buildLocalizedUrl(locale as Locale, '/') },
-    {
-      name: tNav('discover'),
-      url: buildLocalizedUrl(locale as Locale, '/discover'),
-    },
-    { name: book.title, url },
-  ]);
+  const breadcrumbJsonLd = buildPageBreadcrumbJsonLd(
+    locale as Locale,
+    tNav('home'),
+    [
+      { name: tNav('discover'), path: '/discover' },
+      { name: book.title, url },
+    ],
+  );
 
   return (
     <div>

@@ -60,7 +60,7 @@ export const ReviewsSection = async () => {
           {REVIEW_KEYS.map((key) => (
             <figure
               key={key}
-              className="flex w-[300px] shrink-0 flex-col justify-between gap-6 rounded-2xl bg-card p-7 sm:w-[360px]"
+              className="flex w-75 shrink-0 flex-col justify-between gap-6 rounded-2xl bg-card p-7 sm:w-90"
             >
               <blockquote className="font-serif text-[1.1rem] leading-relaxed text-foreground/85">
                 “{t(`${key}.quote`)}”

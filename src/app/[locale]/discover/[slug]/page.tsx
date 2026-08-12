@@ -10,8 +10,8 @@ import { DownloadCtaSection } from '@/components/marketing/download-cta-section'
 import { DiscoverFigureProfile } from '@/components/marketing/discover-figure-profile';
 import {
   buildMetadata,
-  buildBreadcrumbJsonLd,
   buildProfilePageJsonLd,
+  buildPageBreadcrumbJsonLd,
 } from '@/lib/seo';
 import {
   DISCOVER_BIO_TRUNCATE_LENGTH,
@@ -108,14 +108,14 @@ export default async function DiscoverFigurePage({
     })),
   });
 
-  const breadcrumbJsonLd = buildBreadcrumbJsonLd([
-    { name: tNav('home'), url: buildLocalizedUrl(locale as Locale, '/') },
-    {
-      name: tNav('discover'),
-      url: buildLocalizedUrl(locale as Locale, '/discover'),
-    },
-    { name: figureWithBooks.name, url },
-  ]);
+  const breadcrumbJsonLd = buildPageBreadcrumbJsonLd(
+    locale as Locale,
+    tNav('home'),
+    [
+      { name: tNav('discover'), path: '/discover' },
+      { name: figureWithBooks.name, url },
+    ],
+  );
 
   return (
     <div>

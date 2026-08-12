@@ -164,6 +164,19 @@ export const buildBreadcrumbJsonLd = (
   })),
 });
 
+export const buildPageBreadcrumbJsonLd = (
+  locale: Locale,
+  homeLabel: string,
+  trail: { name: string; path?: string; url?: string }[],
+) =>
+  buildBreadcrumbJsonLd([
+    { name: homeLabel, url: buildLocalizedUrl(locale, '/') },
+    ...trail.map((item) => ({
+      name: item.name,
+      url: item.url ?? buildLocalizedUrl(locale, item.path ?? '/'),
+    })),
+  ]);
+
 export const buildProfilePageJsonLd = (params: {
   name: string;
   jobTitle: string | null;
