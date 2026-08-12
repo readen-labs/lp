@@ -259,7 +259,8 @@
     "role1Title": "Engenheiro(a) fundador(a)",
     "role1Body": "Full-stack, mobile-first. Você seria responsável pelas funcionalidades de ponta a ponta, do esquema no Supabase até a estante que o exibe.",
     "role2Title": "Designer de produto",
-    "role2Body": "Você daria forma a cada tela que um leitor vê, e decidiria como a calma realmente se parece neste app."
+    "role2Body": "Você daria forma a cada tela que um leitor vê, e decidiria como a calma realmente se parece neste app.",
+    "applyLabel": "Candidate-se"
   },
   "faq": {
     "overline": "FAQ",

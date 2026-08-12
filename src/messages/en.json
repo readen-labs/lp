@@ -259,7 +259,8 @@
     "role1Title": "Founding Engineer",
     "role1Body": "Full-stack, mobile-first. You'd own features end to end, from the Supabase schema to the shelf that renders it.",
     "role2Title": "Product Designer",
-    "role2Body": "You'd shape every screen a reader sees, and decide what calm actually looks like in this app."
+    "role2Body": "You'd shape every screen a reader sees, and decide what calm actually looks like in this app.",
+    "applyLabel": "Apply"
   },
   "faq": {
     "overline": "FAQ",

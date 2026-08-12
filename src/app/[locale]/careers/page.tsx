@@ -3,6 +3,7 @@ import { getTranslations, setRequestLocale } from 'next-intl/server';
 import type { Locale } from '@/i18n/routing';
 import { Reveal } from '@/components/ui/reveal';
 import { CONTACT_EMAIL } from '@/constants/config';
+import { OpenRoleCard } from '@/components/marketing/open-role-card';
 import { buildMetadata, buildPageBreadcrumbJsonLd } from '@/lib/seo';
 import { EditorialHeader } from '@/components/brand/editorial-header';
 
@@ -128,14 +129,15 @@ export default async function CareersPage({ params }: CareersPageProps) {
         </Reveal>
 
         <Reveal delay={REVEAL_DELAY_ROLES_MS}>
-          <div className="mx-auto mt-10 flex max-w-md flex-col gap-6">
+          <div className="mx-auto mt-10 grid max-w-2xl gap-6 sm:grid-cols-2">
             {OPEN_ROLES.map((role) => (
-              <div key={role}>
-                <h3 className="font-serif text-lg font-semibold">
-                  {t(`${role}Title`)}
-                </h3>
-                <p className="mt-1 text-foreground/60">{t(`${role}Body`)}</p>
-              </div>
+              <OpenRoleCard
+                key={role}
+                title={t(`${role}Title`)}
+                body={t(`${role}Body`)}
+                applyHref={`mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(t(`${role}Title`))}`}
+                applyLabel={t('applyLabel')}
+              />
             ))}
           </div>
         </Reveal>

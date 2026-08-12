@@ -259,7 +259,8 @@
     "role1Title": "Ingeniero/a fundador/a",
     "role1Body": "Full-stack, mobile-first. Serías dueño/a de las funciones de punta a punta, desde el esquema en Supabase hasta el estante que lo muestra.",
     "role2Title": "Diseñador/a de producto",
-    "role2Body": "Darías forma a cada pantalla que ve un lector, y decidirías cómo se ve la calma en esta app."
+    "role2Body": "Darías forma a cada pantalla que ve un lector, y decidirías cómo se ve la calma en esta app.",
+    "applyLabel": "Postúlate"
   },
   "faq": {
     "overline": "FAQ",
