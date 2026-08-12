@@ -1,5 +1,3 @@
-import { cache } from 'react';
-
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
@@ -44,7 +42,26 @@ const toIsoDate = (value: unknown): string => {
   return value ? String(value) : '';
 };
 
-export const getBlogPost = cache(
+/* Module-scope memoization, not React's cache() — this content is static,
+   checked-in MDX, and cache() only dedupes within a single render, not
+   across the separate renders generateStaticParams produces per page. */
+const memoize = <Args extends unknown[], T>(
+  compute: (...args: Args) => T,
+): ((...args: Args) => T) => {
+  const store = new Map<string, T>();
+
+  return (...args: Args) => {
+    const key = JSON.stringify(args);
+
+    if (!store.has(key)) {
+      store.set(key, compute(...args));
+    }
+
+    return store.get(key) as T;
+  };
+};
+
+export const getBlogPost = memoize(
   (locale: Locale, slug: string): BlogPost | null => {
     const filePath = path.join(CONTENT_DIR, locale, `${slug}.mdx`);
 
@@ -72,7 +89,7 @@ export const getBlogPost = cache(
   },
 );
 
-export const getAllBlogPosts = cache((locale: Locale): BlogPost[] => {
+export const getAllBlogPosts = memoize((locale: Locale): BlogPost[] => {
   return getBlogSlugs(locale)
     .map((slug) => getBlogPost(locale, slug))
     .filter((post): post is BlogPost => post !== null)

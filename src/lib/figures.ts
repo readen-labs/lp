@@ -1,5 +1,3 @@
-import { cache } from 'react';
-
 import fs from 'fs';
 import path from 'path';
 
@@ -58,19 +56,38 @@ const readJson = <T>(fileName: string): T => {
   return JSON.parse(raw) as T;
 };
 
-export const getAllFigures = cache((): DiscoverFigure[] => {
+/* Module-scope memoization, not React's cache() — this data is static,
+   checked-in build content, and cache() only dedupes within a single
+   render. generateStaticParams renders each of the ~16k discover pages as
+   its own render, so cache() would re-read and re-parse the 6.3MB
+   books.json on every single one. */
+const memoize = <T>(compute: () => T): (() => T) => {
+  let value: T | undefined;
+  let hasValue = false;
+
+  return () => {
+    if (!hasValue) {
+      value = compute();
+      hasValue = true;
+    }
+
+    return value as T;
+  };
+};
+
+export const getAllFigures = memoize((): DiscoverFigure[] => {
   const { figures } = readJson<{ figures: DiscoverFigure[] }>('figures.json');
 
   return figures;
 });
 
-export const getAllBooks = cache((): DiscoverBook[] => {
+export const getAllBooks = memoize((): DiscoverBook[] => {
   const { books } = readJson<{ books: DiscoverBook[] }>('books.json');
 
   return books;
 });
 
-export const getAllIndustries = cache((): DiscoverIndustry[] => {
+export const getAllIndustries = memoize((): DiscoverIndustry[] => {
   const { industries } = readJson<{ industries: DiscoverIndustry[] }>(
     'industries.json',
   );
@@ -78,11 +95,11 @@ export const getAllIndustries = cache((): DiscoverIndustry[] => {
   return industries;
 });
 
-const getBooksById = cache((): Map<string, DiscoverBook> => {
+const getBooksById = memoize((): Map<string, DiscoverBook> => {
   return new Map(getAllBooks().map((book) => [book.id, book]));
 });
 
-const getBiosBySlug = cache((): Map<string, DiscoverBio> => {
+const getBiosBySlug = memoize((): Map<string, DiscoverBio> => {
   const filePath = path.join(CONTENT_DIR, 'bios.json');
 
   if (!fs.existsSync(filePath)) {

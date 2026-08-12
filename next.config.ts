@@ -7,6 +7,7 @@ const withNextIntl = createNextIntlPlugin('./src/i18n/request.ts');
 
 const nextConfig: NextConfig = {
   pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
+  staticPageGenerationTimeout: 180,
   images: {
     formats: ['image/avif', 'image/webp'],
     minimumCacheTTL: 86400,
