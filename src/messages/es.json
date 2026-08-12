@@ -254,13 +254,8 @@
     "pillar3Title": "Dueños, no pasajeros",
     "pillar3Eyebrow": "Confianza sobre procesos",
     "pillar3Body": "Aquí todos dan forma al producto. Tu criterio termina en el estante, no en un backlog.",
-    "ctaTitle": "Vacantes abiertas.",
-    "ctaBody": "Dos roles, ambos fundamentales para lo que sigue en Readen. Escríbenos contándonos qué construirías.",
-    "role1Title": "Ingeniero/a fundador/a",
-    "role1Body": "Full-stack, mobile-first. Serías dueño/a de las funciones de punta a punta, desde el esquema en Supabase hasta el estante que lo muestra.",
-    "role2Title": "Diseñador/a de producto",
-    "role2Body": "Darías forma a cada pantalla que ve un lector, y decidirías cómo se ve la calma en esta app.",
-    "applyLabel": "Postúlate"
+    "ctaTitle": "Sin vacantes abiertas por ahora.",
+    "ctaBody": "No estamos contratando en este momento, pero siempre nos gusta saber de personas que se preocupan por los detalles. Escríbenos contándonos qué construirías."
   },
   "faq": {
     "overline": "FAQ",

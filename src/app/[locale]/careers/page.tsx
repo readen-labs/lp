@@ -3,21 +3,16 @@ import { getTranslations, setRequestLocale } from 'next-intl/server';
 import type { Locale } from '@/i18n/routing';
 import { Reveal } from '@/components/ui/reveal';
 import { CONTACT_EMAIL } from '@/constants/config';
-import { OpenRoleCard } from '@/components/marketing/open-role-card';
 import { buildMetadata, buildPageBreadcrumbJsonLd } from '@/lib/seo';
 import { EditorialHeader } from '@/components/brand/editorial-header';
 
 const PILLARS = ['pillar1', 'pillar2', 'pillar3'] as const;
-
-const OPEN_ROLES = ['role1', 'role2'] as const;
 
 const REVEAL_DELAY_INTRO_MS = 120;
 
 const REVEAL_STAGGER_PILLAR_MS = 90;
 
 const REVEAL_DELAY_CTA_BODY_MS = 100;
-
-const REVEAL_DELAY_ROLES_MS = 160;
 
 const REVEAL_DELAY_CTA_EMAIL_MS = 240;
 
@@ -126,20 +121,6 @@ export default async function CareersPage({ params }: CareersPageProps) {
           <p className="mx-auto mt-4 max-w-lg text-lg leading-relaxed text-foreground/60">
             {t('ctaBody')}
           </p>
-        </Reveal>
-
-        <Reveal delay={REVEAL_DELAY_ROLES_MS}>
-          <div className="mx-auto mt-10 grid max-w-2xl gap-6 sm:grid-cols-2">
-            {OPEN_ROLES.map((role) => (
-              <OpenRoleCard
-                key={role}
-                title={t(`${role}Title`)}
-                body={t(`${role}Body`)}
-                applyHref={`mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(t(`${role}Title`))}`}
-                applyLabel={t('applyLabel')}
-              />
-            ))}
-          </div>
         </Reveal>
 
         <Reveal delay={REVEAL_DELAY_CTA_EMAIL_MS}>

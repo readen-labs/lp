@@ -254,13 +254,8 @@
     "pillar3Title": "Owners, not passengers",
     "pillar3Eyebrow": "Trust over process",
     "pillar3Body": "Everyone here shapes the product. Your judgment ends up on the shelf, not in a backlog.",
-    "ctaTitle": "Open roles.",
-    "ctaBody": "Two roles, both foundational to what Readen becomes next. Write to us with what you'd build.",
-    "role1Title": "Founding Engineer",
-    "role1Body": "Full-stack, mobile-first. You'd own features end to end, from the Supabase schema to the shelf that renders it.",
-    "role2Title": "Product Designer",
-    "role2Body": "You'd shape every screen a reader sees, and decide what calm actually looks like in this app.",
-    "applyLabel": "Apply"
+    "ctaTitle": "No open roles right now.",
+    "ctaBody": "We're not hiring at the moment, but we're always glad to hear from people who care about the details. Write to us with what you'd build."
   },
   "faq": {
     "overline": "FAQ",
