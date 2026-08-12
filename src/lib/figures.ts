@@ -150,6 +150,12 @@ export const getFigure = (
 export const getAllFigureSlugs = (): string[] =>
   getAllFigures().map((figure) => figure.slug);
 
+export const getTopFigureSlugs = (limit: number): string[] =>
+  [...getAllFigures()]
+    .sort((a, b) => b.recommendationCount - a.recommendationCount)
+    .slice(0, limit)
+    .map((figure) => figure.slug);
+
 export type DiscoverFigureBooksPage = {
   figure: DiscoverFigure;
   books: DiscoverBook[];

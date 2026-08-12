@@ -2,12 +2,11 @@ import { notFound } from 'next/navigation';
 
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 
-import { routing } from '@/i18n/routing';
 import type { Locale } from '@/i18n/routing';
 import { buildLocalizedUrl } from '@/utils/locale-path';
+import { getBook, getBookRecommenders } from '@/lib/figures';
 import { truncateAtWordBoundary } from '@/utils/truncate-text';
 import { DISCOVER_BIO_TRUNCATE_LENGTH } from '@/constants/discover';
-import { getBook, getAllBookIds, getBookRecommenders } from '@/lib/figures';
 import { DownloadCtaSection } from '@/components/marketing/download-cta-section';
 import { DiscoverBookProfile } from '@/components/marketing/discover-book-profile';
 import {
@@ -20,11 +19,14 @@ type DiscoverBookPageProps = {
   params: Promise<{ locale: string; id: string }>;
 };
 
-export const generateStaticParams = () => {
-  const ids = getAllBookIds();
-
-  return routing.locales.flatMap((locale) => ids.map((id) => ({ locale, id })));
-};
+/* Book detail pages number in the tens of thousands (one per book x
+   locale) and keep growing with every Supabase sync. Prerendering all of
+   them blew past what the Vercel build/deploy pipeline can handle for a
+   single site (build produced ~16k routes and the deploy step failed with
+   "Maximum call stack size exceeded"). Render on demand instead — Next
+   statically caches each page after its first visit — and let the sitemap
+   keep driving crawlers to them. */
+export const generateStaticParams = () => [];
 
 export const generateMetadata = async ({ params }: DiscoverBookPageProps) => {
   const { locale, id } = await params;

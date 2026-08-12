@@ -14,15 +14,16 @@ import {
   buildPageBreadcrumbJsonLd,
 } from '@/lib/seo';
 import {
-  DISCOVER_BIO_TRUNCATE_LENGTH,
-  DISCOVER_FIGURE_BOOKS_PAGE_SIZE,
-} from '@/constants/discover';
-import {
   getFigure,
   getAllIndustries,
-  getAllFigureSlugs,
+  getTopFigureSlugs,
   getFigureBooksPage,
 } from '@/lib/figures';
+import {
+  DISCOVER_BIO_TRUNCATE_LENGTH,
+  DISCOVER_STATIC_FIGURE_LIMIT,
+  DISCOVER_FIGURE_BOOKS_PAGE_SIZE,
+} from '@/constants/discover';
 
 type DiscoverFigurePageProps = {
   params: Promise<{ locale: string; slug: string }>;
@@ -30,8 +31,15 @@ type DiscoverFigurePageProps = {
 
 const CURRENT_PAGE = 1;
 
+/* Figure count keeps growing with every Supabase sync (~1.7k and rising).
+   Prerendering all of them x locale was part of what pushed this build to
+   ~16k static routes and made the Vercel deploy step fail with "Maximum
+   call stack size exceeded". Prebuild only the most-recommended figures
+   for fast first paint / SEO; the rest render on demand and are cached
+   after their first visit — see the matching change in
+   discover/book/[id]/page.tsx and discover/[slug]/opengraph-image.tsx. */
 export const generateStaticParams = () => {
-  const slugs = getAllFigureSlugs();
+  const slugs = getTopFigureSlugs(DISCOVER_STATIC_FIGURE_LIMIT);
 
   return routing.locales.flatMap((locale) =>
     slugs.map((slug) => ({ locale, slug })),
